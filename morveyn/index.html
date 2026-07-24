@@ -3,33 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Морвэйн — Фавориты</title>
+    <title>Морвэйн — Выбор Пути</title>
 </head>
-<body style="font-family: sans-serif; padding: 20px; line-height: 1.6;">
+<body style="font-family: sans-serif; padding: 20px; line-height: 1.6; max-width: 600px; margin: 0 auto; background-color: #fafafa; color: #333;">
 
-    <a href="../index.html" style="text-decoration: none; color: gray;">← Назад на главную</a>
+    <a href="../index.html" style="text-decoration: none; color: #888; font-size: 14px;">← Назад на главную</a>
 
-    <h1>🔮Морвэйн</h1>
-    <p>Выберите фаворита, с которым ведете ветку:</p>
+    <h1 style="margin-top: 15px; color: #4a148c;">🔮 Иллюзия Морвэйн</h1>
+    <p style="color: #666;">Выберите фаворита и ваше сочетание статов, чтобы открыть нужный гайд:</p>
     
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
 
-    <ul>
-        <li>
-            <h3><a href="./kayden/README.md">Кайден</a></h3>
-* [ +Такт / Высокая совесть ](./tact-high.md)
-* [ -Такт / Спящая совесть ](./tact-low.md)
-* [ +Такт / Спящая совесть ](./flex-high.md)
-* [ -Такт / Высокая совесть ](./flex-low.md)
+    <!-- БЛОК КАЙДЕНА -->
+    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px;">
+        <h2 style="margin-top: 0; color: #2e7d32;">🌿 Кайден</h2>
+        <p style="margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555;">🎭 Путь Такта:</p>
+        <a href="./kayden/tact-high.html" style="display: block; background: #e8f5e9; color: #2e7d32; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 8px; font-size: 14px;">🕊️ +Такт / Высокая совесть</a>
+        <a href="./kayden/tact-low.html" style="display: block; background: #e8f5e9; color: #2e7d32; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;">🥀 -Такт / Спящая совесть</a>
+        
+        <p style="margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555;">⚔️ Путь Непреклонности:</p>
+        <a href="./kayden/flex-high.html" style="display: block; background: #f1f8e9; color: #558b2f; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 8px; font-size: 14px;">🛡️ +Непреклонность / Высокая совесть</a>
+        <a href="./kayden/flex-low.html" style="display: block; background: #f1f8e9; color: #558b2f; text-decoration: none; padding: 8px 12px; font-size: 14px;">🔥 -Непреклонность / Спящая совесть</a>
+    </div>
 
-        </li>
-        <li>
-            <h3><a href="./arden/README.md">Фантом</a></h3>
-        </li>
-        <li>
-            <h3><a href="./rayan/README.md">Айзек</a></h3>
-        </li>
-    </ul>
+    <!-- БЛОК ФАНТОМА -->
+    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px;">
+        <h2 style="margin-top: 0; color: #c62828;">🍷 Фантом</h2>
+        <p style="margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555;">🎭 Путь Такта:</p>
+        <a href="./arden/tact-high.html" style="display: block; background: #ffebee; color: #c62828; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 8px; font-size: 14px;">🕊️ +Такт / Высокая совесть</a>
+        <a href="./arden/tact-low.html" style="display: block; background: #ffebee; color: #c62828; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;">🥀 -Такт / Спящая совесть</a>
+        
+        <p style="margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555;">⚔️ Путь Непреклонности:</p>
+        <a href="./arden/flex-high.html" style="display: block; background: #fffde7; color: #f57f17; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 8px; font-size: 14px;">🛡️ +Непреклонность / Высокая совесть</a>
+        <a href="./arden/flex-low.html" style="display: block; background: #fffde7; color: #f57f17; text-decoration: none; padding: 8px 12px; font-size: 14px;">🔥 -Непреклонность / Спящая совесть</a>
+    </div>
+
+    <!-- БЛОК АЙЗЕКА -->
+    <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px;">
+        <h2 style="margin-top: 0; color: #1565c0;">⚔️ Айзек</h2>
+        <p style="margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555;">🎭 Путь Такта:</p>
+        <a href="./rayan/tact-high.html" style="display: block; background: #e3f2fd; color: #1565c0; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 8px; font-size: 14px;">🕊️ +Такт / Высокая совесть</a>
+        <a href="./rayan/tact-low.html" style="display: block; background: #e3f2fd; color: #1565c0; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;">🥀 -Такт / Спящая совесть</a>
+        
+        <p style="margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555;">⚔️ Путь Непреклонности:</p>
+        <a href="./rayan/flex-high.html" style="display: block; background: #e0f7fa; color: #00838f; text-decoration: none; padding: 8px 12px; border-radius: 5px; margin-bottom: 8px; font-size: 14px;">🛡️ +Непреклонность / Высокая совесть</a>
+        <a href="./rayan/flex-low.html" style="display: block; background: #e0f7fa; color: #00838f; text-decoration: none; padding: 8px 12px; font-size: 14px;">🔥 -Непреклонность / Спящая совесть</a>
+    </div>
 
 </body>
 </html>
