@@ -1,17 +1,33 @@
-#<script src="https://jsdelivr.net"></script>
-<div id="content" style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; line-height: 1.6;"></div>
-<script>
-  // Текст вашего гайда внутри кавычек:
-  const markdownText = `
-# 👑 Seven Hearts Stories — База Гайдов
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База Гайдов SHS</title>
+</head>
+<body style="font-family: sans-serif; padding: 20px; line-height: 1.6;">
 
-Добро пожаловать! Здесь собраны точные прохождения всех историй, разделенные по фаворитам и путям статов.
+    <h1>👑 Seven Hearts Stories — База Гайдов</h1>
+    <p>Добро пожаловать! Здесь собраны точные прохождения всех историй.</p>
+    
+    <hr>
 
----
+    <h2>📚 Выберите историю:</h2>
+    <ul>
+        <li>
+            <h3><a href="./morveyn/README.md">🔮 Морвэйн</a></h3>
+            <p>Статы: Такт / Непреклонность, Совесть</p>
+        </li>
+    </ul>
 
-## 📚 Выберите историю:
+    <hr>
 
-* ### [🔮 Морвэйн](./morveyn/README.md)
-  
-  document.getElementById('content').innerHTML = marked.parse(markdownText);
-</script>
+    <h2>📌 Как устроен поиск гайда:</h2>
+    <ol>
+        <li>Выбираете историю из списка выше.</li>
+        <li>Выбираете своего фаворита.</li>
+        <li>Выбираете путь статов вашей героини.</li>
+    </ol>
+
+</body>
+</html>
