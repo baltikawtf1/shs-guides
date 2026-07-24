@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морвэйн — Фавориты</title>
+</head>
+<body style="font-family: sans-serif; padding: 20px; line-height: 1.6;">
+
+    <a href="../index.html" style="text-decoration: none; color: gray;">← Назад на главную</a>
+
+    <h1>🔮Морвэйн</h1>
+    <p>Выберите фаворита, с которым ведете ветку:</p>
+    
+    <hr>
+
+    <ul>
+        <li>
+            <h3><a href="./kayden/README.md">Кайден</a></h3>
+        </li>
+        <li>
+            <h3><a href="./arden/README.md">Фантом</a></h3>
+        </li>
+        <li>
+            <h3><a href="./rayan/README.md">Айзек</a></h3>
+        </li>
+    </ul>
+
+</body>
+</html>
