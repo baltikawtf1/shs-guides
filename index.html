@@ -1,4 +1,9 @@
-# Seven Hearts Stories — База Гайдов
+#<script src="https://jsdelivr.net"></script>
+<div id="content" style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; line-height: 1.6;"></div>
+<script>
+  // Текст вашего гайда внутри кавычек:
+  const markdownText = `
+# 👑 Seven Hearts Stories — База Гайдов
 
 Добро пожаловать! Здесь собраны точные прохождения всех историй, разделенные по фаворитам и путям статов.
 
@@ -6,11 +11,7 @@
 
 ## 📚 Выберите историю:
 
-* ### Морвэйн(./morveyn/README.md)
+* ### [🔮 Морвэйн](./morveyn/README.md)
   
----
-
-## 📌 Как устроен поиск гайда:
-1. Выбираете **историю** из списка выше.
-2. Выбираете своего **фаворита**.
-3. Выбираете **путь статов** вашей героини.
+  document.getElementById('content').innerHTML = marked.parse(markdownText);
+</script>
