@@ -22,16 +22,16 @@
         .favorites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
         .fav-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); position: relative; display: flex; flex-direction: column; }
         .fav-card:hover { transform: translateY(-5px); border-color: rgba(189, 147, 249, 0.4); box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15); }
-        .fav-avatar { width: 100%; height: 320px; background: linear-gradient(to bottom, #2c1a4d, #120a24); display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.2); font-size: 14px; position: relative; }
+        
+        /* Стили для изображений фаворитов */
+        .fav-img { width: 100%; height: 320px; object-fit: cover; background: #120a24; display: block; }
+        
         .fav-info { padding: 20px; display: flex; flex-direction: column; background: linear-gradient(to top, rgba(15, 12, 27, 0.95), rgba(26, 16, 47, 0.8)); }
         .fav-name { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 6px; }
         .fav-type { font-size: 12px; color: #ff79c6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-        
-        /* Стили для двух кнопок гайдов внизу */
         .fav-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
         .btn-view-branch { display: block; text-align: center; background: linear-gradient(90deg, #3a2f5c, #291e47); color: #fff; padding: 12px; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 600; border: 1px solid rgba(189, 147, 249, 0.2); transition: all 0.3s ease; }
         .btn-view-branch:hover { background: linear-gradient(90deg, #bd93f9, #ff79c6); border-color: transparent; transform: scale(1.02); box-shadow: 0 4px 12px rgba(189, 147, 249, 0.2); }
-        
         @media (max-width: 600px) { .story-title { font-size: 28px; } .favorites-grid { grid-template-columns: 1fr; } .stats-bar { flex-direction: column; align-items: stretch; } .stat-item { justify-content: center; } }
     </style>
 </head>
@@ -53,7 +53,7 @@
         <div class="favorites-grid">
             <!-- Карточка 1: Юки -->
             <div class="fav-card">
-                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <img src="uki.png" alt="Юки" class="fav-img">
                 <div class="fav-info">
                     <div class="fav-name">Юки</div>
                     <div class="fav-type">Главная ветка</div>
@@ -65,7 +65,7 @@
             </div>
             <!-- Карточка 2: Хикару -->
             <div class="fav-card">
-                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <img src="hikary.png" alt="Хикару" class="fav-img">
                 <div class="fav-info">
                     <div class="fav-name">Хикару</div>
                     <div class="fav-type">Основная ветка</div>
@@ -75,21 +75,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Карточка 3: Рэм -->
+            <!-- Карточка 3: Рюсэй -->
             <div class="fav-card">
-                <div class="fav-avatar">[ Изображение Персонажа ]</div>
-                <div class="fav-info">
-                    <div class="fav-name">Рэм</div>
-                    <div class="fav-type">Основная ветка</div>
-                    <div class="fav-actions">
-                        <a href="#" class="btn-view-branch">Мастерство + Мораль</a>
-                        <a href="#" class="btn-view-branch">Мастерство + Беспринципность</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Карточка 4: Рюсэй -->
-            <div class="fav-card">
-                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <img src="rusei.png" alt="Рюсэй" class="fav-img">
                 <div class="fav-info">
                     <div class="fav-name">Рюсэй</div>
                     <div class="fav-type">Основная ветка</div>
@@ -99,9 +87,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Карточка 5: Акира -->
+            <!-- Карточка 4: Акира -->
             <div class="fav-card">
-                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <img src="akira.png" alt="Акира" class="fav-img">
                 <div class="fav-info">
                     <div class="fav-name">Акира</div>
                     <div class="fav-type">Второстепенная ветка</div>
