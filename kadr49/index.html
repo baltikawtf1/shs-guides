@@ -26,9 +26,8 @@
         .fav-info { padding: 20px; display: flex; flex-direction: column; background: linear-gradient(to top, rgba(15, 12, 27, 0.95), rgba(26, 16, 47, 0.8)); }
         .fav-name { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 6px; }
         .fav-type { font-size: 12px; color: #ff79c6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-        .fav-preference { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
-        .pref-tag { font-size: 11px; padding: 4px 10px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); color: #d1c7e8; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .pref-tag.match { background: rgba(80, 250, 123, 0.1); color: #50fa7b; border-color: rgba(80, 250, 123, 0.2); }
+        .fav-preference { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+        .pref-tag { font-size: 12px; padding: 6px 12px; border-radius: 6px; background: rgba(255, 255, 255, 0.04); color: #d1c7e8; border: 1px solid rgba(255, 255, 255, 0.08); display: block; text-align: left; }
         .btn-view-branch { display: block; text-align: center; background: linear-gradient(90deg, #6272a4, #44475a); color: #fff; padding: 10px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.3s; }
         .fav-card:hover .btn-view-branch { background: linear-gradient(90deg, #bd93f9, #ff79c6); }
         @media (max-width: 600px) { .story-title { font-size: 28px; } .favorites-grid { grid-template-columns: 1fr; } .stats-bar { flex-direction: column; align-items: stretch; } .stat-item { justify-content: center; } }
@@ -57,8 +56,8 @@
                     <div class="fav-name">Юки</div>
                     <div class="fav-type">Главная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag match">Рекомендуется: Мораль</span>
-                        <span class="pref-tag">Мастерство</span>
+                        <span class="pref-tag">Мастерство + Мораль</span>
+                        <span class="pref-tag">Мастерство + Беспринципность</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
@@ -70,8 +69,8 @@
                     <div class="fav-name">Хикару</div>
                     <div class="fav-type">Основная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag match">Рекомендуется: Беспринципность</span>
-                        <span class="pref-tag">Мастерство</span>
+                        <span class="pref-tag">Мастерство + Мораль</span>
+                        <span class="pref-tag">Мастерство + Беспринципность</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
@@ -83,8 +82,8 @@
                     <div class="fav-name">Рэм</div>
                     <div class="fav-type">Основная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag match">Рекомендуется: Мораль</span>
-                        <span class="pref-tag">Мастерство</span>
+                        <span class="pref-tag">Мастерство + Мораль</span>
+                        <span class="pref-tag">Мастерство + Беспринципность</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
@@ -96,8 +95,8 @@
                     <div class="fav-name">Рюсэй</div>
                     <div class="fav-type">Основная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag match">Рекомендуется: Беспринципность</span>
-                        <span class="pref-tag">Мастерство</span>
+                        <span class="pref-tag">Мастерство + Мораль</span>
+                        <span class="pref-tag">Мастерство + Беспринципность</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
@@ -109,7 +108,8 @@
                     <div class="fav-name">Акира</div>
                     <div class="fav-type">Второстепенная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag">Любой путь</span>
+                        <span class="pref-tag">Мастерство + Мораль</span>
+                        <span class="pref-tag">Мастерство + Беспринципность</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
