@@ -69,7 +69,7 @@
             margin-bottom: 20px;
         }
 
-        /* Индикаторы текущих статов игрока */
+        /* Индикаторы статов истории */
         .stats-bar {
             display: flex;
             justify-content: center;
@@ -87,20 +87,17 @@
         .stat-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
+            padding: 6px 16px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 8px;
             font-size: 14px;
             border: 1px solid transparent;
+            color: #fff;
         }
 
         .stat-item.moral { border-color: rgba(255, 255, 255, 0.2); }
         .stat-item.cynicism { border-color: rgba(189, 147, 249, 0.3); }
         .stat-item.mastery { border-color: rgba(255, 184, 108, 0.3); }
-
-        .stat-emoji { font-size: 16px; }
-        .stat-count { font-weight: bold; color: #fff; }
 
         /* Раздел Фаворитов */
         .section-title {
@@ -216,7 +213,7 @@
             .story-title { font-size: 28px; }
             .favorites-grid { grid-template-columns: 1fr; }
             .stats-bar { flex-direction: column; align-items: stretch; }
-            .stat-item { justify-content: space-between; }
+            .stat-item { justify-content: center; }
         }
     </style>
 </head>
@@ -225,7 +222,7 @@
 <div class="container">
     
     <!-- Навигация обратно -->
-    <a href="#" class="btn-back">← Вернуться к выбору историй</a>
+    <a href="#" class="btn-back"> Назад к выбору историй</a>
 
     <!-- Шапка истории -->
     <header class="story-header">
@@ -237,22 +234,16 @@
             Статы истории
         </div>
 
-        <!-- Ваши текущие статы -->
+        <!-- Блок статов без количества -->
         <div class="stats-bar">
             <div class="stat-item moral">
-                <span class="stat-emoji">🤍</span>
-                <span>Мораль:</span>
-                <span class="stat-count">0</span>
+                <span>Мораль</span>
             </div>
             <div class="stat-item cynicism">
-                <span class="stat-emoji">🖤</span>
-                <span>Беспринципность:</span>
-                <span class="stat-count">0</span>
+                <span>Беспринципность</span>
             </div>
             <div class="stat-item mastery">
-                <span class="stat-emoji">🎨</span>
-                <span>Мастерство:</span>
-                <span class="stat-count">0</span>
+                <span>Мастерство</span>
             </div>
         </div>
     </header>
@@ -270,8 +261,8 @@
                     <div class="fav-name">Юки</div>
                     <div class="fav-type">Главная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag match">Рекомендуется: Мораль 🤍</span>
-                        <span class="pref-tag">Мастерство 🎨</span>
+                        <span class="pref-tag match">Рекомендуется: Мораль</span>
+                        <span class="pref-tag">Мастерство</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
@@ -284,8 +275,8 @@
                     <div class="fav-name">Второй Фаворит</div>
                     <div class="fav-type">Основная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag match">Рекомендуется: Беспринципность 🖤</span>
-                        <span class="pref-tag">Мастерство 🎨</span>
+                        <span class="pref-tag match">Рекомендуется: Беспринципность</span>
+                        <span class="pref-tag">Мастерство</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
@@ -298,7 +289,7 @@
                     <div class="fav-name">Третий Фаворит</div>
                     <div class="fav-type">Второстепенная ветка</div>
                     <div class="fav-preference">
-                        <span class="pref-tag">Любой путь ✨</span>
+                        <span class="pref-tag">Любой путь</span>
                     </div>
                     <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
                 </div>
