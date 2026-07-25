@@ -1,3 +1,304 @@
-юки
-мораль + мастерство
-беспринципность + мастерство
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кадр 49 — Фавориты и Статы</title>
+    <style>
+        /* Общие стили и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c1b 0%, #1a102f 50%, #05020a 100%);
+            color: #f1f1f7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Кнопка Назад */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            color: #a394cc;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+        .btn-back:hover {
+            color: #ff79c6;
+        }
+
+        /* Шапка страницы истории */
+        .story-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .story-badge {
+            background: rgba(255, 121, 198, 0.15);
+            color: #ff79c6;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 121, 198, 0.3);
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .story-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #fff, #a394cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        /* Индикаторы текущих статов игрока */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-size: 14px;
+            border: 1px solid transparent;
+        }
+
+        .stat-item.moral { border-color: rgba(255, 255, 255, 0.2); }
+        .stat-item.cynicism { border-color: rgba(189, 147, 249, 0.3); }
+        .stat-item.mastery { border-color: rgba(255, 184, 108, 0.3); }
+
+        .stat-emoji { font-size: 16px; }
+        .stat-count { font-weight: bold; color: #fff; }
+
+        /* Раздел Фаворитов */
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+            padding-left: 10px;
+            border-left: 4px solid #bd93f9;
+            color: #e2daf0;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Карточка Фаворита */
+        .fav-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fav-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(189, 147, 249, 0.5);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+        }
+
+        /* Заглушка для аватарки (замените src на реальные картинки) */
+        .fav-avatar {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(to bottom, #2c1a4d, #120a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+            position: relative;
+        }
+
+        .fav-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: linear-gradient(to top, rgba(15, 12, 27, 0.95), rgba(26, 16, 47, 0.8));
+        }
+
+        .fav-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .fav-type {
+            font-size: 12px;
+            color: #ff79c6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .fav-description {
+            font-size: 14px;
+            color: #a394cc;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Теги совместимости путей внизу карточки */
+        .fav-preference {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pref-tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #d1c7e8;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pref-tag.match {
+            background: rgba(80, 250, 123, 0.1);
+            color: #50fa7b;
+            border-color: rgba(80, 250, 123, 0.2);
+        }
+
+        /* Кнопка открытия ветки */
+        .btn-view-branch {
+            display: block;
+            text-align: center;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .fav-card:hover .btn-view-branch {
+            background: linear-gradient(90deg, #bd93f9, #ff79c6);
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 600px) {
+            .story-title { font-size: 28px; }
+            .favorites-grid { grid-template-columns: 1fr; }
+            .stats-bar { flex-direction: column; align-items: stretch; }
+            .stat-item { justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Навигация обратно -->
+    <a href="#" class="btn-back">← Вернуться к выбору историй</a>
+
+    <!-- Шапка истории -->
+    <header class="story-header">
+        <span class="story-badge">История выбрана</span>
+        <h1 class="story-title">Кадр 49</h1>
+        
+        <!-- Ваши текущие статы (из скриншота) -->
+        <div class="stats-bar">
+            <div class="stat-item moral">
+                <span class="stat-emoji">🤍</span>
+                <span>Мораль:</span>
+                <span class="stat-count">0</span>
+            </div>
+            <div class="stat-item cynicism">
+                <span class="stat-emoji">🖤</span>
+                <span>Беспринципность:</span>
+                <span class="stat-count">0</span>
+            </div>
+            <div class="stat-item mastery">
+                <span class="stat-emoji">🎨</span>
+                <span>Мастерство:</span>
+                <span class="stat-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Список фаворитов -->
+    <main>
+        <h2 class="section-title">Доступные фавориты истории</h2>
+        
+        <div class="favorites-grid">
+            
+            <!-- Карточка 1: Юки -->
+            <div class="fav-card">
+                <!-- Чтобы добавить фото, замените этот блок на: <img src="путь_к_картинке.jpg" alt="Юки" class="fav-avatar" style="object-fit: cover;"> -->
+                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <div class="fav-info">
+                    <div class="fav-name">Юки</div>
+                    <div class="fav-type">Главная ветка</div>
+                    <div class="fav-description">Загадочный и принципиальный герой, чьи мотивы раскрываются постепенно. Остро реагирует на проявления вашей беспринципности.</div>
+                    <div class="fav-preference">
+                        <span class="pref-tag match">Рекомендуется: Мораль 🤍</span>
+                        <span class="pref-tag">Мастерство 🎨</span>
+                    </div>
+                    <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Персонаж 2 (Пример) -->
+            <div class="fav-card">
+                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <div class="fav-info">
+                    <div class="fav-name">Второй Фаворит</div>
+                    <div class="fav-type">Основная ветка</div>
+                    <div class="fav-description">Прагматик до мозга костей. Ценит холодный расчет, выгоду и профессиональные навыки. Идеален для сложного прохождения.</div>
+                    <div class="fav-preference">
+                        <span class="pref-tag match">Рекомендуется: Беспринципность 🖤</span>
+                        <span class="pref-tag">Мастерство 🎨</span>
+                    </div>
+                    <a href="#" class="btn-view-branch">Смотреть гайд ветки</a>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Персонаж 3 (Пример) -->
+            <div class="fav-card">
+                <div class="fav-avatar">[ Изображение Персонажа ]</div>
+                <div class="fav-info">
