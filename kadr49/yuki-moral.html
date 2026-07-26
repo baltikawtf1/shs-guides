@@ -53,6 +53,22 @@
             .choice-item { flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 0; }
             .effect { align-self: flex-end; }
         }
+                /* Стиль для разделительной линии между сериями */
+        .episode-section {
+            margin-bottom: 40px; /* Увеличиваем отступ между сериями */
+            position: relative;
+        }
+
+        /* Красивая неоновая линия под каждой серией, кроме последней */
+        .episode-section:not(:last-child)::after {
+            content: "";
+            display: block;
+            width: 80%; /* Длина линии */
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(189, 147, 249, 0.4), transparent); /* Градиент в цвет темы */
+            margin: 40px auto 0 auto; /* Отступы сверху и снизу линии */
+            box-shadow: 0 0 8px rgba(189, 147, 249, 0.3); /* Легкое неоновое свечение */
+        }
     </style>
 </head>
 <body>
