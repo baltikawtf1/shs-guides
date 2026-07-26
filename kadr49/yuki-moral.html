@@ -6,91 +6,102 @@
     <title>Кадр 49 — Гайд: Юки (Мастерство + Мораль)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background: linear-gradient(135deg, #0f0c1b 0%, #1a102f 50%, #05020a 100%); color: #f1f1f7; min-height: 100vh; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; position: relative; }
+        body { background: linear-gradient(135deg, #0f0c1b 0%, #1a102f 50%, #05020a 100%); color: #f1f1f7; min-height: 100vh; padding: 15px; scroll-behavior: smooth; }
+        .container { max-width: 650px; margin: 0 auto; }
         
-        /* Верхняя панель навигации */
-        .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-        
-        /* Кнопка Назад */
-        .btn-back { display: inline-flex; align-items: center; color: #a394cc; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        /* Навигация */
+        .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .btn-back { color: #a394cc; text-decoration: none; font-size: 13px; transition: color 0.2s; }
         .btn-back:hover { color: #ff79c6; }
+        .btn-exit { color: #ff79c6; text-decoration: none; font-size: 13px; font-weight: 600; padding: 4px 10px; background: rgba(255, 121, 198, 0.1); border: 1px solid rgba(255, 121, 198, 0.2); border-radius: 6px; }
         
-        /* Кнопка Выход к историям */
-        .btn-exit { display: inline-flex; align-items: center; gap: 6px; color: #ff79c6; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 14px; background: rgba(255, 121, 198, 0.1); border: 1px solid rgba(255, 121, 198, 0.2); border-radius: 8px; transition: all 0.3s ease; }
-        .btn-exit:hover { background: rgba(255, 121, 198, 0.2); border-color: #ff79c6; transform: translateY(-1px); }
-        
-        /* Шапка гайда */
-        .guide-header { text-align: center; margin-bottom: 40px; background: rgba(255, 255, 255, 0.02); padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
-        .guide-badge { background: rgba(189, 147, 249, 0.15); color: #bd93f9; padding: 5px 14px; border-radius: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; border: 1px solid rgba(189, 147, 249, 0.3); display: inline-block; margin-bottom: 12px; }
-        .guide-title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-        .guide-subtitle { font-size: 16px; color: #ff79c6; font-weight: 600; letter-spacing: 0.5px; }
+        /* Шапка */
+        .guide-header { text-align: center; margin-bottom: 20px; background: rgba(255, 255, 255, 0.02); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .guide-title { font-size: 22px; font-weight: 700; color: #fff; }
+        .guide-subtitle { font-size: 14px; color: #ff79c6; font-weight: 600; margin-top: 2px; }
 
-        /* Стили для серий */
-        .episode-section { margin-bottom: 35px; background: rgba(255, 255, 255, 0.01); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.04); overflow: hidden; }
-        .episode-title { background: linear-gradient(90deg, #241942, #160f29); padding: 14px 20px; font-size: 18px; font-weight: 600; color: #e2daf0; border-bottom: 1px solid rgba(189, 147, 249, 0.15); }
-        .choice-list { padding: 10px 20px; }
+        /* Быстрая навигация по сериям */
+        .series-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .series-nav-btn { color: #a394cc; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s ease; }
+        .series-nav-btn:hover { background: linear-gradient(90deg, #bd93f9, #ff79c6); color: #fff; border-color: transparent; }
+
+        /* Компактные серии */
+        .episode-section { margin-bottom: 20px; background: rgba(255, 255, 255, 0.01); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); overflow: hidden; }
+        .episode-title { background: #1e1538; padding: 8px 15px; font-size: 15px; font-weight: 600; color: #e2daf0; border-bottom: 1px solid rgba(189, 147, 249, 0.1); }
+        .choice-list { padding: 5px 15px; }
         
-        /* Элементы списка (выборы и кат-сцены) */
-        .choice-item { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; gap: 4px; }
+        /* Строки выборов в одну линию */
+        .choice-item { padding: 6px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.03); font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
         .choice-item:last-child { border-bottom: none; }
         
-        /* Специальный стиль для сюжетных кат-сцен */
-        .cutscene { color: #a394cc; font-style: italic; padding: 10px 15px; background: rgba(163, 148, 204, 0.05); border-radius: 8px; margin: 8px 0; border-left: 3px solid #6272a4; font-size: 14px; }
+        /* Компактные кат-сцены */
+        .cutscene { display: block; color: #a394cc; font-style: italic; padding: 4px 0; font-size: 13px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); opacity: 0.8; }
+        .cutscene::before { content: "🎬 "; }
         
-        /* Стили для текста выборов и эффектов */
         .choice-text { color: #fff; font-weight: 500; }
-        .choice-text.timed { color: #ffb86c; font-weight: 600; }
+        .choice-text.timed { color: #ffb86c; }
         
-        .effect { font-size: 13px; font-weight: 600; margin-top: 2px; }
-        .effect.moral-stat { color: #8be9fd; }
-        .effect.mastery-stat { color: #ffb86c; }
-        .effect.both-stats { color: #ff79c6; }
-        .effect.relationship { color: #50fa7b; }
-        .effect.neutral { color: #948fb3; font-weight: normal; }
+        /* Компактные метки эффектов */
+        .effect { font-size: 12px; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,0.2); white-space: nowrap; }
+        .effect.moral-stat { color: #8be9fd; border: 1px solid rgba(139, 233, 253, 0.2); }
+        .effect.mastery-stat { color: #ffb86c; border: 1px solid rgba(255, 184, 108, 0.2); }
+        .effect.both-stats { color: #ff79c6; border: 1px solid rgba(255, 121, 198, 0.2); }
+        .effect.relationship { color: #50fa7b; border: 1px solid rgba(80, 250, 123, 0.2); }
+        .effect.neutral { color: #948fb3; font-weight: normal; border: 1px solid rgba(148, 143, 179, 0.2); }
+        
+        @media (max-width: 480px) {
+            .choice-item { flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 0; }
+            .effect { align-self: flex-end; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     
-    <!-- Навигационная панель -->
     <div class="top-nav">
-        <a href="#" class="btn-back">← Назад к фаворитам</a>
-        <a href="#" class="btn-exit">✕ Выход к историям</a>
+        <a href="favorites.html" class="btn-back">← К фаворитам</a>
+        <a href="index.html" class="btn-exit">✕ Выход</a>
     </div>
 
-    <!-- Шапка гайда -->
     <header class="guide-header">
-        <span class="guide-badge">Пошаговый Гайд</span>
         <h1 class="guide-title">Юки</h1>
-        <div class="guide-subtitle">Путь: Мастерство + Мораль</div>
+        <div class="guide-subtitle">Мастерство + Мораль</div>
     </header>
+
+    <!-- Кнопки быстрого перехода -->
+    <nav class="series-nav">
+        <a href="#ep1" class="series-nav-btn">1 серия</a>
+        <a href="#ep2" class="series-nav-btn">2 серия</a>
+        <a href="#ep3" class="series-nav-btn">3 серия</a>
+        <a href="#ep4" class="series-nav-btn">4 серия</a>
+        <a href="#ep5" class="series-nav-btn">5 серия</a>
+    </nav>
 
     <main>
         
         <!-- 1 СЕРИЯ -->
-        <section class="episode-section">
+        <section class="episode-section" id="ep1">
             <div class="episode-title">1 серия</div>
             <div class="choice-list">
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
                 <div class="choice-item">
                     <span class="choice-text">«Как ваши дела?»</span>
-                    <span class="effect relationship">Улучшение отношений с Хикару</span>
+                    <span class="effect relationship">+ Отношения: Хикару</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Буду ждать окончательный ответ»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
                 <div class="choice-item">
-                    <span class="choice-text">«Верит в мой потенциал»</span>
+                    <span class="choice-text">«Верит в мой potential»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Не откажусь»</span>
                     <span class="effect mastery-stat">+ Мастерство позже</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
                 <div class="choice-item">
                     <span class="choice-text">«Обе»</span>
                     <span class="effect both-stats">+ Мораль + Беспринципность</span>
@@ -99,28 +110,26 @@
                     <span class="choice-text">«Правую»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
                 <div class="choice-item">
                     <span class="choice-text">«Юки - красивое имя»</span>
-                    <span class="effect relationship">Улучшение отношений с Юки</span>
+                    <span class="effect relationship">+ Отношения: Юки</span>
                 </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Высказаться»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Высказаться»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Промолчать»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
             </div>
         </section>
 
         <!-- 2 СЕРИЯ -->
-        <section class="episode-section">
+        <section class="episode-section" id="ep2">
             <div class="episode-title">2 серия</div>
             <div class="choice-list">
                 <div class="choice-item">
-                    <span class="choice-text timed">Выбор на время: Сделать шаг назад / Оставаться на месте</span>
+                    <span class="choice-text timed">⏱ Сделать шаг назад / Оставаться на месте</span>
                     <span class="effect neutral">Не влияет</span>
                 </div>
                 <div class="choice-item">
@@ -128,7 +137,7 @@
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
                 <div class="choice-item">
-                    <span class="choice-text timed">Выбор на время: Обернуться / Застыть</span>
+                    <span class="choice-text timed">⏱ Обернуться / Застыть</span>
                     <span class="effect neutral">Не влияет</span>
                 </div>
                 <div class="choice-item">
@@ -139,113 +148,95 @@
                     <span class="choice-text">«Стыдно»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
+                <div class="choice-item"><span class="choice-text">«Спросить»</span></div>
+                <div class="choice-item"><span class="choice-text">«Это смущает…»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Спросить»</span>
-                </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Это смущает…»</span>
-                </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Спросить»</span>
-                    <span class="effect neutral">Дополнительная информация</span>
+                    <span class="effect neutral">Доп. информация</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Сомнение»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
                 <div class="choice-item">
                     <span class="choice-text">«Это жестоко»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Мило»</span>
-                    <span class="effect relationship">Улучшение отношений с Юки (Кат-сцена)</span>
+                    <span class="effect relationship">+ Отношения: Юки (Кат-сцена)</span>
                 </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Сдерживается»</span>
-                </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <div class="choice-item"><span class="choice-text">«Сдерживается»</span></div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
                 <div class="choice-item">
                     <span class="choice-text">«Шутка?»</span>
-                    <span class="effect relationship">Улучшение отношений с Аоки</span>
+                    <span class="effect relationship">+ Отношения: Аоки</span>
                 </div>
             </div>
         </section>
-        <!-- 3 СЕРИЯ -->
-        <section class="episode-section">
+
+                <!-- 3 СЕРИЯ -->
+        <section class="episode-section" id="ep3">
             <div class="episode-title">3 серия</div>
             <div class="choice-list">
-                <div class="cutscene">Кат-сцена по сюжету</div>
-                <div class="choice-item">
-                    <span class="choice-text">«Спросить коллег»</span>
-                </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
-                <div class="choice-item">
-                    <span class="choice-text">«Задержать взгляд»</span>
-                </div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item"><span class="choice-text">«Спросить коллег»</span></div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item"><span class="choice-text">«Задержать взгляд»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Извиниться»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
                 <div class="choice-item">
                     <span class="choice-text">«Говорит первой»</span>
                     <span class="effect neutral">Кат-сцена</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Интересным человеком»</span>
-                    <span class="effect relationship">Улучшение отношений с Рюсэем</span>
+                    <span class="effect relationship">+ Отношения: Рюсэй</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Никогда не привыкну»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
+                <div class="choice-item"><span class="choice-text">«Подслушать»</span></div>
                 <div class="choice-item">
-                    <span class="choice-text">«Подслушать»</span>
+                    <span class="choice-text">Выбран платный наряд</span>
+                    <span class="effect relationship">Реакция Юки</span>
                 </div>
-                <div class="choice-item">
-                    <span class="effect relationship">Если выбрали платный наряд — реакция от Юки</span>
-                </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Решает спросить»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Решает спросить»</span></div>
             </div>
         </section>
 
         <!-- 4 СЕРИЯ -->
-        <section class="episode-section">
+        <section class="episode-section" id="ep4">
             <div class="episode-title">4 серия</div>
             <div class="choice-list">
-                <div class="choice-item">
-                    <span class="choice-text">«Спросить»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Спросить»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">Замечает искренность Рэм</span>
-                    <span class="effect relationship">Улучшение отношений с Шизукой</span>
+                    <span class="effect relationship">+ Отношения: Шизука</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Задерживает на ней взгляд»</span>
-                    <span class="effect relationship">Улучшение отношений с Юки</span>
+                    <span class="effect relationship">+ Отношения: Юки</span>
                 </div>
                 <div class="choice-item">
-                    <span class="choice-text timed">Выборы на время</span>
+                    <span class="choice-text timed">⏱ Выборы на время</span>
                     <span class="effect neutral">Не влияют</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
-                <div class="choice-item">
-                    <span class="choice-text">«Солгать»</span>
-                </div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item"><span class="choice-text">«Солгать»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Рета помогает мне»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Предложить воду»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Предложить воду»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Протягивает банку»</span>
-                    <span class="effect relationship">Улучшение отношений с Рюсэем</span>
+                    <span class="effect relationship">+ Отношения: Рюсэй</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Нужно быть к этому готовой»</span>
@@ -255,12 +246,10 @@
         </section>
 
         <!-- 5 СЕРИЯ -->
-        <section class="episode-section">
+        <section class="episode-section" id="ep5">
             <div class="episode-title">5 серия</div>
             <div class="choice-list">
-                <div class="choice-item">
-                    <span class="choice-text">«Оборачивается на Юдзи»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Оборачивается на Юдзи»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Это временно»</span>
                     <span class="effect moral-stat">+ Мораль</span>
@@ -273,27 +262,21 @@
                     <span class="choice-text">«Защитить тебя»</span>
                     <span class="effect moral-stat">+ Мораль</span>
                 </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Обернуться»</span>
-                </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Посмотреть»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Обернуться»</span></div>
+                <div class="choice-item"><span class="choice-text">«Посмотреть»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Забрать / Оставить»</span>
                     <span class="effect neutral">Влияние неизвестно</span>
                 </div>
-                <div class="choice-item">
-                    <span class="choice-text">«Подслушать»</span>
-                </div>
+                <div class="choice-item"><span class="choice-text">«Подслушать»</span></div>
                 <div class="choice-item">
                     <span class="choice-text">«Спросить»</span>
                     <span class="effect mastery-stat">+ Мастерство</span>
                 </div>
                 <div class="choice-item">
                     <span class="choice-text">«Спросить о работе»</span>
-                    <span class="effect relationship">Улучшение отношений с Хикару</span>
+                    <span class="effect relationship">+ Отношения: Хикару</span>
                 </div>
-                <div class="cutscene">Кат-сцена по сюжету</div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
             </div>
         </section>
