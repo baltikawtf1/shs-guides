@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кадр 49 — Гайд: Юки (Мастерство + Беспринципность)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background: linear-gradient(135deg, #0f0c1b 0%, #1a102f 50%, #05020a 100%); color: #f1f1f7; min-height: 100vh; padding: 15px; scroll-behavior: smooth; }
+        .container { max-width: 650px; margin: 0 auto; }
+        
+        /* Навигация */
+        .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .btn-back { color: #a394cc; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+        .btn-back:hover { color: #ff79c6; }
+        .btn-exit { color: #ff79c6; text-decoration: none; font-size: 13px; font-weight: 600; padding: 4px 10px; background: rgba(255, 121, 198, 0.1); border: 1px solid rgba(255, 121, 198, 0.2); border-radius: 6px; }
+        
+        /* Шапка */
+        .guide-header { text-align: center; margin-bottom: 20px; background: rgba(255, 255, 255, 0.02); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .guide-title { font-size: 22px; font-weight: 700; color: #fff; }
+        .guide-subtitle { font-size: 14px; color: #bd93f9; font-weight: 600; margin-top: 2px; }
+
+        /* Быстрая навигация по сериям */
+        .series-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .series-nav-btn { color: #a394cc; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s ease; }
+        .series-nav-btn:hover { background: linear-gradient(90deg, #bd93f9, #ff79c6); color: #fff; border-color: transparent; }
+
+        /* Компактные серии */
+        .episode-section { margin-bottom: 20px; background: rgba(255, 255, 255, 0.01); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); overflow: hidden; }
+        .episode-title { background: #1e1538; padding: 8px 15px; font-size: 15px; font-weight: 600; color: #e2daf0; border-bottom: 1px solid rgba(189, 147, 249, 0.1); }
+        .choice-list { padding: 5px 15px; }
+        
+        /* Строки выборов в одну линию */
+        .choice-item { padding: 6px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.03); font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .choice-item:last-child { border-bottom: none; }
+        
+        /* Компактные кат-сцены */
+        .cutscene { display: block; color: #a394cc; font-style: italic; padding: 4px 0; font-size: 13px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); opacity: 0.8; }
+        .cutscene::before { content: "🎬 "; }
+        
+        .choice-text { color: #fff; font-weight: 500; }
+        .choice-text.timed { color: #ffb86c; }
+        
+        /* Компактные метки эффектов */
+        .effect { font-size: 12px; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,0.2); white-space: nowrap; }
+        .effect.cynicism-stat { color: #bd93f9; border: 1px solid rgba(189, 147, 249, 0.2); } /* Фиолетовый для Беспринципности */
+        .effect.moral-stat { color: #8be9fd; border: 1px solid rgba(139, 233, 253, 0.2); } /* Голубой для Морали */
+        .effect.mastery-stat { color: #ffb86c; border: 1px solid rgba(255, 184, 108, 0.2); }
+        .effect.both-stats { color: #ff79c6; border: 1px solid rgba(255, 121, 198, 0.2); }
+        .effect.relationship { color: #50fa7b; border: 1px solid rgba(80, 250, 123, 0.2); }
+        .effect.neutral { color: #948fb3; font-weight: normal; border: 1px solid rgba(148, 143, 179, 0.2); }
+        
+        @media (max-width: 480px) {
+            .choice-item { flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 0; }
+            .effect { align-self: flex-end; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="top-nav">
+        <a href="favorites.html" class="btn-back">← К фаворитам</a>
+        <a href="index.html" class="btn-exit">✕ Выход</a>
+    </div>
+
+    <header class="guide-header">
+        <h1 class="guide-title">Юки</h1>
+        <div class="guide-subtitle">Мастерство + Беспринципность</div>
+    </header>
+
+    <!-- Кнопки быстрого перехода -->
+    <nav class="series-nav">
+        <a href="#ep1" class="series-nav-btn">1 серия</a>
+        <a href="#ep2" class="series-nav-btn">2 серия</a>
+        <a href="#ep3" class="series-nav-btn">3 серия</a>
+        <a href="#ep4" class="series-nav-btn">4 серия</a>
+        <a href="#ep5" class="series-nav-btn">5 серия</a>
+    </nav>
+
+    <main>
+        
+        <!-- 1 СЕРИЯ -->
+        <section class="episode-section" id="ep1">
+            <div class="episode-title">1 серия</div>
+            <div class="choice-list">
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item">
+                    <span class="choice-text">«Как ваши дела?»</span>
+                    <span class="effect relationship">+ Отношения: Хикару</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Я заслуживаю этого больше»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Имеет с этого выгоду»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Не откажусь»</span>
+                    <span class="effect mastery-stat">+ Мастерство позже</span>
+                </div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item">
+                    <span class="choice-text">«Обе»</span>
+                    <span class="effect both-stats">+ Мораль + Беспринципность</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Левую»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item">
+                    <span class="choice-text">«Юки - красивое имя»</span>
+                    <span class="effect relationship">+ Отношения: Юки</span>
+                </div>
+                <div class="choice-item"><span class="choice-text">«Высказаться»</span></div>
+                <div class="choice-item">
+                    <span class="choice-text">«Я буду признательна такой возможности»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+            </div>
+        </section>
+
+        <!-- 2 СЕРИЯ -->
+        <section class="episode-section" id="ep2">
+            <div class="episode-title">2 серия</div>
+            <div class="choice-list">
+                <div class="choice-item">
+                    <span class="choice-text timed">⏱ Сделать шаг назад / Оставаться на месте</span>
+                    <span class="effect neutral">Не влияет</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Отказаться»</span>
+                    <span class="effect moral-stat">+ Мораль</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text timed">⏱ Обернуться / Застыть</span>
+                    <span class="effect neutral">Не влияет</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Ничего не вызывает во мне»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Мерзко»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <div class="choice-item"><span class="choice-text">«Спросить»</span></div>
+                <div class="choice-item"><span class="choice-text">«Это смущает…»</span></div>
+                <div class="choice-item">
+                    <span class="choice-text">«Спросить»</span>
+                    <span class="effect neutral">Доп. информация</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Возмущение»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item">
+                    <span class="choice-text">«Это всего лишь персонаж»</span>
+                    <span class="effect cynicism-stat">+ Беспринципность</span>
+                </div>
+                <div class="choice-item">
+                    <span class="choice-text">«Мило»</span>
+                    <span class="effect relationship">+ Отношения: Юки (Кат-сцена)</span>
+                </div>
+                <div class="choice-item"><span class="choice-text">«Сдерживается»</span></div>
+                <span class="cutscene">Кат-сцена по сюжету</span>
+                <div class="choice-item">
+                    <span class="choice-text">«Шутка?»</span>
+                    <span class="effect relationship">+ Отношения: Аоки</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>
