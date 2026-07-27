@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Иллюзия славы — Навигация</title>
+    <title>Гайд по истории Иллюзия Славы</title>
     <style>
         :root {
             --bg-gradient: radial-gradient(circle at top, #1a1f29 0%, #0a0c10 100%);
@@ -34,11 +34,11 @@
             flex-direction: column;
         }
 
-        /* Верхняя навигация */
+        /* Верхняя навигация сайта */
         .navigation {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .nav-btn {
@@ -63,19 +63,34 @@
             border-color: var(--accent-glow);
         }
 
+        /* Главные заголовки страницы */
+        .page-header {
+            margin-bottom: 20px;
+            padding: 0 4px;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
         /* Компактный блок профиля фаворита */
         .favorit-header {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 16px;
             padding: 0 4px;
         }
 
         /* Маленькое фото */
         .favorit-avatar-mini {
-            width: 54px;
-            height: 54px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: #161b22;
             border: 2px solid var(--accent-glow);
@@ -95,30 +110,20 @@
             object-fit: cover;
         }
 
-        .favorit-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1 {
+        .favorit-info-label {
             font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
             color: var(--text-secondary);
-            margin: 0 0 2px 0;
-        }
-
-        .favorit-name {
-            font-size: 20px;
-            font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             margin: 0;
         }
 
-        /* Контейнер списка */
+        .favorit-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Контейнер списка путей */
         .list-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -139,7 +144,7 @@
             padding: 14px 16px;
             font-size: 14px;
             color: #d0d7de;
-            text-decoration: none; /* Убирает подчеркивание ссылки */
+            text-decoration: none;
             display: flex;
             align-items: center;
             letter-spacing: 0.2px;
@@ -171,28 +176,32 @@
 <body>
 
     <div class="container">
-        <!-- Навигация -->
+        <!-- Верхняя навигация -->
         <div class="navigation">
             <a href="#" class="nav-btn">← Фавориты</a>
             <a href="#" class="nav-btn">← Истории</a>
         </div>
 
-        <!-- Компактный профиль -->
+        <!-- Главный заголовок -->
+        <div class="page-header">
+            <h1 class="main-title">Гайд по истории Иллюзия Славы</h1>
+        </div>
+
+        <!-- Профиль фаворита -->
         <div class="favorit-header">
             <div class="favorit-avatar-mini">
-                <!-- Замените этот span на тег картинки, когда она появится -->
                 <!-- <img src="shade.jpg" alt="Шейд"> -->
                 <span>Фото</span>
             </div>
-            <div class="favorit-info">
-                <h1>Иллюзия славы</h1>
+            <div>
+                <p class="favorit-info-label">Ветка:</p>
                 <p class="favorit-name">Шейд</p>
             </div>
         </div>
 
-        <!-- Список кликабельных кнопок-ссылок -->
+        <!-- Список кликабельных путей -->
         <div class="list-card">
-            <a href="ссылка_на_путь_1.html" class="route-link">компромисс + чувства + черный пиар</a>
+            <a href="#" class="route-link">компромисс + чувства + черный пиар</a>
             <a href="#" class="route-link">компромисс + чувства + белый пиар</a>
             <a href="#" class="route-link">компромисс + хладнокровие + черный пиар</a>
             <a href="#" class="route-link">компромисс + хладнокровие + белый пиар</a>
