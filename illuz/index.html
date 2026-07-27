@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гайд по истории Иллюзия Славы</title>
+    <title>Иллюзия Славы — Гайд</title>
     <style>
         :root {
-            --bg-gradient: radial-gradient(circle at top, #1a1f29 0%, #0a0c10 100%);
-            --card-bg: rgba(22, 27, 34, 0.7);
-            --card-border: rgba(48, 54, 61, 0.8);
-            --text-main: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent-glow: #58a6ff;
-            --accent-gradient: linear-gradient(45deg, #58a6ff, #bc8cff);
+            --bg-dark: #07080b;
+            --neon-pink: #ff0055;
+            --neon-purple: #8a2be2;
+            --text-main: #ffffff;
+            --text-muted: #6b7280;
+            --glass-bg: rgba(15, 18, 28, 0.75);
+            --glass-border: rgba(255, 0, 85, 0.15);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-dark);
+            /* Атмосферное неоновое свечение на фоне */
+            background-image: 
+                radial-gradient(circle at 80% 10%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(255, 0, 85, 0.12) 0%, transparent 50%);
             color: var(--text-main);
             margin: 0;
-            padding: 16px;
+            padding: 24px 16px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -29,77 +33,86 @@
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 460px;
             display: flex;
             flex-direction: column;
         }
 
-        /* Верхняя навигация сайта */
+        /* Верхняя навигация — только Истории */
         .navigation {
             display: flex;
-            gap: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
         .nav-btn {
-            flex: 1;
-            background: rgba(33, 38, 45, 0.4);
-            color: var(--text-secondary);
-            border: 1px solid var(--card-border);
-            padding: 10px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 10px 20px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             text-decoration: none;
-            text-align: center;
-            backdrop-filter: blur(8px);
-            transition: all 0.2s ease;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .nav-btn:hover {
-            color: #fff;
-            background: rgba(48, 54, 61, 0.7);
-            border-color: var(--accent-glow);
+            background: rgba(255, 0, 85, 0.1);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
         }
 
-        /* Главные заголовки страницы */
+        /* Главный глянцевый заголовок */
         .page-header {
-            margin-bottom: 20px;
-            padding: 0 4px;
+            margin-bottom: 24px;
+            text-align: left;
         }
 
         .main-title {
-            font-size: 22px;
-            font-weight: 800;
-            background: var(--accent-gradient);
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff 30%, #a7a7a7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0;
         }
 
-        /* Компактный блок профиля фаворита */
+        /* Блок профиля фаворита */
         .favorit-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding: 0 4px;
+            gap: 16px;
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05), rgba(138, 43, 226, 0.05));
+            border: 1px solid var(--glass-border);
+            padding: 12px 16px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
         }
 
-        /* Маленькое фото */
+        /* Роскошная неоновая рамка для аватарки */
         .favorit-avatar-mini {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #161b22;
-            border: 2px solid var(--accent-glow);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px; /* Легкое закругление вместо круга смотрится современнее */
+            background: #11141d;
+            border: 1px solid var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
-            font-size: 10px;
+            color: var(--text-muted);
+            font-size: 11px;
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -111,96 +124,112 @@
         }
 
         .favorit-info-label {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin: 0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--neon-pink);
+            font-weight: 700;
+            margin: 0 0 2px 0;
         }
 
         .favorit-name {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: #fff;
             margin: 0;
+            letter-spacing: 0.5px;
         }
 
-        /* Контейнер списка путей */
-        .list-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 8px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        /* Сетка/список путей */
+        .list-container {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 10px;
         }
 
-        /* Ссылки-кнопки для путей */
+        /* Интригующие темные кнопки-карточки */
         .route-link {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid transparent;
-            border-radius: 10px;
-            padding: 14px 16px;
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            padding: 18px 20px;
             font-size: 14px;
-            color: #d0d7de;
+            font-weight: 500;
+            color: #e2e8f0;
             text-decoration: none;
             display: flex;
             align-items: center;
-            letter-spacing: 0.2px;
-            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* Градиентная неоновая точка вместо стандартной звездочки */
         .route-link::before {
-            content: "✦";
-            margin-right: 12px;
-            color: var(--accent-glow);
-            font-size: 12px;
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--neon-pink);
+            box-shadow: 0 0 8px var(--neon-pink);
+            margin-right: 16px;
             flex-shrink: 0;
+            transition: transform 0.3s ease;
         }
 
-        /* Эффект при наведении и нажатии */
+        /* Эффект дерзкого наведения в стиле неонового шоу-бизнеса */
         .route-link:hover {
-            background: rgba(255, 255, 255, 0.05);
             color: #fff;
-            border-color: rgba(88, 166, 255, 0.2);
-            padding-left: 20px;
+            background: rgba(15, 18, 28, 0.9);
+            border-color: rgba(138, 43, 226, 0.5);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                inset 0 0 12px rgba(138, 43, 226, 0.15);
+            transform: translateY(-2px);
+            padding-left: 24px;
+        }
+
+        .route-link:hover::before {
+            transform: scale(1.5);
+            background: #fff;
+            box-shadow: 0 0 10px #fff;
         }
         
         .route-link:active {
-            background: rgba(88, 166, 255, 0.1);
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Верхняя навигация -->
+        <!-- Навигация (Только истории) -->
         <div class="navigation">
-            <a href="#" class="nav-btn">← Фавориты</a>
-            <a href="#" class="nav-btn">← Истории</a>
+            <a href="#" class="nav-btn">← К историям</a>
         </div>
 
-        <!-- Главный заголовок -->
+        <!-- Поп-рок / Нуарный заголовок -->
         <div class="page-header">
-            <h1 class="main-title">Гайд по истории Иллюзия Славы</h1>
+            <h1 class="main-title">Иллюзия Славы</h1>
         </div>
 
-        <!-- Профиль фаворита -->
+        <!-- Премиальная карточка фаворита -->
         <div class="favorit-header">
             <div class="favorit-avatar-mini">
-                <!-- <img src="shade.jpg" alt="Шейд"> -->
-                <span>Фото</span>
+                <!-- Сюда вставите фото: <img src="shade.jpg" alt="Шейд"> -->
+                <span>ФОТО</span>
             </div>
             <div>
-                <p class="favorit-info-label">Ветка:</p>
+                <p class="favorit-info-label">Линия</p>
                 <p class="favorit-name">Шейд</p>
             </div>
         </div>
 
-        <!-- Список кликабельных путей -->
-        <div class="list-card">
+        <!-- Кликабельные неоновые пути -->
+        <div class="list-container">
             <a href="#" class="route-link">компромисс + чувства + черный пиар</a>
             <a href="#" class="route-link">компромисс + чувства + белый пиар</a>
             <a href="#" class="route-link">компромисс + хладнокровие + черный пиар</a>
