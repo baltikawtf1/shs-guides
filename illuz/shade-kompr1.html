@@ -45,8 +45,45 @@
         }
 
         .container {
-            max-width: 650px; /* Компактная ширина для одной колонки */
+            max-width: 650px;
             margin: 0 auto;
+        }
+
+        /* Навигационная панель сверху */
+        .top-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: rgba(157, 78, 221, 0.15);
+            border-color: rgba(157, 78, 221, 0.4);
+            color: #fff;
+            box-shadow: 0 0 12px var(--accent-glow);
         }
 
         header {
@@ -76,7 +113,7 @@
             letter-spacing: 1px;
         }
 
-        /* Список серий в одну колонку */
+        /* Список серий */
         .episodes-list {
             display: flex;
             flex-direction: column;
@@ -121,7 +158,6 @@
         .choices-list {
             list-style: none;
             padding: 6px 14px 10px 14px;
-            counter-reset: step;
         }
 
         .choice-item {
@@ -140,18 +176,6 @@
 
         .choice-text {
             color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .choice-text::before {
-            counter-increment: step;
-            content: counter(step, decimal-leading-zero);
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            min-width: 18px;
         }
 
         /* Баджи статов */
@@ -180,8 +204,12 @@
             body {
                 padding: 12px 8px;
             }
-            .choice-item {
+            .top-nav {
+                flex-direction: column;
                 gap: 8px;
+            }
+            .nav-btn {
+                width: 100%;
             }
         }
     </style>
@@ -189,6 +217,14 @@
 <body>
 
 <div class="container">
+
+    <!-- Верхние кнопки навигации -->
+    <nav class="top-nav">
+        <button class="nav-btn" onclick="history.back()">← К фаворитам</button>
+        <a href="stories.html" class="nav-btn">Все истории</a>
+        <a href="season2.html" class="nav-btn">2 Сезон →</a>
+    </nav>
+
     <header>
         <h1>Шейд</h1>
         <p>Гайд по прохождению • 1 Сезон</p>
