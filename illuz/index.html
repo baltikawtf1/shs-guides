@@ -376,6 +376,20 @@
         <div class="timeline-item"><a href="#" class="route-link">провокация + хладнокровие</a></div>
     </div>
 </div>
+<script>
+    function filterCharacter(name, button) {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        document.querySelectorAll('.character-card').forEach(card => {
+            if (name === 'all' || card.getAttribute('data-name') === name) {
+                card.style.display = 'block';  
+            } else {
+                card.style.display = 'none';   
+            }
+        });
+    }
+</script>
 
 
         
