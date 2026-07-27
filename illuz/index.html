@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Иллюзия Славы — Интерактивный Гайд</title>
+    <title>Иллюзия Славы — Гайд</title>
     <style>
         :root {
             --bg-color: #060713;
@@ -36,11 +36,12 @@
             max-width: 450px;
             display: flex;
             flex-direction: column;
+            gap: 20px;
         }
 
         /* Кнопка навигации назад */
         .navigation {
-            margin-bottom: 24px;
+            margin-bottom: 0px;
         }
 
         .nav-btn {
@@ -71,7 +72,7 @@
 
         /* Заголовок истории */
         .page-header {
-            margin-bottom: 24px;
+            margin-bottom: 0px;
         }
 
         .main-title {
@@ -85,6 +86,42 @@
             margin: 0;
         }
 
+        /* ПАНЕЛЬ КНОПОК ПОИСКА / ФИЛЬТРАЦИИ */
+        .filter-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 8px;
+            border-radius: 16px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-magenta));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+        }
+
         /* Единая объединенная карточка */
         .character-card {
             background: var(--glass-card);
@@ -93,9 +130,10 @@
             padding: 24px 20px;
             backdrop-filter: blur(16px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        /* Шапка персонажа внутри карточки */
+        /* Шапка персонажа */
         .favorit-header {
             display: flex;
             align-items: center;
@@ -105,7 +143,6 @@
             z-index: 3;
         }
 
-        /* Свечение вокруг фото персонажа */
         .favorit-avatar-mini {
             width: 56px;
             height: 56px;
@@ -144,13 +181,12 @@
             margin: 0;
         }
 
-        /* Лента путей внутри карточки */
+        /* Лента путей */
         .timeline-container {
             position: relative;
             padding-left: 36px;
         }
 
-        /* Вертикальная неоновая линия начинается от фото */
         .timeline-container::before {
             content: "";
             position: absolute;
@@ -172,7 +208,6 @@
             margin-bottom: 0;
         }
 
-        /* Пульсирующие неоновые точки на линии */
         .timeline-item::after {
             content: "";
             position: absolute;
@@ -188,13 +223,11 @@
             transition: all 0.3s ease;
         }
 
-        /* Чередование цветов точек */
         .timeline-item:nth-child(even)::after {
             border-color: var(--neon-cyan);
             box-shadow: 0 0 8px var(--neon-cyan);
         }
 
-        /* Кнопки-пути */
         .route-link {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.03);
@@ -209,7 +242,6 @@
             box-sizing: border-box;
         }
 
-        /* Эффект наведения на вариант внутри карточки */
         .timeline-item:hover .route-link {
             color: #fff;
             background: rgba(255, 255, 255, 0.05);
@@ -222,7 +254,6 @@
             border-color: rgba(0, 240, 255, 0.3);
         }
 
-        /* Анимация точек при наведении */
         .timeline-item:hover::after {
             transform: scale(1.4);
             background: #fff;
@@ -238,44 +269,36 @@
             <a href="../index.html" class="nav-btn">← К историям</a>
         </div>
 
-        <!-- Заголовок истории -->
+        <!-- Заголовок -->
         <div class="page-header">
             <h1 class="main-title">Иллюзия Славы</h1>
         </div>
 
-        <!-- Монолитная карточка персонажа -->
-        <div class="character-card">
-            
-            <!-- Шапка персонажа внутри карточки -->
+        <!-- Кнопки быстрого поиска -->
+        <div class="filter-panel">
+            <button class="filter-btn active" onclick="filterCharacter('all', this)">Все</button>
+            <button class="filter-btn" onclick="filterCharacter('shade', this)">Шейд</button>
+            <button class="filter-btn" onclick="filterCharacter('lars', this)">Ларс</button>
+            <button class="filter-btn" onclick="filterCharacter('demian', this)">Дэмиан</button>
+            <button class="filter-btn" onclick="filterCharacter('winston', this)">Винстон</button>
+            <button class="filter-btn" onclick="filterCharacter('clarence', this)">Кларенс</button>
+        </div>
+
+        <!-- КАРТОЧКА ПЕРСОНАЖА: ШЕЙД -->
+        <div class="character-card" data-name="shade">
             <div class="favorit-header">
-                <div class="favorit-avatar-mini">
-                    <!-- <img src="shade.jpg" alt="Шейд"> -->
-                    <span>ФОТО</span>
-                </div>
+                <div class="favorit-avatar-mini"><span>ШЕЙД</span></div>
                 <div>
                     <p class="favorit-info-label">Сюжетная линия</p>
                     <p class="favorit-name">Шейд</p>
                 </div>
             </div>
-
-            <!-- Сокращенная лента путей -->
             <div class="timeline-container">
-                <div class="timeline-item">
-                    <a href="#" class="route-link">компромисс + чувства</a>
-                </div>
-                <div class="timeline-item">
-                    <a href="#" class="route-link">компромисс + хладнокровие</a>
-                </div>
-                <div class="timeline-item">
-                    <a href="#" class="route-link">провокация + чувства</a>
-                </div>
-                <div class="timeline-item">
-                    <a href="#" class="route-link">провокация + хладнокровие</a>
-                </div>
+                <div class="timeline-item"><a href="#" class="route-link">компромисс + чувства</a></div>
+                <div class="timeline-item"><a href="#" class="route-link">компромисс + хладнокровие</a></div>
+                <div class="timeline-item"><a href="#" class="route-link">провокация + чувства</a></div>
+                <div class="timeline-item"><a href="#" class="route-link">провокация + хладнокровие</a></div>
             </div>
-
         </div>
-    </div>
 
-</body>
-</html>
+        
