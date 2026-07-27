@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Иллюзия Славы — Гайд</title>
+    <title>Иллюзия Славы — Интерактивный Гайд</title>
     <style>
         :root {
-            --bg-color: #0d0e12;
-            --card-bg: #14161d;
-            --border-color: #222530;
-            --text-color: #e4e6eb;
-            --text-muted: #6e7485;
-            --accent-gold: #d4af37; /* Премиальный золотой акцент вместо неона */
+            --bg-color: #060713;
+            --neon-cyan: #00f0ff;
+            --neon-magenta: #ff007f;
+            --neon-purple: #9d4edd;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --glass-card: rgba(13, 16, 39, 0.6);
+            --border-glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(157, 78, 221, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+            color: var(--text-main);
             margin: 0;
             padding: 24px 16px;
             min-height: 100vh;
@@ -28,75 +33,85 @@
 
         .container {
             width: 100%;
-            max-width: 440px;
+            max-width: 450px;
             display: flex;
             flex-direction: column;
         }
 
-        /* Кнопка возврата к историям */
+        /* Кнопка навигации назад */
         .navigation {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .nav-btn {
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-            background: transparent;
-            padding: 8px 18px;
-            border-radius: 6px;
+            color: var(--neon-cyan);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            background: rgba(0, 240, 255, 0.03);
+            padding: 10px 20px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 1px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-decoration: none;
             text-transform: uppercase;
-            transition: all 0.2s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
         }
 
         .nav-btn:hover {
             color: #fff;
-            border-color: var(--text-muted);
-            background-color: rgba(255, 255, 255, 0.03);
+            background: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            transform: translateY(-1px);
         }
 
-        /* Журнальный заголовок */
+        /* Заголовок */
         .page-header {
-            margin-bottom: 24px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 16px;
+            margin-bottom: 28px;
         }
 
         .main-title {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: #fff;
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #fff, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 0;
         }
 
-        /* Компактный и строгий профиль фаворита */
+        /* Карточка Фаворита */
         .favorit-header {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 24px;
+            gap: 16px;
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* Квадратная минималистичная рамка для фото */
+        /* Свечение вокруг фото */
         .favorit-avatar-mini {
-            width: 48px;
-            height: 48px;
-            border-radius: 4px;
-            background: #1c1e26;
-            border: 1px solid var(--border-color);
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: #090b14;
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
             font-size: 10px;
-            letter-spacing: 0.5px;
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -111,72 +126,115 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin: 0 0 1px 0;
+            color: var(--neon-magenta);
+            font-weight: 700;
+            margin: 0 0 2px 0;
         }
 
         .favorit-name {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 800;
             color: #fff;
             margin: 0;
         }
 
-        /* Список путей в виде строгих карточек */
-        .list-container {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        /* ИНТЕРАКТИВНАЯ ЛЕНТА ПУТЕЙ (ТАЙМЛАЙН) */
+        .timeline-container {
+            position: relative;
+            padding-left: 32px; /* Место для светящейся линии */
         }
 
-        .route-link {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 16px;
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--text-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            transition: all 0.2s ease;
-            box-sizing: border-box;
-        }
-
-        /* Минималистичный маркер в виде вертикальной линии */
-        .route-link::before {
+        /* Вертикальная неоновая линия */
+        .timeline-container::before {
             content: "";
+            position: absolute;
+            left: 7px;
+            top: 25px;
+            bottom: 25px;
             width: 2px;
-            height: 14px;
-            background-color: var(--text-muted);
-            margin-right: 14px;
-            flex-shrink: 0;
-            transition: background-color 0.2s ease;
+            background: linear-gradient(to bottom, var(--neon-magenta), var(--neon-purple), var(--neon-cyan));
+            box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
         }
 
-        /* Эффект при наведении */
-        .route-link:hover {
+        .timeline-item {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Пульсирующая неоновая точка на линии */
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: -32px;
+            top: 22px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid var(--neon-magenta);
+            box-shadow: 0 0 8px var(--neon-magenta);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        /* Чередуем цвета точек для красоты */
+        .timeline-item:nth-child(even)::after {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        /* Сама кнопка-выбор */
+        .route-link {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 16px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #e2e8f0;
+            text-decoration: none;
+            display: block;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Эффект яркого наведения */
+        .timeline-item:hover .route-link {
             color: #fff;
-            background-color: #191b24;
-            border-color: var(--text-muted);
-            transform: translateX(4px); /* Мягкий сдвиг всей карточки вправо */
+            background: rgba(20, 24, 53, 0.8);
+            border-color: rgba(255, 0, 127, 0.4);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(255, 0, 127, 0.15);
+            transform: translateX(6px);
         }
 
-        .route-link:hover::before {
-            background-color: var(--accent-gold);
+        /* Изменение цвета рамки для четных при наведении */
+        .timeline-item:nth-child(even):hover .route-link {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(0, 240, 255, 0.15);
         }
-        
-        .route-link:active {
-            transform: translateX(2px);
+
+        /* Анимация активации точки при наведении */
+        .timeline-item:hover::after {
+            transform: scale(1.4);
+            background: #fff;
+            box-shadow: 0 0 12px #fff;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Навигация (Ссылка изменена на ../index.html) -->
+        <!-- Навигация -->
         <div class="navigation">
             <a href="../index.html" class="nav-btn">← К историям</a>
         </div>
@@ -193,21 +251,37 @@
                 <span>ФОТО</span>
             </div>
             <div>
-                <p class="favorit-info-label">Линия персонажа</p>
+                <p class="favorit-info-label">Сюжетная линия</p>
                 <p class="favorit-name">Шейд</p>
             </div>
         </div>
 
-        <!-- Кликабельные пути-карточки -->
-        <div class="list-container">
-            <a href="#" class="route-link">компромисс + чувства + черный пиар</a>
-            <a href="#" class="route-link">компромисс + чувства + белый пиар</a>
-            <a href="#" class="route-link">компромисс + хладнокровие + черный пиар</a>
-            <a href="#" class="route-link">компромисс + хладнокровие + белый пиар</a>
-            <a href="#" class="route-link">провокация + чувства + черный пиар</a>
-            <a href="#" class="route-link">провокация + чувства + белый пиар</a>
-            <a href="#" class="route-link">провокация + хладнокровие + черный пиар</a>
-            <a href="#" class="route-link">провокация + хладнокровие + белый пиар</a>
+        <!-- Интерактивная лента путей -->
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <a href="#" class="route-link">компромисс + чувства + черный пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">компромисс + чувства + белый пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">компромисс + хладнокровие + черный пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">компромисс + хладнокровие + белый пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">провокация + чувства + черный пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">провокация + чувства + белый пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">провокация + хладнокровие + черный пиар</a>
+            </div>
+            <div class="timeline-item">
+                <a href="#" class="route-link">провокация + хладнокровие + белый пиар</a>
+            </div>
         </div>
     </div>
 
