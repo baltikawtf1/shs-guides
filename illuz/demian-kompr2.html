@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд: Дэмиан — Season 1 (Компромисс + Хладнокровие)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0d10;
+            --card-bg: rgba(21, 25, 33, 0.8);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-purple: #9d4edd;
+            --accent-glow: rgba(157, 78, 221, 0.15);
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            
+            /* Badges */
+            --badge-compromise: #22c55e;
+            --badge-feelings: #ec4899;
+            --badge-provocation: #f43f5e;
+            --badge-coolness: #38bdf8;
+            --badge-pr: #e11d48;
+            --badge-pr-white: #34d399;
+            --badge-rep: #fb923c;
+            --badge-deduction: #a3e635;
+            --badge-info: #a855f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(34, 197, 94, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            padding: 24px 16px;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .top-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: rgba(157, 78, 221, 0.15);
+            border-color: rgba(157, 78, 221, 0.4);
+            color: #fff;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        header {
+            text-align: center;
+            padding: 24px;
+            margin-bottom: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff 30%, var(--badge-coolness));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .episodes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .episode {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .episode:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .episode-header {
+            padding: 12px 18px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .episode-header .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--badge-coolness);
+            box-shadow: 0 0 8px var(--badge-coolness);
+        }
+
+        .choices-list {
+            list-style: none;
+            padding: 6px 14px 10px 14px;
+        }
+
+        .choice-item {
+            padding: 7px 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.88rem;
+        }
+
+        .choice-item:last-child {
+            border-bottom: none;
+        }
+
+        .choice-text {
+            color: #cbd5e1;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .badge-compromise { background: rgba(34, 197, 94, 0.12); color: var(--badge-compromise); }
+        .badge-feelings { background: rgba(236, 72, 153, 0.12); color: var(--badge-feelings); }
+        .badge-provocation { background: rgba(244, 63, 94, 0.12); color: var(--badge-provocation); }
+        .badge-coolness { background: rgba(56, 189, 248, 0.12); color: var(--badge-coolness); }
+        .badge-pr { background: rgba(225, 29, 72, 0.12); color: var(--badge-pr); }
+        .badge-pr-white { background: rgba(52, 211, 153, 0.12); color: var(--badge-pr-white); }
+        .badge-rep { background: rgba(251, 146, 60, 0.12); color: var(--badge-rep); }
+        .badge-deduction { background: rgba(163, 230, 53, 0.12); color: var(--badge-deduction); }
+        .badge-info { background: rgba(168, 85, 247, 0.12); color: var(--badge-info); }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px 8px;
+            }
+            .top-nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <nav class="top-nav">
+        <button class="index.html" onclick="history.back()">← К фаворитам</button>
+        <a href="../index.html" class="nav-btn">Все истории</a>
+        <a href="demian-season12.html" class="nav-btn">2 Сезон →</a>
+    </nav>
+
+    <header>
+        <h1>Дэмиан</h1>
+        <p>Гайд по прохождению • 1 Сезон (Компромисс + Хладнокровие)</p>
+    </header>
+
+    <div class="episodes-list">
+
+        <!-- 1 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>1 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">пиар-агент</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">приукрасить</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item">
+                    <span class="choice-text">делать из клиента сенсацию / подавать в выгодном свете</span>
+                    <div class="badge-group">
+                        <span class="badge badge-pr">+ черный пиар</span>
+                        <span class="badge badge-pr-white">+ белый пиар</span>
+                    </div>
+                </li>
+                <li class="choice-item"><span class="choice-text">выбор наряда: изыск</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">заступиться за Остина</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">я тоже рада знакомству</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">любую репутацию можно отбелить</span></li>
+                <li class="choice-item"><span class="choice-text">честно</span></li>
+                <li class="choice-item"><span class="choice-text">твой отец и дядя нуждаются в тебе</span></li>
+                <li class="choice-item"><span class="choice-text">грегу совсем плохо</span></li>
+            </ul>
+        </section>
+
+        <!-- 2 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>2 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">выглянуть наружу</span></li>
+                <li class="choice-item"><span class="choice-text">проскользнуть мимо</span></li>
+                <li class="choice-item"><span class="choice-text">грег?</span></li>
+                <li class="choice-item"><span class="choice-text">ты злишься из-за секрета</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">поддержать</span></li>
+                <li class="choice-item"><span class="choice-text">у нас перемирие</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">сказать ему</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">решила подслушать</span></li>
+                <li class="choice-item"><span class="choice-text">премиум комната</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">не смей</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+            </ul>
+        </section>
+
+        <!-- 3 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>3 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">боюсь ты не сделаешь этого</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">как его хозяин</span><span class="badge badge-deduction">+ дедукция</span></li>
+                <li class="choice-item"><span class="choice-text">молчать</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">я могу справиться</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">подойти</span></li>
+                <li class="choice-item"><span class="choice-text">вряд ли выйдет закрыть мне рот</span></li>
+                <li class="choice-item"><span class="choice-text">вышло непроизвольно</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">очаровательный человек</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">могу объяснить смысл</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">пожать руку</span></li>
+                <li class="choice-item"><span class="choice-text">узнать причину</span></li>
+                <li class="choice-item"><span class="choice-text">не все вьера одинаковы</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">имеет на это право</span></li>
+            </ul>
+        </section>
+
+        <!-- 4 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>4 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">на сцену</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item">
+                    <span class="choice-text">это правда, Ларсу тяжело себя сдерживать</span>
+                    <div class="badge-group">
+                        <span class="badge badge-rep">+ репутация</span>
+                        <span class="badge badge-feelings">+ чувства</span>
+                    </div>
+                </li>
+                <li class="choice-item"><span class="choice-text">убедиться, что ты в порядке</span></li>
+                <li class="choice-item"><span class="choice-text">профессиональной этики</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">поддержать его</span></li>
+                <li class="choice-item"><span class="choice-text">сказать правду</span></li>
+                <li class="choice-item"><span class="choice-text">разберемся</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">все равно</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">хватит, шелл</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">дэмиан!</span></li>
+                <li class="choice-item"><span class="choice-text">по делу</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">мягко отведи тему в сторону</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">недостойно тебя</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+            </ul>
+        </section>
+
+        <!-- 5 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>5 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item">
+                    <span class="choice-text">чтобы попал к нам / в знак искупления</span>
+                    <div class="badge-group">
+                        <span class="badge badge-pr">+ черный пиар</span>
+                        <span class="badge badge-pr-white">+ белый пиар</span>
+                    </div>
+                </li>
+                <li class="choice-item"><span class="choice-text">лично попрошу ласло не топтать ваши клумбы</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">спросить</span></li>
+                <li class="choice-item"><span class="choice-text">тайная комната</span><span class="badge badge-deduction">+ дедукция</span></li>
+                <li class="choice-item"><span class="choice-text">раз уж ты так настаиваешь</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">кто тебя нанял?</span></li>
+                <li class="choice-item"><span class="choice-text">пусть пробует с ласло</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">его плечо</span></li>
+                <li class="choice-item"><span class="choice-text">поцеловать его</span></li>
+                <li class="choice-item"><span class="choice-text">наблюдать</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">ваша</span></li>
+                <li class="choice-item"><span class="choice-text">сейчас оба пойдете</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">я иду</span></li>
+                <li class="choice-item"><span class="choice-text">лучше уходи</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+            </ul>
+        </section>
+
+        <!-- 6 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>6 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">тебя посадят</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">посмотрим, шейд</span></li>
+                <li class="choice-item"><span class="choice-text">уйти</span></li>
+                <li class="choice-item"><span class="choice-text">нет!</span></li>
+                <li class="choice-item"><span class="choice-text">ни в коем случае</span></li>
+                <li class="choice-item"><span class="choice-text">так ей и надо</span></li>
+                <li class="choice-item"><span class="choice-text">нас связывает лишь работа</span><span class="badge badge-rep">+2 репутации</span></li>
+                <li class="choice-item"><span class="choice-text">как ты?</span></li>
+                <li class="choice-item"><span class="choice-text">это личное</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">представить такого не могла</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">подождать приглашения</span><span class="badge badge-rep">+ репутация</span></li>
+            </ul>
+        </section>
+
+        <!-- 7 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>7 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">мне ее показали</span></li>
+                <li class="choice-item"><span class="choice-text">поставить его на место</span></li>
+                <li class="choice-item"><span class="choice-text">детектив</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">все ок</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">договориться</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">разумеется, не забываю</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">вас услышала</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">помочь ему</span></li>
+                <li class="choice-item">
+                    <span class="choice-text">придется лгать / сообщать часть правды</span>
+                    <div class="badge-group">
+                        <span class="badge badge-pr">+ черный пиар</span>
+                        <span class="badge badge-pr-white">+ белый пиар</span>
+                    </div>
+                </li>
+                <li class="choice-item">
+                    <span class="choice-text">сми не стравливали / сделать из вас дуэт</span>
+                    <div class="badge-group">
+                        <span class="badge badge-pr">+ черный пиар</span>
+                        <span class="badge badge-pr-white">+ белый пиар</span>
+                    </div>
+                </li>
+                <li class="choice-item"><span class="choice-text">остаться</span></li>
+                <li class="choice-item"><span class="choice-text">убрать сигарету</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">остаться с дэмианом</span></li>
+                <li class="choice-item"><span class="choice-text">дать себя успокоить</span><span class="badge badge-info">+ Дэмиан (кат-сцена)</span></li>
+                <li class="choice-item"><span class="choice-text">спросить</span></li>
+                <li class="choice-item"><span class="choice-text">клэр/кларенса</span><span class="badge badge-info">+ Дэмиан</span></li>
+                <li class="choice-item"><span class="choice-text">аккуратной</span></li>
+            </ul>
+        </section>
+
+        <!-- 8 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>8 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">я кивнула</span><span class="badge badge-info">+ Дэмиан</span></li>
+                <li class="choice-item"><span class="choice-text">влево</span><span class="badge badge-deduction">+ дедукция</span></li>
+                <li class="choice-item"><span class="choice-text">username</span><span class="badge badge-deduction">+ дедукция</span></li>
+                <li class="choice-item"><span class="choice-text">shell</span><span class="badge badge-deduction">+ дедукция</span></li>
+                <li class="choice-item"><span class="choice-text">проверю спальню</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">забрать</span></li>
+                <li class="choice-item"><span class="choice-text">попробую помочь</span></li>
+                <li class="choice-item"><span class="choice-text">поверить</span></li>
+                <li class="choice-item"><span class="choice-text">поздороваться</span></li>
+                <li class="choice-item"><span class="choice-text">спросить про кая</span><span class="badge badge-info">доп. информация</span></li>
+                <li class="choice-item"><span class="choice-text">спокойно идти навстречу</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">приложить пропуск грега</span></li>
+                <li class="choice-item"><span class="choice-text">ящики стола</span></li>
+                <li class="choice-item"><span class="choice-text">осмотреть нижний</span></li>
+                <li class="choice-item"><span class="choice-text">чучело жирафа</span></li>
+                <li class="choice-item"><span class="choice-text">сервант</span></li>
+                <li class="choice-item"><span class="choice-text">скрыться за шторой</span></li>
+            </ul>
+        </section>
+
+        <!-- 9 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>9 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">давить на ларса</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">оставила в номере</span></li>
+                <li class="choice-item"><span class="choice-text">нет</span></li>
+                <li class="choice-item"><span class="choice-text">да</span></li>
+                <li class="choice-item"><span class="choice-text">естественно для шоу бизнеса</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">погладить его по волосам</span></li>
+                <li class="choice-item"><span class="choice-text">сделках</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">глазами грега</span></li>
+                <li class="choice-item"><span class="choice-text">и обнял его</span></li>
+            </ul>
+        </section>
+
+        <!-- 10 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>10 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">шейда</span></li>
+                <li class="choice-item"><span class="choice-text">пожалуйста</span><span class="badge badge-compromise">+ компромисс</span></li>
+                <li class="choice-item"><span class="choice-text">смешно</span></li>
+                <li class="choice-item"><span class="choice-text">все же.. почему ты вернулся?</span></li>
+                <li class="choice-item"><span class="choice-text">отдать ларсу письмо</span></li>
+                <li class="choice-item"><span class="choice-text">может, проведете урок?</span></li>
+                <li class="choice-item"><span class="choice-text">везде</span></li>
+                <li class="choice-item"><span class="choice-text">верно</span></li>
+                <li class="choice-item"><span class="choice-text">ласло</span></li>
+            </ul>
+        </section>
+
+        <!-- 11 Серия -->
+        <section class="episode">
+            <div class="episode-header"><span class="dot"></span>11 Серия</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-text">послушать ларса</span></li>
+                <li class="choice-item"><span class="choice-text">просьбой</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">предупредить шейда самой</span></li>
+                <li class="choice-item"><span class="choice-text">не это важно, шейд</span></li>
+                <li class="choice-item"><span class="choice-text">поддержать дэмиана</span></li>
+                <li class="choice-item"><span class="choice-text">проанализировать ситуацию</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">подыграть</span><span class="badge badge-rep">+ репутация</span></li>
+                <li class="choice-item"><span class="choice-text">взять его за руку</span></li>
+                <li class="choice-item"><span class="choice-text">сам справится</span><span class="badge badge-coolness">+ хладнокровие</span></li>
+                <li class="choice-item"><span class="choice-text">может, случайно?</span><span class="badge badge-deduction">+ дедукция</span></li>
+                <li class="choice-item"><span class="choice-text">позвать его</span></li>
+                <li class="choice-item"><span class="choice-text">за ларсом, потом дэмиан и детектив</span></li>
+            </ul>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>
