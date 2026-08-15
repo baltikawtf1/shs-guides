@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Метатеги -->
     <title>Гайды Seven Hearts Stories — Прохождения, Ветки и Фавориты</title>
     <meta name="description" content="Подробные гайды и прохождения для игры Seven Hearts Stories (Севен Харт Сториес). Все выборы, статы, ветки с фаворитами и гайды по путям.">
     <meta name="keywords" content="Seven Hearts Stories, севен харт сториес, гайды, прохождение, выборы, фавориты, Морвэйн, Кадр 49, Иллюзия славы">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Гайды и прохождения Seven Hearts Stories">
     <meta property="og:description" content="База прохождений, подсчёт статов и гайды по веткам с фаворитами.">
     <meta property="og:type" content="website">
@@ -17,7 +15,6 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="google-site-verification" content="3mUtf0Y0H2SWHM6FwK2AYaGejQzDirFc74yx4eIKYQk" />
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -72,7 +69,6 @@
             min-height: 100vh;
         }
 
-        /* Шапка */
         .header {
             text-align: center;
             margin-bottom: 28px;
@@ -115,7 +111,6 @@
             font-weight: 500;
         }
 
-        /* Поиск */
         .search-box {
             position: relative;
             margin-bottom: 24px;
@@ -161,7 +156,6 @@
             color: #475569;
         }
 
-        /* Заголовок секции */
         .section-label {
             display: flex;
             align-items: center;
@@ -179,7 +173,6 @@
             color: var(--primary);
         }
 
-        /* Список карточек */
         .cards-grid {
             display: flex;
             flex-direction: column;
@@ -187,7 +180,6 @@
             margin-bottom: 35px;
         }
 
-        /* Карточка */
         .card-wrapper {
             position: relative;
             border-radius: 18px;
@@ -235,7 +227,6 @@
             font-weight: 600;
         }
 
-        /* Иконка стрелки / плашка */
         .card-action {
             display: flex;
             align-items: center;
@@ -260,7 +251,6 @@
             transition: transform 0.3s ease, stroke 0.3s ease;
         }
 
-        /* Эффекты при наведении */
         .card-wrapper:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px -5px var(--primary-glow);
@@ -281,7 +271,6 @@
             transform: translateX(2px);
         }
 
-        /* Бейдж "В разработке" */
         .dev-badge {
             font-size: 10px;
             font-weight: 700;
@@ -302,7 +291,6 @@
             border: none;
         }
 
-        /* Блок навигации */
         .guide-box {
             background: rgba(13, 17, 28, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -343,7 +331,6 @@
             flex-shrink: 0;
         }
 
-        /* SEO Блок */
         .seo-footer {
             font-size: 12px;
             color: #475569;
@@ -362,14 +349,12 @@
 </head>
 <body>
 
-    <!-- Шапка -->
     <header class="header">
         <div class="brand-badge">SHS Guides</div>
         <h1>Seven Hearts Stories</h1>
-        <p>Центральная база прохождений и путей</p>
+        <p>прохождения по путям и фаворитам</p>
     </header>
 
-    <!-- Поиск -->
     <div class="search-box">
         <input type="text" id="searchInput" class="search-input" placeholder="Поиск истории или фаворита..." onkeyup="filterStories()">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -378,11 +363,8 @@
     <div class="section-label">
         Каталог историй <span id="countLabel">16</span>
     </div>
-
-    <!-- Список историй -->
     <div class="cards-grid" id="cardsGrid">
         
-        <!-- ГОТОВЫЕ ИСТОРИИ -->
         <div class="card-wrapper story-card" data-title="морвэйн" data-favs="кайден фантом айзек">
             <a href="./morveyn/index.html" class="card">
                 <div class="card-body">
@@ -419,7 +401,6 @@
             </a>
         </div>
 
-        <!-- В РАЗРАБОТКЕ -->
         <div class="card-wrapper story-card dev-card" data-title="невеста для вампира">
             <a href="./nevesta/index.html" class="card">
                 <div class="card-body">
@@ -565,7 +546,6 @@
 
     </div>
 
-    <!-- Инструкция -->
     <div class="guide-box">
         <div class="section-label">Как пользоваться</div>
         <div class="guide-steps">
@@ -584,13 +564,11 @@
         </div>
     </div>
 
-    <!-- SEO -->
     <footer class="seo-footer">
-        <h2>Гайды и ответы Seven Hearts Stories</h2>
-        <p>База прохождений визуальных новелл Seven Hearts Stories (Севен Харт Сториес). Ответы, выходы на ветки, подбор выборов и расчёт статов для всех историй.</p>
+        <h2>Гайды Seven Hearts Stories</h2>
+        <p>Наш сайт предоставит вам гайд,разделенный по путям и статам к каждому фавориту,что обеспечит легкое прохождение на хорошую концовку. Мы стараемся как можно быстрее заполнять сайт гайдами,поэтому не забывайте про нас и возвращайтесь!</p>
     </footer>
 
-    <!-- Поиск JS -->
     <script>
         function filterStories() {
             const input = document.getElementById('searchInput').value.toLowerCase().trim();
