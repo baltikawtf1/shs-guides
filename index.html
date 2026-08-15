@@ -7,13 +7,12 @@
     <!-- SEO Метатеги -->
     <title>Гайды Seven Hearts Stories — Прохождения, Ветки и Фавориты</title>
     <meta name="description" content="Подробные гайды и прохождения для игры Seven Hearts Stories (Севен Харт Сториес). Все выборы, статы, ветки с фаворитами и гайды по путям.">
-    <meta name="keywords" content="Seven Hearts Stories, севен харт сториес, гайды, прохождение, выборы, фавориты, Морвэйн, Кадр 49, Иллюзия славы, Предание о небожителях, Невеста для вампира, Сердце Атланта">
+    <meta name="keywords" content="Seven Hearts Stories, севен харт сториес, гайды, прохождение, выборы, фавориты, Морвэйн, Кадр 49, Иллюзия славы">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Гайды и прохождения Seven Hearts Stories">
     <meta property="og:description" content="База прохождений, подсчёт статов и гайды по веткам с фаворитами.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://твой-сайт.ru/">
     
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="google-site-verification" content="3mUtf0Y0H2SWHM6FwK2AYaGejQzDirFc74yx4eIKYQk" />
@@ -21,7 +20,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -39,13 +38,17 @@
 
     <style>
         :root {
-            --bg-color: #07090e;
-            --card-bg: rgba(18, 22, 35, 0.75);
-            --accent-purple: #bc00dd;
-            --purple-glow: rgba(188, 0, 221, 0.35);
-            --accent-gold: #c5a880;
-            --text-main: #f0f3f8;
-            --text-muted: #8fa0b5;
+            --bg: #05070c;
+            --surface: rgba(13, 17, 28, 0.7);
+            --surface-hover: rgba(22, 28, 45, 0.85);
+            --primary: #d946ef;
+            --primary-glow: rgba(217, 70, 239, 0.35);
+            --secondary: #8b5cf6;
+            --gold: #f59e0b;
+            --gold-glow: rgba(245, 158, 11, 0.2);
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-glow: linear-gradient(135deg, rgba(217,70,239,0.3), rgba(139,92,246,0.1), rgba(255,255,255,0.05));
         }
 
         * {
@@ -55,12 +58,16 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            padding: 32px 20px;
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            padding: 30px 16px 50px 16px;
+            line-height: 1.5;
             max-width: 480px;
             margin: 0 auto;
-            background: radial-gradient(circle at 50% 0%, #171b2d 0%, var(--bg-color) 80%);
+            background: #05070c;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(217, 70, 239, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
         }
@@ -68,375 +75,527 @@
         /* Шапка */
         .header {
             text-align: center;
-            margin-bottom: 25px;
-            margin-top: 10px;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            background: rgba(217, 70, 239, 0.1);
+            border: 1px solid rgba(217, 70, 239, 0.25);
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            box-shadow: 0 0 15px rgba(217, 70, 239, 0.15);
         }
 
         .header h1 {
             font-family: 'Cinzel', serif;
             color: #ffffff;
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(188, 0, 221, 0.3);
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
-        .divider {
-            height: 2px;
-            width: 40px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            margin: 12px auto;
+        .header p {
+            color: var(--text-sub);
+            font-size: 13px;
+            margin-top: 6px;
+            font-weight: 500;
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        /* Поле поиска */
-        .search-container {
-            margin-bottom: 25px;
+        /* Поиск */
+        .search-box {
+            position: relative;
+            margin-bottom: 24px;
         }
 
         .search-input {
             width: 100%;
-            padding: 14px 18px;
-            border-radius: 12px;
-            background: rgba(15, 18, 28, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
+            padding: 16px 18px 16px 46px;
+            border-radius: 16px;
+            background: rgba(13, 17, 28, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff;
             font-size: 14px;
+            font-weight: 500;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
         }
 
         .search-input:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 12px var(--purple-glow);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px var(--primary-glow);
+            background: rgba(18, 23, 38, 0.95);
+        }
+
+        .search-input:focus + .search-icon {
+            opacity: 1;
         }
 
         .search-input::placeholder {
-            color: #58687e;
+            color: #475569;
         }
 
-        /* Заголовки блоков */
-        .section-title {
-            font-size: 11px;
-            color: var(--accent-gold);
-            font-weight: 700;
+        /* Заголовок секции */
+        .section-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text-sub);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             margin-bottom: 16px;
-            padding-left: 2px;
+            padding: 0 4px;
+        }
+
+        .section-label span {
+            color: var(--primary);
+        }
+
+        /* Список карточек */
+        .cards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+
+        /* Карточка */
+        .card-wrapper {
+            position: relative;
+            border-radius: 18px;
+            background: var(--border-glow);
+            padding: 1px; /* Градиентная рамка */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface);
+            backdrop-filter: blur(16px);
+            text-decoration: none;
+            padding: 18px 20px;
+            border-radius: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            padding-right: 12px;
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.2px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-gold);
-        }
-
-        /* Список карточек */
-        .cards-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 35px;
-        }
-
-        /* Базовый стиль для карточек */
-        .card {
-            display: block;
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-left: 4px solid var(--accent-purple);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .card::after {
-            content: '→';
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--accent-purple);
-            font-size: 20px;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(188, 0, 221, 0.4);
-            box-shadow: 0 12px 30px var(--purple-glow);
-        }
-
-        .card:hover::after {
-            opacity: 1;
-            transform: translateY(-50%) translateX(5px);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
         .card-favs {
             font-size: 12.5px;
-            color: var(--text-muted);
+            color: var(--text-sub);
+            margin-top: 5px;
             line-height: 1.4;
-            padding-right: 20px;
         }
 
-        .card-favs strong {
-            color: #a0b3cb;
+        .card-favs span {
+            color: #cbd5e1;
+            font-weight: 600;
         }
 
-        /* Стиль плашки для карточек в разработке */
-        .card-dev-header {
+        /* Иконка стрелки / плашка */
+        .card-action {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
         }
 
-        .badge-dev {
+        .card-action svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: var(--text-sub);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.3s ease, stroke 0.3s ease;
+        }
+
+        /* Эффекты при наведении */
+        .card-wrapper:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .card-wrapper:hover .card {
+            background: var(--surface-hover);
+        }
+
+        .card-wrapper:hover .card-action {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .card-wrapper:hover .card-action svg {
+            stroke: #ffffff;
+            transform: translateX(2px);
+        }
+
+        /* Бейдж "В разработке" */
+        .dev-badge {
             font-size: 10px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: #d4a359;
-            background: rgba(212, 163, 89, 0.12);
-            border: 1px solid rgba(212, 163, 89, 0.25);
+            color: var(--gold);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.25);
             padding: 3px 8px;
-            border-radius: 6px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
-        /* Навигация */
-        .navigation-box {
-            background: rgba(15, 18, 28, 0.6);
-            padding: 22px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 35px;
+        .dev-card .card-action {
+            width: auto;
+            padding: 0 10px;
+            background: transparent;
+            border: none;
         }
 
-        .nav-steps {
+        /* Блок навигации */
+        .guide-box {
+            background: rgba(13, 17, 28, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 30px;
+        }
+
+        .guide-box .section-label {
+            margin-bottom: 14px;
+        }
+
+        .guide-steps {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
-        .nav-step {
+        .guide-step {
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            font-size: 13.5px;
-            color: #b0bfd2;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #cbd5e1;
         }
 
-        .nav-num {
-            color: var(--accent-gold);
+        .step-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            background: rgba(217, 70, 239, 0.15);
+            color: var(--primary);
             font-weight: 800;
-            font-size: 12px;
-            background: rgba(197, 168, 128, 0.1);
-            border: 1px solid rgba(197, 168, 128, 0.2);
-            padding: 2px 8px;
-            border-radius: 6px;
+            font-size: 11px;
             flex-shrink: 0;
         }
 
-        /* SEO Блок текста */
-        .seo-block {
+        /* SEO Блок */
+        .seo-footer {
             font-size: 12px;
-            color: #617288;
+            color: #475569;
             line-height: 1.6;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 20px;
         }
 
-        .seo-block h2 {
-            font-size: 14px;
-            color: var(--accent-gold);
-            margin-bottom: 8px;
-            font-weight: 600;
+        .seo-footer h2 {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
+    <!-- Шапка -->
     <header class="header">
+        <div class="brand-badge">SHS Guides</div>
         <h1>Seven Hearts Stories</h1>
-        <div class="divider"></div>
-        <p class="subtitle">Центральная база прохождений</p>
+        <p>Центральная база прохождений и путей</p>
     </header>
 
-    <!-- Поле поиска -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="Поиск истории..." onkeyup="filterStories()">
+    <!-- Поиск -->
+    <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск истории или фаворита..." onkeyup="filterStories()">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
     </div>
     
-    <div class="section-title">Каталог историй</div>
-
-    <div class="cards-list" id="cardsList">
-        <!-- ГОТОВЫЕ ГАЙДЫ -->
-        <a href="./morveyn/index.html" class="card story-card" data-title="морвэйн" data-favs="кайден фантом айзек">
-            <div class="card-title">Морвэйн</div>
-            <div class="card-favs"><strong>Ветки:</strong> Кайден, Фантом, Айзек</div>
-        </a>
-
-        <a href="./kadr49/index.html" class="card story-card" data-title="кадр 49" data-favs="хикару юки рюсэй акира">
-            <div class="card-title">Кадр 49</div>
-            <div class="card-favs"><strong>Ветки:</strong> Хикару, Юки, Рюсэй, Акира</div>
-        </a>
-
-        <a href="./illuz/index.html" class="card story-card" data-title="иллюзия славы" data-favs="шейд ларс кларенс дэмиан винстон">
-            <div class="card-title">Иллюзия славы</div>
-            <div class="card-favs"><strong>Ветки:</strong> Шейд, Ларс, Кларенс, Дэмиан, Винстон</div>
-        </a>
-
-        <!-- В РАЗРАБОТКЕ (КЛИКАБЕЛЬНЫЕ) -->
-        <a href="./nevesta/index.html" class="card story-card" data-title="невеста для вампира">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Невеста для вампира</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./atlanta/index.html" class="card story-card" data-title="сердце атланта">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Сердце Атланта</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./nebozhiteli/index.html" class="card story-card" data-title="предание о небожителях">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Предание о небожителях</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./drakon/index.html" class="card story-card" data-title="сага о драконе">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Сага о драконе</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./fatum/index.html" class="card story-card" data-title="эпоха фатума">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Эпоха Фатума</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./zloydenka/index.html" class="card story-card" data-title="последнее желание злодейки">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Последнее желание злодейки</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./almazar/index.html" class="card story-card" data-title="наследие алмазара">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Наследие Алмазара</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./biom/index.html" class="card story-card" data-title="смертельный биом">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Смертельный биом</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./cepi/index.html" class="card story-card" data-title="цепи договора">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Цепи договора</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./bezdna/index.html" class="card story-card" data-title="дитя бездны">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Дитя бездны</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./rim/index.html" class="card story-card" data-title="рим. искушение мудростью рим искушение мудростью">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Рим. Искушение мудростью</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./fortuna/index.html" class="card story-card" data-title="миссия фортуна">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Миссия Фортуна</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
-
-        <a href="./dedukciya/index.html" class="card story-card" data-title="метод и дедукция">
-            <div class="card-dev-header">
-                <div class="card-title" style="margin-bottom:0;">Метод и дедукция</div>
-                <span class="badge-dev">В разработке</span>
-            </div>
-        </a>
+    <div class="section-label">
+        Каталог историй <span id="countLabel">16</span>
     </div>
 
-    <div class="navigation-box">
-        <div class="section-title" style="margin-bottom: 14px;">Как пользоваться</div>
-        <div class="nav-steps">
-            <div class="nav-step">
-                <span class="nav-num">01</span>
-                <span>Выберите интересующую историю в каталоге выше.</span>
+    <!-- Список историй -->
+    <div class="cards-grid" id="cardsGrid">
+        
+        <!-- ГОТОВЫЕ ИСТОРИИ -->
+        <div class="card-wrapper story-card" data-title="морвэйн" data-favs="кайден фантом айзек">
+            <a href="./morveyn/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Морвэйн</div>
+                    <div class="card-favs">Ветки: <span>Кайден, Фантом, Айзек</span></div>
+                </div>
+                <div class="card-action">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card" data-title="кадр 49" data-favs="хикару юки рюсэй акира">
+            <a href="./kadr49/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Кадр 49</div>
+                    <div class="card-favs">Ветки: <span>Хикару, Юки, Рюсэй, Акира</span></div>
+                </div>
+                <div class="card-action">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card" data-title="иллюзия славы" data-favs="шейд ларс кларенс дэмиан винстон">
+            <a href="./illuz/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Иллюзия славы</div>
+                    <div class="card-favs">Ветки: <span>Шейд, Ларс, Кларенс, Дэмиан, Винстон</span></div>
+                </div>
+                <div class="card-action">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </a>
+        </div>
+
+        <!-- В РАЗРАБОТКЕ -->
+        <div class="card-wrapper story-card dev-card" data-title="невеста для вампира">
+            <a href="./nevesta/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Невеста для вампира</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="сердце атланта">
+            <a href="./atlanta/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Сердце Атланта</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="предание о небожителях">
+            <a href="./nebozhiteli/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Предание о небожителях</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="сага о драконе">
+            <a href="./drakon/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Сага о драконе</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="эпоха фатума">
+            <a href="./fatum/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Эпоха Фатума</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="последнее желание злодейки">
+            <a href="./zloydenka/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Последнее желание злодейки</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="наследие алмазара">
+            <a href="./almazar/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Наследие Алмазара</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="смертельный биом">
+            <a href="./biom/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Смертельный биом</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="цепи договора">
+            <a href="./cepi/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Цепи договора</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="дитя бездны">
+            <a href="./bezdna/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Дитя бездны</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="рим искушение мудростью">
+            <a href="./rim/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Рим. Искушение мудростью</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="миссия фортуна">
+            <a href="./fortuna/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Миссия Фортуна</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="card-wrapper story-card dev-card" data-title="метод и дедукция">
+            <a href="./dedukciya/index.html" class="card">
+                <div class="card-body">
+                    <div class="card-title">Метод и дедукция</div>
+                </div>
+                <div class="card-action">
+                    <span class="dev-badge">В разработке</span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Инструкция -->
+    <div class="guide-box">
+        <div class="section-label">Как пользоваться</div>
+        <div class="guide-steps">
+            <div class="guide-step">
+                <span class="step-num">1</span>
+                <span>Выберите интересующую историю выше</span>
             </div>
-            <div class="nav-step">
-                <span class="nav-num">02</span>
-                <span>Перейдите на страницу истории и выберите фаворита.</span>
+            <div class="guide-step">
+                <span class="step-num">2</span>
+                <span>Перейдите на страницу и выберите фаворита</span>
             </div>
-            <div class="nav-step">
-                <span class="nav-num">03</span>
-                <span>Откройте гайд под ваше сочетание статов.</span>
+            <div class="guide-step">
+                <span class="step-num">3</span>
+                <span>Откройте гайд под ваше сочетание статов</span>
             </div>
         </div>
     </div>
 
-    <!-- SEO Текст -->
-    <section class="seo-block">
+    <!-- SEO -->
+    <footer class="seo-footer">
         <h2>Гайды и ответы Seven Hearts Stories</h2>
-        <p>База прохождений визуальных новелл Seven Hearts Stories (Севен Харт Сториес). Здесь доступны ответы, выходы на любовные ветки с фаворитами, гайды по путям и расчёт статов для историй «Морвэйн», «Кадр 49», «Предание о небожителях», «Невеста для вампира» и других новелл.</p>
-    </section>
+        <p>База прохождений визуальных новелл Seven Hearts Stories (Севен Харт Сториес). Ответы, выходы на ветки, подбор выборов и расчёт статов для всех историй.</p>
+    </footer>
 
-    <!-- Скрипт поиска -->
+    <!-- Поиск JS -->
     <script>
         function filterStories() {
             const input = document.getElementById('searchInput').value.toLowerCase().trim();
             const cards = document.querySelectorAll('.story-card');
+            let visibleCount = 0;
 
             cards.forEach(card => {
                 const title = card.getAttribute('data-title') || '';
@@ -444,10 +603,13 @@
                 
                 if (title.includes(input) || favs.includes(input)) {
                     card.style.display = 'block';
+                    visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }
             });
+
+            document.getElementById('countLabel').textContent = visibleCount;
         }
     </script>
 
