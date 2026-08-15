@@ -3,69 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Гайды по путям и фаворитам для Seven Hearts Stories</title>
+    
+    <!-- SEO Метатеги -->
+    <title>Гайды Seven Hearts Stories — Прохождения, Ветки и Фавориты</title>
+    <meta name="description" content="Подробные гайды и прохождения для игры Seven Hearts Stories (Севен Харт Сториес). Все выборы, статы, ветки с фаворитами и гайды по путям.">
+    <meta name="keywords" content="Seven Hearts Stories, севен харт сториес, гайды, прохождение, выборы, фавориты, Морвэйн, Кадр 49, Иллюзия славы, Предание о небожителях, Невеста для вампира, Сердце Атланта">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Гайды и прохождения Seven Hearts Stories">
+    <meta property="og:description" content="База прохождений, подсчёт статов и гайды по веткам с фаворитами.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://твой-сайт.ru/">
+    
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="google-site-verification" content="3mUtf0Y0H2SWHM6FwK2AYaGejQzDirFc74yx4eIKYQk" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111030811', 'ym');
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111030811', 'ym');
 
-    ym(111030811, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111030811" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+        ym(111030811, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111030811" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <style>
+        :root {
+            --bg-color: #07090e;
+            --card-bg: rgba(18, 22, 35, 0.75);
+            --accent-purple: #bc00dd;
+            --purple-glow: rgba(188, 0, 221, 0.35);
+            --accent-gold: #c5a880;
+            --text-main: #f0f3f8;
+            --text-muted: #8fa0b5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 32px 20px;
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
+            background: radial-gradient(circle at 50% 0%, #171b2d 0%, var(--bg-color) 80%);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* Шапка */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(188, 0, 221, 0.3);
+        }
+
+        .divider {
+            height: 2px;
+            width: 40px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 12px auto;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Поле поиска */
+        .search-container {
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: rgba(15, 18, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 12px var(--purple-glow);
+        }
+
+        .search-input::placeholder {
+            color: #58687e;
+        }
+
+        /* Заголовки блоков */
+        .section-title {
+            font-size: 11px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            padding-left: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-gold);
+        }
+
+        /* Список карточек */
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 35px;
+        }
+
+        /* Базовый стиль для карточек */
+        .card {
+            display: block;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--accent-purple);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-purple);
+            font-size: 20px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(188, 0, 221, 0.4);
+            box-shadow: 0 12px 30px var(--purple-glow);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(5px);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .card-favs {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            padding-right: 20px;
+        }
+
+        .card-favs strong {
+            color: #a0b3cb;
+        }
+
+        /* Стиль плашки для карточек в разработке */
+        .card-dev-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .badge-dev {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #d4a359;
+            background: rgba(212, 163, 89, 0.12);
+            border: 1px solid rgba(212, 163, 89, 0.25);
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* Навигация */
+        .navigation-box {
+            background: rgba(15, 18, 28, 0.6);
+            padding: 22px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 35px;
+        }
+
+        .nav-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .nav-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 13.5px;
+            color: #b0bfd2;
+        }
+
+        .nav-num {
+            color: var(--accent-gold);
+            font-weight: 800;
+            font-size: 12px;
+            background: rgba(197, 168, 128, 0.1);
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            padding: 2px 8px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        /* SEO Блок текста */
+        .seo-block {
+            font-size: 12px;
+            color: #617288;
+            line-height: 1.6;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        .seo-block h2 {
+            font-size: 14px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 24px; line-height: 1.6; max-width: 450px; margin: 0 auto; background: radial-gradient(circle at top, #111625 0%, #07090e 100%); color: #f0f3f8; min-height: 100vh;">
+<body>
 
-    <div style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
-        <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">Seven Hearts Stories</h1>
-        <div style="height: 1px; width: 50px; background: #c5a880; margin: 10px auto;"></div>
-        <p style="color: #8fa0b5; font-size: 13px; margin: 0; letter-spacing: 1px; text-transform: uppercase;">Центральная база прохождений</p>
+    <header class="header">
+        <h1>Seven Hearts Stories</h1>
+        <div class="divider"></div>
+        <p class="subtitle">Центральная база прохождений</p>
+    </header>
+
+    <!-- Поле поиска -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск истории..." onkeyup="filterStories()">
     </div>
     
-    <div style="font-size: 12px; color: #c5a880; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; padding-left: 4px;">
-        Каталог историй
+    <div class="section-title">Каталог историй</div>
+
+    <div class="cards-list" id="cardsList">
+        <!-- ГОТОВЫЕ ГАЙДЫ -->
+        <a href="./morveyn/index.html" class="card story-card" data-title="морвэйн" data-favs="кайден фантом айзек">
+            <div class="card-title">Морвэйн</div>
+            <div class="card-favs"><strong>Ветки:</strong> Кайден, Фантом, Айзек</div>
+        </a>
+
+        <a href="./kadr49/index.html" class="card story-card" data-title="кадр 49" data-favs="хикару юки рюсэй акира">
+            <div class="card-title">Кадр 49</div>
+            <div class="card-favs"><strong>Ветки:</strong> Хикару, Юки, Рюсэй, Акира</div>
+        </a>
+
+        <a href="./illuz/index.html" class="card story-card" data-title="иллюзия славы" data-favs="шейд ларс кларенс дэмиан винстон">
+            <div class="card-title">Иллюзия славы</div>
+            <div class="card-favs"><strong>Ветки:</strong> Шейд, Ларс, Кларенс, Дэмиан, Винстон</div>
+        </a>
+
+        <!-- В РАЗРАБОТКЕ (КЛИКАБЕЛЬНЫЕ) -->
+        <a href="./nevesta/index.html" class="card story-card" data-title="невеста для вампира">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Невеста для вампира</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./atlanta/index.html" class="card story-card" data-title="сердце атланта">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Сердце Атланта</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./nebozhiteli/index.html" class="card story-card" data-title="предание о небожителях">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Предание о небожителях</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./drakon/index.html" class="card story-card" data-title="сага о драконе">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Сага о драконе</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./fatum/index.html" class="card story-card" data-title="эпоха фатума">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Эпоха Фатума</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./zloydenka/index.html" class="card story-card" data-title="последнее желание злодейки">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Последнее желание злодейки</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./almazar/index.html" class="card story-card" data-title="наследие алмазара">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Наследие Алмазара</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./biom/index.html" class="card story-card" data-title="смертельный биом">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Смертельный биом</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./cepi/index.html" class="card story-card" data-title="цепи договора">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Цепи договора</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./bezdna/index.html" class="card story-card" data-title="дитя бездны">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Дитя бездны</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./rim/index.html" class="card story-card" data-title="рим. искушение мудростью рим искушение мудростью">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Рим. Искушение мудростью</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./fortuna/index.html" class="card story-card" data-title="миссия фортуна">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Миссия Фортуна</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
+
+        <a href="./dedukciya/index.html" class="card story-card" data-title="метод и дедукция">
+            <div class="card-dev-header">
+                <div class="card-title" style="margin-bottom:0;">Метод и дедукция</div>
+                <span class="badge-dev">В разработке</span>
+            </div>
+        </a>
     </div>
 
-    <!-- КАРТОЧКА МОРВЭЙН -->
-    <a href="./morveyn/index.html" style="display: block; background: #0f111a; text-decoration: none; padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 35px; border-left: 4px solid #bc00dd;">
-        <div style="font-size: 19px; font-weight: 700; color: #ffffff; margin-bottom: 4px; letter-spacing: 0.3px;">Морвэйн</div>
-        <div style="font-size: 12px; color: #697c94; font-weight: 500;">Доступные ветки: Кайден, Фантом, Айзек</div>
-    </a>
-    <!-- КАРТОЧКА КАДР49 -->
-    <a href="./kadr49/index.html" style="display: block; background: #0f111a; text-decoration: none; padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 35px; border-left: 4px solid #bc00dd;">
-        <div style="font-size: 19px; font-weight: 700; color: #ffffff; margin-bottom: 4px; letter-spacing: 0.3px;">Кадр 49</div>
-        <div style="font-size: 12px; color: #697c94; font-weight: 500;">Доступные ветки: Хикару, Юки, Рюсэй, Акира</div>
-    </a>
-    <!-- КАРТОЧКА ИЛЛЮЗИЯ СЛАВЫ  -->
-    <a href="./illuz/index.html" style="display: block; background: #0f111a; text-decoration: none; padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 35px; border-left: 4px solid #bc00dd;">
-        <div style="font-size: 19px; font-weight: 700; color: #ffffff; margin-bottom: 4px; letter-spacing: 0.3px;">Иллюзия славы </div>
-        <div style="font-size: 12px; color: #697c94; font-weight: 500;">Доступные ветки: Шейд, Ларс, Кларенс, Дэмиан, Винстон</div>
-    </a>
-
-    <div style="background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04);">
-        <div style="font-size: 12px; color: #c5a880; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
-            Навигация 
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 12px; color: #a3b2c5; font-size: 14px;">
-            <div style="display: flex; align-items: flex-start;">
-                <span style="color: #c5a880; font-weight: bold; margin-right: 10px; font-size: 13px;">01</span>
+    <div class="navigation-box">
+        <div class="section-title" style="margin-bottom: 14px;">Как пользоваться</div>
+        <div class="nav-steps">
+            <div class="nav-step">
+                <span class="nav-num">01</span>
                 <span>Выберите интересующую историю в каталоге выше.</span>
             </div>
-            <div style="display: flex; align-items: flex-start;">
-                <span style="color: #c5a880; font-weight: bold; margin-right: 10px; font-size: 13px;">02</span>
+            <div class="nav-step">
+                <span class="nav-num">02</span>
                 <span>Перейдите на страницу истории и выберите фаворита.</span>
             </div>
-            <div style="display: flex; align-items: flex-start;">
-                <span style="color: #c5a880; font-weight: bold; margin-right: 10px; font-size: 13px;">03</span>
+            <div class="nav-step">
+                <span class="nav-num">03</span>
                 <span>Откройте гайд под ваше сочетание статов.</span>
             </div>
+        </div>
     </div>
+
+    <!-- SEO Текст -->
+    <section class="seo-block">
+        <h2>Гайды и ответы Seven Hearts Stories</h2>
+        <p>База прохождений визуальных новелл Seven Hearts Stories (Севен Харт Сториес). Здесь доступны ответы, выходы на любовные ветки с фаворитами, гайды по путям и расчёт статов для историй «Морвэйн», «Кадр 49», «Предание о небожителях», «Невеста для вампира» и других новелл.</p>
+    </section>
+
+    <!-- Скрипт поиска -->
+    <script>
+        function filterStories() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.story-card');
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title') || '';
+                const favs = card.getAttribute('data-favs') || '';
+                
+                if (title.includes(input) || favs.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
