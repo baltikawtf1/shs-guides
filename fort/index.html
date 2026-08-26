@@ -10,9 +10,12 @@
         :root {
             --bg-color: #07090e;
             --card-bg: rgba(18, 22, 31, 0.75);
-            --gold: #f3ce61;
-            --gold-glow: rgba(243, 206, 97, 0.25);
-            --gold-border: rgba(243, 206, 97, 0.2);
+            
+            /* Заменили желтый на глубокий и технологичный неоново-голубой оттенок */
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.25);
+            --accent-border: rgba(56, 189, 248, 0.2);
+
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
         }
@@ -33,7 +36,7 @@
             overflow-x: hidden;
         }
 
-        /* Сложный анимированный фон */
+        /* Анимированный фон с синими акцентами */
         .bg-canvas {
             position: fixed;
             top: 0;
@@ -42,12 +45,11 @@
             height: 100%;
             z-index: -1;
             background: 
-                radial-gradient(circle at 15% 20%, rgba(243, 206, 97, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
                 linear-gradient(135deg, #07090e 0%, #0d111a 100%);
         }
 
-        /* Декоративная сетка поверх фона */
         .bg-grid {
             position: fixed;
             top: 0;
@@ -60,7 +62,6 @@
             z-index: -1;
         }
 
-        /* Плавающие световые сферы */
         .light-orb {
             position: fixed;
             border-radius: 50%;
@@ -75,7 +76,7 @@
             left: 20%;
             width: 400px;
             height: 400px;
-            background: rgba(212, 175, 55, 0.12);
+            background: rgba(56, 189, 248, 0.1);
         }
 
         .orb-2 {
@@ -83,7 +84,7 @@
             right: 10%;
             width: 500px;
             height: 500px;
-            background: rgba(120, 50, 200, 0.08);
+            background: rgba(99, 102, 241, 0.08);
             animation-delay: -6s;
         }
 
@@ -99,14 +100,14 @@
             z-index: 1;
         }
 
-        /* Компактная шапка */
+        /* Шапка */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 24px;
             padding-bottom: 14px;
-            border-bottom: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--accent-border);
             gap: 16px;
         }
 
@@ -121,10 +122,10 @@
             font-family: 'Cinzel', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--accent);
             letter-spacing: 1px;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(243, 206, 97, 0.2);
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
         .title-block p {
@@ -139,10 +140,10 @@
             align-items: center;
             gap: 8px;
             padding: 8px 16px;
-            background: rgba(243, 206, 97, 0.05);
-            border: 1px solid var(--gold);
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px solid var(--accent);
             border-radius: 6px;
-            color: var(--gold);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.78rem;
@@ -154,9 +155,9 @@
         }
 
         .back-btn:hover {
-            background: var(--gold);
+            background: var(--accent);
             color: #07090e;
-            box-shadow: 0 0 20px var(--gold-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
             transform: translateY(-1px);
         }
 
@@ -170,7 +171,7 @@
         /* Карточка */
         .card {
             background: var(--card-bg);
-            border: 1px solid var(--gold-border);
+            border: 1px solid var(--accent-border);
             border-radius: 16px;
             padding: 20px;
             position: relative;
@@ -180,9 +181,9 @@
         }
 
         .card:hover {
-            border-color: var(--gold);
+            border-color: var(--accent);
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--gold-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-glow);
         }
 
         /* Окно для фотографии */
@@ -190,7 +191,7 @@
             width: 100%;
             height: 150px;
             background: rgba(5, 7, 10, 0.8);
-            border: 1px dashed var(--gold-border);
+            border: 1px dashed var(--accent-border);
             border-radius: 10px;
             margin-bottom: 16px;
             display: flex;
@@ -206,7 +207,7 @@
         }
 
         .card:hover .card-photo-box {
-            border-color: rgba(243, 206, 97, 0.4);
+            border-color: rgba(56, 189, 248, 0.4);
         }
 
         /* Заголовок карточки */
@@ -229,11 +230,11 @@
         .card-id {
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--gold);
-            background: rgba(243, 206, 97, 0.1);
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
             padding: 4px 8px;
             border-radius: 6px;
-            border: 1px solid rgba(243, 206, 97, 0.2);
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         /* Список путей */
@@ -243,6 +244,7 @@
             gap: 8px;
         }
 
+        /* Кнопки внутри карточек (подсветка при наведении / нажатии) */
         .path-link {
             display: flex;
             justify-content: space-between;
@@ -259,11 +261,11 @@
         }
 
         .path-link:hover {
-            background: var(--gold);
+            background: var(--accent);
             color: #07090e;
-            border-color: var(--gold);
+            border-color: var(--accent);
             padding-left: 18px;
-            box-shadow: 0 0 15px var(--gold-glow);
+            box-shadow: 0 0 15px var(--accent-glow);
             font-weight: 600;
         }
 
