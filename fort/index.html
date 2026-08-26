@@ -5,38 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Миссия: Фортуна — Оперативный Архив</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
         :root {
-            --bg: #030407;
-            --surface: #0a0d14;
-            --surface-hover: #121722;
-            --accent-cyan: #00f0ff;
-            --accent-pink: #ff0055;
-            --accent-purple: #9d00ff;
-            --text-main: #f0f4f8;
-            --text-muted: #64748b;
-            --border: rgba(255, 255, 255, 0.08);
+            --bg-color: #07090e;
+            --card-bg: rgba(18, 22, 31, 0.75);
+            --gold: #f3ce61;
+            --gold-glow: rgba(243, 206, 97, 0.25);
+            --gold-border: rgba(243, 206, 97, 0.2);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg);
+            background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
-            overflow-x: hidden;
+            padding: 24px 20px;
             position: relative;
-            padding: 60px 20px;
+            overflow-x: hidden;
         }
 
-        /* Интерактивный киберпанк-фон с неоновой сеткой и туманом */
-        .cyber-bg {
+        /* Сложный анимированный фон */
+        .bg-canvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -44,139 +42,349 @@
             height: 100%;
             z-index: -1;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(157, 0, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
-                linear-gradient(180deg, #030407 0%, #070911 100%);
+                radial-gradient(circle at 15% 20%, rgba(243, 206, 97, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                linear-gradient(135deg, #07090e 0%, #0d111a 100%);
         }
 
-        .cyber-grid {
+        /* Декоративная сетка поверх фона */
+        .bg-grid {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: -1;
-            mask-image: radial-gradient(circle at 50% 30%, black 30%, transparent 80%);
+        }
+
+        /* Плавающие световые сферы */
+        .light-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: floatOrb 12s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            top: -10%;
+            left: 20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(212, 175, 55, 0.12);
+        }
+
+        .orb-2 {
+            bottom: -10%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(120, 50, 200, 0.08);
+            animation-delay: -6s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(40px) scale(1.1); }
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        /* Шапка в стиле футуристичного терминала */
+        /* Компактная шапка */
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 30px;
-            gap: 20px;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--gold-border);
+            gap: 16px;
+        }
+
+        .title-block {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .title-block h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #fff 30%, var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(243, 206, 97, 0.2);
         }
 
         .title-block p {
             color: var(--text-muted);
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
         }
 
-        .title-block p::before {
-            content: "";
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-cyan);
-            animation: blink 2s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* Неоновая кнопка возврата */
+        /* Кнопка возврата */
         .back-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 14px 28px;
-            background: var(--surface);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 12px;
-            color: var(--accent-cyan);
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(243, 206, 97, 0.05);
+            border: 1px solid var(--gold);
+            border-radius: 6px;
+            color: var(--gold);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
         }
 
         .back-btn:hover {
-            background: var(--accent-cyan);
-            color: var(--bg);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
-            transform: translateY(-3px);
+            background: var(--gold);
+            color: #07090e;
+            box-shadow: 0 0 20px var(--gold-glow);
+            transform: translateY(-1px);
         }
 
         /* Сетка карточек */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
         }
 
-        /* Необычная карточка с цветной подсветкой сзади */
+        /* Карточка */
         .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--gold-border);
+            border-radius: 16px;
+            padding: 20px;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card:hover {
-            border-color: rgba(0, 240, 255, 0.4);
-            transform: translateY(-8px);
-            box-shadow:
+            border-color: var(--gold);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--gold-glow);
+        }
+
+        /* Окно для фотографии */
+        .card-photo-box {
+            width: 100%;
+            height: 150px;
+            background: rgba(5, 7, 10, 0.8);
+            border: 1px dashed var(--gold-border);
+            border-radius: 10px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover .card-photo-box {
+            border-color: rgba(243, 206, 97, 0.4);
+        }
+
+        /* Заголовок карточки */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card-id {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gold);
+            background: rgba(243, 206, 97, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(243, 206, 97, 0.2);
+        }
+
+        /* Список путей */
+        .paths-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .path-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(12, 16, 24, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .path-link:hover {
+            background: var(--gold);
+            color: #07090e;
+            border-color: var(--gold);
+            padding-left: 18px;
+            box-shadow: 0 0 15px var(--gold-glow);
+            font-weight: 600;
+        }
+
+        .path-link::after {
+            content: "→";
+            opacity: 0.5;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease;
+        }
+
+        .path-link:hover::after {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .title-block h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-canvas"></div>
+    <div class="bg-grid"></div>
+    <div class="light-orb orb-1"></div>
+    <div class="light-orb orb-2"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="title-block">
+                <h1>Миссия: Фортуна</h1>
+                <p>Оперативный архив фаворитов и веток прохождения</p>
+            </div>
+            <a href="ССЫЛКА_НА_ВСЕ_ИСТОРИИ" class="back-btn">
+                ← Ко всем историям
+            </a>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-photo-box">
+                    <span>[ Фото Фаворита ]</span>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">Себастьян</div>
+                    <div class="card-id">01</div>
+                </div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-photo-box">
+                    <span>[ Фото Фаворита ]</span>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">Майкл</div>
+                    <div class="card-id">02</div>
+                </div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_МАЙКЛ_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_МАЙКЛ_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_МАЙКЛ_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-photo-box">
+                    <span>[ Фото Фаворита ]</span>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">Лиам</div>
+                    <div class="card-id">03</div>
+                </div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_ЛИАМ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_ЛИАМ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_ЛИАМ_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_ЛИАМ_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_ЛИАМ_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_ЛИАМ_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-photo-box">
+                    <span>[ Фото Фаворита ]</span>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">Джимми</div>
+                    <div class="card-id">04</div>
+                </div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_ДЖИММИ_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_ДЖИММИ_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_ДЖИММИ_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
