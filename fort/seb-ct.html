@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд: Себастьян</title>
+    <style>
+        :root {
+            --bg-color: #0b0f17;
+            --card-border: #1f2d40;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent: #6366f1;
+            --stat-agent: #ef4444;
+            --stat-quiet: #3b82f6;
+            --stat-human: #10b981;
+            --stat-rep: #f59e0b;
+            --diamond: #c084fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.45;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Верхняя панель */
+        .top-bar {
+            background: linear-gradient(135deg, #131b26 0%, #162235 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 18px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .top-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--card-border);
+            border-color: var(--accent);
+        }
+
+        .guide-main-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .guide-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+        }
+
+        .guide-tags {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            font-weight: 500;
+        }
+
+        /* Карточки серий с голубовато-синим переливом и увеличенным отступом между ними */
+        .episode-card {
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 50%), 
+                        linear-gradient(135deg, #131b26 0%, #101722 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .episode-header {
+            padding: 8px 14px;
+            font-size: 13.5px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--card-border);
+            background-color: rgba(59, 130, 246, 0.03);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .episode-content {
+            padding: 8px 14px 12px 14px;
+        }
+
+        .choice-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .choice-item {
+            font-size: 13px;
+            padding: 6px 10px;
+            background-color: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.025);
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .choice-item:hover {
+            background-color: rgba(59, 130, 246, 0.04);
+            border-color: rgba(59, 130, 246, 0.15);
+        }
+
+        .choice-text {
+            flex: 1;
+            font-weight: 400;
+        }
+
+        .stats-group {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .stat {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .agent { background-color: rgba(239, 68, 68, 0.12); color: var(--stat-agent); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .quiet { background-color: rgba(59, 130, 246, 0.12); color: var(--stat-quiet); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .human { background-color: rgba(16, 185, 129, 0.12); color: var(--stat-human); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .rep { background-color: rgba(245, 158, 11, 0.12); color: var(--stat-rep); border: 1px solid rgba(245, 158, 11, 0.2); }
+        .diamond-cost { background-color: rgba(192, 132, 252, 0.12); color: var(--diamond); border: 1px solid rgba(192, 132, 252, 0.2); }
+        .relation { background-color: rgba(236, 72, 153, 0.12); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.2); }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px 8px;
+            }
+            .choice-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .stats-group {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <div class="top-header-row">
+            <div class="nav-buttons">
+                <a href="../index.html" class="nav-btn">К историям</a>
+                <a href="index.html" class="nav-btn">Фавориты</a>
+            </div>
+        </div>
+        <div class="guide-main-info">
+            <div class="guide-title">Себастьян</div>
+            <div class="guide-tags">Путь: Человек + Тихоня</div>
+        </div>
+    </div>
+
+    <!-- 1 серия -->
+    <div class="episode-card">
+        <div class="episode-header">1 серия</div>
+        <div class="episode-content">
+            <ul class="choice-list">
+                <li class="choice-item"><span class="choice-text">Сослаться на человеческий фактор</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Выполню. Но останутся при своём мнении</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Пообещать</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Он милый</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Он не в моём вкусе / Меня не интересуют парни</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Невероятная наглость</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item">
+                    <span class="choice-text">Проучить наглеца</span> 
+                    <div class="stats-group">
+                        <span class="stat diamond-cost">15 аметистов</span> 
+                        <span class="stat relation">Улучшение отношений с Себастьяном</span>
+                        <span class="stat relation">Кат-сцена</span>
+                    </div>
+                </li>
+                <li class="choice-item"><span class="choice-text">Неожиданное любопытство</span> <span class="stat human">+1 Человек</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 2 серия -->
+    <div class="episode-card">
+        <div class="episode-header">2 серия</div>
+        <div class="episode-content">
+            <ul class="choice-list">
+                <li class="choice-item"><span class="choice-text">Это... выглядит интересно</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Изобразить панику</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Забеспокоится</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Растерянно улыбнуться</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">БЕСИТ</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Меня пугает толпа</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Покрутить прядь волос</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Буду максимально скучной</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Обернуться посмотреть</span> <span class="stat human">+1 Человек</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 3 серия -->
+    <div class="episode-card">
+        <div class="episode-header">3 серия</div>
+        <div class="episode-content">
+            <ul class="choice-list">
+                <li class="choice-item"><span class="choice-text">Я не понимаю, о чем ты</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Будем осторожными</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Показать мимикой</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Позволить себе слабость</span> <span class="stat human">+1 Человек</span></li>
+                <li class="choice-item"><span class="choice-text">Хотя бы улыбнуться</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Я обозналась</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item">
+                    <span class="choice-text">Вскрыть замок</span> 
+                    <div class="stats-group">
+                        <span class="stat diamond-cost">15 аметистов</span> 
+                        <span class="stat relation">Улучшение отношений с Себастьяном</span>
+                        <span class="stat rep">Открыт навык «Взлом замков»</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 4 серия -->
+    <div class="episode-card">
+        <div class="episode-header">4 серия</div>
+        <div class="episode-content">
+            <ul class="choice-list">
+                <li class="choice-item"><span class="choice-text">Признать вину</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Хотела чем-нибудь поживиться / Искала компромат на него</span> <span class="stat relation">Улучшение отношений с Себастьяном</span></li>
+                <li class="choice-item"><span class="choice-text">Промолчу, нет смысла его убеждать</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Уточнить расценки / Потребовать гарантий</span> <span class="stat relation">Улучшение отношений с Себастьяном</span></li>
+                <li class="choice-item"><span class="choice-text">Согласиться на его условия</span></li>
+                <li class="choice-item"><span class="choice-text">Вогнать меня в долги?</span> <span class="stat relation">Улучшение отношений с Себастьяном</span></li>
+                <li class="choice-item"><span class="choice-text">Немного</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item">
+                    <span class="choice-text">Кейт Ривер и выиграю</span> 
+                    <div class="stats-group">
+                        <span class="stat diamond-cost">30 аметистов</span> 
+                        <span class="stat rep">+2 Репутация</span>
+                    </div>
+                </li>
+                <li class="choice-item"><span class="choice-text">Вцепиться в Лиама покрепче</span> <span class="stat quiet">+1 Тихоня</span></li>
+                <li class="choice-item"><span class="choice-text">Вам не скучно возиться с первокурсниками?</span> <span class="stat quiet">+1 Тихоня</span></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
