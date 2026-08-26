@@ -31,7 +31,7 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.5;
-            padding: 16px 12px;
+            padding: 24px 16px;
         }
 
         .container {
@@ -39,47 +39,23 @@
             margin: 0 auto;
         }
 
-        /* Компактная шапка и навигация в одну строку */
+        /* Стильный минималистичный верх */
         .top-bar {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .top-header-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, #1e1b4b 0%, var(--card-bg) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .top-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--accent-gradient);
-        }
-
-        .guide-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .guide-title {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.3px;
-        }
-
-        .guide-tags {
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 500;
         }
 
         .nav-buttons {
@@ -88,12 +64,12 @@
         }
 
         .nav-btn {
-            background-color: rgba(255, 255, 255, 0.04);
+            background-color: rgba(255, 255, 255, 0.03);
             color: var(--text-primary);
             border: 1px solid var(--card-border);
             padding: 6px 12px;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 13px;
             cursor: pointer;
             text-decoration: none;
@@ -105,31 +81,43 @@
             border-color: var(--accent);
         }
 
-        /* Компактные карточки серий */
+        .guide-main-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .guide-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+        }
+
+        .guide-tags {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            font-weight: 500;
+        }
+
+        /* Компактные карточки серий с небольшими отступами */
         .episode-card {
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 10px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
             overflow: hidden;
         }
 
         .episode-header {
             padding: 10px 16px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             border-bottom: 1px solid var(--card-border);
             background-color: rgba(255, 255, 255, 0.01);
-            display: flex;
-            align-items: center;
-            gap: 8px;
             color: var(--text-secondary);
-        }
-
-        .episode-header::before {
-            content: '📌';
-            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .episode-content {
@@ -190,18 +178,8 @@
         .relation { background-color: rgba(236, 72, 153, 0.12); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.2); }
 
         @media (max-width: 600px) {
-            .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .nav-buttons {
-                width: 100%;
-                justify-content: space-between;
-            }
-            .nav-btn {
-                flex: 1;
-                text-align: center;
+            body {
+                padding: 12px 8px;
             }
             .choice-item {
                 flex-direction: column;
@@ -218,13 +196,15 @@
 
 <div class="container">
     <div class="top-bar">
-        <div class="guide-info">
+        <div class="top-header-row">
+            <div class="nav-buttons">
+                <a href="../index.html" class="nav-btn">К историям</a>
+                <a href="index.html" class="nav-btn">Фавориты</a>
+            </div>
+        </div>
+        <div class="guide-main-info">
             <div class="guide-title">Себастьян</div>
             <div class="guide-tags">Путь: Агент + Тихоня</div>
-        </div>
-        <div class="nav-buttons">
-            <a href="../index.html" class="nav-btn">← К историям</a>
-            <a href="index.html" class="nav-btn">★ Фавориты</a>
         </div>
     </div>
 
