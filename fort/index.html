@@ -1,1 +1,240 @@
-##
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миссия: Фортуна — Гайды</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(18, 24, 38, 0.7);
+            --card-border: rgba(99, 102, 241, 0.2);
+            --accent-glow: #6366f1;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --tag-bg: rgba(30, 41, 59, 0.8);
+            --tag-hover: #4f46e5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Шапка */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .title-block h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-block p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* Кнопка возврата */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Сетка карточек фаворитов */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 10px;
+        }
+
+        /* Список путей (кнопки) */
+        .paths-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .path-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: var(--tag-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .path-link:hover {
+            background: var(--tag-hover);
+            border-color: rgba(255, 255, 255, 0.2);
+            padding-left: 18px;
+            box-shadow: 0 0 12px rgba(79, 70, 229, 0.4);
+        }
+
+        .path-link::after {
+            content: "→";
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .path-link:hover::after {
+            opacity: 1;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .title-block h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="title-block">
+                <h1>Миссия: Фортуна</h1>
+                <p>Выберите фаворита и путь для просмотра гайда</p>
+            </div>
+            <a href="ССЫЛКА_НА_ВСЕ_ИСТОРИИ" class="back-btn">
+                ← Ко всем историям
+            </a>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-title">Себастьян</div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_СЕБЕСТЬЯН_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Майкл</div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_МАЙКЛ_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_МАЙКЛ_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_МАЙКЛ_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Лиам</div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_ЛИАМ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_ЛИАМ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_ЛИАМ_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_ЛИАМ_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_ЛИАМ_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_ЛИАМ_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Джимми</div>
+                <div class="paths-list">
+                    <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
+                    <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
+                    <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_БУНТАРКА" class="path-link">Агент + Бунтарка</a>
+                    <a href="ССЫЛКА_ДЖИММИ_ЧЕЛОВЕК_ТИХОНЯ" class="path-link">Человек + Тихоня</a>
+                    <a href="ССЫЛКА_ДЖИММИ_ЧЕЛОВЕК_СТАРОСТА" class="path-link">Человек + Староста</a>
+                    <a href="ССЫЛКА_ДЖИММИ_ЧЕЛОВЕК_БУНТАРКА" class="path-link">Человек + Бунтарка</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
