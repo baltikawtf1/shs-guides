@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Миссия Фартуна — Гайд для Себастьяна</title>
+    <title>Гайд: Себастьян — Агент + Тихоня</title>
     <style>
         :root {
-            --bg-color: #0f1016;
-            --card-bg: #181a26;
-            --accent-agent: #4f46e5;
-            --accent-quiet: #06b6d4;
-            --accent-gem: #ec4899;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #2d3142;
+            --bg-color: #0f1117;
+            --card-bg: #181c25;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --gem-color: #a855f7;
+            --stat-color: #38bdf8;
+            --border-color: #2d3748;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-primary);
             line-height: 1.6;
             padding: 20px;
         }
@@ -35,199 +36,371 @@
             margin: 0 auto;
         }
 
-        /* Header Styles */
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--accent-quiet), var(--accent-agent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-buttons {
+        /* Шапка с кнопками */
+        .header-nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
             gap: 15px;
-            flex-wrap: wrap;
         }
 
-        .btn {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 2px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 8px;
+        .nav-btn {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             text-decoration: none;
-            display: inline-block;
+            flex: 1;
+            justify-content: center;
         }
 
-        .btn:hover {
-            border-color: var(--accent-quiet);
-            background-color: rgba(6, 182, 212, 0.1);
+        .nav-btn:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
             transform: translateY(-2px);
         }
 
-        /* Episode Styles */
-        .episode-card {
-            background: var(--card-bg);
+        /* Карточка персонажа */
+        .character-card {
+            background: linear-gradient(135deg, #1e1b4b 0%, var(--card-bg) 100%);
+            border: 1px solid #312e81;
             border-radius: 16px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 25px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
-        .episode-title {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 15px 20px;
-            font-size: 1.2rem;
+        .character-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .character-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Секции серий */
+        .episode-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .episode-header {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 16px 24px;
+            font-size: 1.25rem;
             font-weight: 700;
             border-bottom: 1px solid var(--border-color);
-            color: var(--accent-quiet);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .choices-list {
             list-style: none;
-            padding: 15px 20px;
+            padding: 10px 0;
         }
 
-        .choices-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        .choice-item {
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: background-color 0.15s ease;
         }
 
-        .choices-list li:last-child {
+        .choice-item:last-child {
             border-bottom: none;
         }
 
+        .choice-item:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
         .choice-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
             flex: 1;
+            padding-right: 15px;
         }
 
-        /* Tags / Stat Badges */
+        /* Значки и эффекты выборов */
+        .choice-effect {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
         .badge {
-            font-size: 0.8rem;
-            padding: 4px 10px;
+            padding: 3px 10px;
             border-radius: 6px;
-            font-weight: 600;
-            white-space: nowrap;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .badge-agent {
-            background-color: rgba(79, 70, 229, 0.2);
-            color: #818cf8;
-            border: 1px solid rgba(79, 70, 229, 0.4);
-        }
-
-        .badge-quiet {
-            background-color: rgba(6, 182, 212, 0.2);
-            color: #22d3ee;
-            border: 1px solid rgba(6, 182, 212, 0.4);
+        .badge-stat {
+            background-color: rgba(56, 189, 248, 0.15);
+            color: var(--stat-color);
+            border: 1px solid rgba(56, 189, 248, 0.3);
         }
 
         .badge-gem {
-            background-color: rgba(236, 72, 153, 0.2);
-            color: #f472b6;
-            border: 1px solid rgba(236, 72, 153, 0.4);
+            background-color: rgba(168, 85, 247, 0.15);
+            color: var(--gem-color);
+            border: 1px solid rgba(168, 85, 247, 0.3);
         }
 
-        .badge-rel {
-            background-color: rgba(16, 185, 129, 0.2);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.4);
+        .badge-relation {
+            background-color: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.3);
         }
 
-        .badge-other {
-            background-color: rgba(234, 179, 8, 0.2);
-            color: #facc15;
-            border: 1px solid rgba(234, 179, 8, 0.4);
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .header-nav {
+                flex-direction: column;
+            }
+            .choice-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .choice-effect {
+                justify-content: flex-start;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>Миссия Фартуна. Гайд для Себастьяна. Агент + Тихоня</h1>
-        <div class="nav-buttons">
-            <a href="#stories" class="btn">К историям</a>
-            <a href="#favorites" class="btn">К фаворитам</a>
+
+    <div class="header-nav">
+        <button class="nav-btn">
+            <span>←</span> К историям
+        </button>
+        <button class="nav-btn">
+            <span>❤️</span> К фаворитам
+        </button>
+    </div>
+
+    <div class="character-card">
+        <h1 class="character-title">Себастьян</h1>
+        <div class="character-tags">
+            <span class="tag">Агент</span>
+            <span class="tag">Тихоня</span>
         </div>
-    </header>
+    </div>
 
-    <div class="episode-card">
-        <div class="episode-title">1 серия</div>
+    <div class="episode-section">
+        <div class="episode-header">1 серия</div>
         <ul class="choices-list">
-            <li><span class="choice-text">Опереться на сухие факты</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">Директору виднее</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">Сослаться на протокол</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">Он выглядит самым адекватным / У него единственного очки</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">У меня миссия / Я не сближаюсь с людьми</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">Блестящая манипуляция</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">Проучить наглеца [15 аметистов]</span><span class="badge badge-rel">Отношения с Себастьяном + кат-сцена</span></li>
-            <li><span class="choice-text">Привычная холодная отстранённость</span><span class="badge badge-agent">+1 Агент</span></li>
+            <li class="choice-item">
+                <span class="choice-text">Опереться на сухие факты</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Директору виднее</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Сослаться на протокол</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Он выглядит самым адекватным / У него единственного очки</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">У меня миссия / Я не сближаюсь с людьми</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Блестящая манипуляция</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Проучить наглеца</span>
+                <div class="choice-effect">
+                    <span class="badge badge-gem">15 аметистов</span>
+                    <span class="badge badge-relation">Отношения с Себастьяном + кат-сцена</span>
+                </div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Привычная холодная отстранённость</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
         </ul>
     </div>
 
-    <div class="episode-card">
-        <div class="episode-title">2 серия</div>
+    <div class="episode-section">
+        <div class="episode-header">2 серия</div>
         <ul class="choices-list">
-            <li><span class="choice-text">Это... выглядит интересно</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Изобразить панику</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Забеспокоится</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Растерянно улыбнуться</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Бесит</span><span class="badge badge-agent">+1 Агент</span></li>
-            <li><span class="choice-text">Меня пугает толпа</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Покрутить прядь волос</span><span class="badge badge-other">+1 Человек</span></li>
-            <li><span class="choice-text">Поправить воротник <em>(второй выбор в цепочке сигнала)</em></span><span class="badge badge-rel">Правильный вариант</span></li>
-            <li><span class="choice-text">Буду максимально скучной</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Крайне непрофессионально / Подозрительно</span><span class="badge badge-agent">+1 Агент</span></li>
+            <li class="choice-item">
+                <span class="choice-text">Это... выглядит интересно</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Изобразить панику</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Забеспокоиться</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Растерянно улыбнуться</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Бесит</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Меня пугает толпа</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Покрутить прядь волос</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Человек</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Поправить воротник <small>(второй выбор в цепочке сигнала)</small></span>
+                <div class="choice-effect"><span class="badge badge-stat">Правильный вариант</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Буду максимально скучной</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Крайне непрофессионально / Подозрительно</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Агент</span></div>
+            </li>
         </ul>
     </div>
 
-    <div class="episode-card">
-        <div class="episode-title">3 серия</div>
+    <div class="episode-section">
+        <div class="episode-header">3 серия</div>
         <ul class="choices-list">
-            <li><span class="choice-text">Я не понимаю, о чем ты</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Попытаться подсмотреть [20 аметистов]</span><span class="badge badge-gem">Кат-сцена</span></li>
-            <li><span class="choice-text">Себастьян Армитедж / Майк Харпер</span><span class="badge badge-other">Выбор фаворита</span></li>
-            <li><span class="choice-text">Майк — ее типаж мужчины?</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Будем осторожными</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Показать мимикой</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Взять себя в руки [25 аметистов] + Агент</span><span class="badge badge-rel">+1 Репутация Бюро, навык «Контроль эмоций»</span></li>
-            <li><span class="choice-text">Хотя бы улыбнуться</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Я обозналась</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Вскрыть замок [15 аметистов]</span><span class="badge badge-rel">Отношения с Себастьяном, навык «Взлом замков»</span></li>
+            <li class="choice-item">
+                <span class="choice-text">Я не понимаю, о чем ты</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Попытаться подсмотреть</span>
+                <div class="choice-effect">
+                    <span class="badge badge-gem">20 аметистов</span>
+                    <span class="badge badge-relation">Кат-сцена</span>
+                </div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Себастьян Армитедж / Майк Харпер → Майк — ее типаж мужчины?</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Будем осторожными</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Показать мимикой</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Взять себя в руки + Агент</span>
+                <div class="choice-effect">
+                    <span class="badge badge-gem">25 аметистов</span>
+                    <span class="badge badge-relation">+1 Репутация Бюро, навык «Контроль эмоций»</span>
+                </div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Хотя бы улыбнуться</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Я обозналась</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Вскрыть замок</span>
+                <div class="choice-effect">
+                    <span class="badge badge-gem">15 аметистов</span>
+                    <span class="badge badge-relation">Отношения с Себастьяном, навык «Взлом замков»</span>
+                </div>
+            </li>
         </ul>
     </div>
 
-    <div class="episode-card">
-        <div class="episode-title">4 серия</div>
+    <div class="episode-section">
+        <div class="episode-header">4 серия</div>
         <ul class="choices-list">
-            <li><span class="choice-text">Признать вину</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Хотела чем-нибудь поживиться / Искала компромат на него</span><span class="badge badge-rel">Улучшение с Себастьяном</span></li>
-            <li><span class="choice-text">Промолчу, нет смысла его убеждать</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Уточнить расценки / Потребовать гарантий</span><span class="badge badge-rel">Улучшение с Себастьяном</span></li>
-            <li><span class="choice-text">Согласиться на его условия</span><span class="badge badge-other">Развитие сюжета</span></li>
-            <li><span class="choice-text">Вогнать меня в долги?</span><span class="badge badge-rel">Улучшение с Себастьяном</span></li>
-            <li><span class="choice-text">Немного</span><span class="badge badge-quiet">+1 Тихоня</span></li>
-            <li><span class="choice-text">Постоя
+            <li class="choice-item">
+                <span class="choice-text">Признать вину</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Хотела чем-нибудь поживиться / Искала компромат на него</span>
+                <div class="choice-effect"><span class="badge badge-relation">Отношения с Себастьяном</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Промолчу, нет смысла его убеждать</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Уточнить расценки / Потребовать гарантий</span>
+                <div class="choice-effect"><span class="badge badge-relation">Отношения с Себастьяном</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Согласиться на его условия → Вогнать меня в долги?</span>
+                <div class="choice-effect"><span class="badge badge-relation">Отношения с Себастьяном</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Немного</span>
+                <div class="choice-effect"><span class="badge badge-stat">+1 Тихоня</span></div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Постоять за себя</span>
+                <div class="choice-effect">
+                    <span class="badge badge-gem">15 аметистов</span>
+                    <span class="badge badge-stat">+1 Репутация</span>
+                </div>
+            </li>
+            <li class="choice-item">
+                <span class="choice-text">Да, отвечу на нем</span>
+                <div class="choice-effect
