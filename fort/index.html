@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Миссия: Фортуна — Оперативный Архив</title>
+    <title>Миссия: Фортуна </title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
@@ -11,7 +11,6 @@
             --bg-color: #07090e;
             --card-bg: rgba(18, 22, 31, 0.75);
             
-            /* Заменили желтый на глубокий и технологичный неоново-голубой оттенок */
             --accent: #38bdf8;
             --accent-glow: rgba(56, 189, 248, 0.25);
             --accent-border: rgba(56, 189, 248, 0.2);
@@ -36,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* Анимированный фон с синими акцентами */
         .bg-canvas {
             position: fixed;
             top: 0;
@@ -100,7 +98,6 @@
             z-index: 1;
         }
 
-        /* Шапка */
         .header {
             display: flex;
             justify-content: space-between;
@@ -134,7 +131,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* Кнопка возврата */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -161,14 +157,12 @@
             transform: translateY(-1px);
         }
 
-        /* Сетка карточек */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 28px;
         }
 
-        /* Карточка */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--accent-border);
@@ -186,7 +180,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-glow);
         }
 
-        /* Окно для фотографии */
         .card-photo-box {
             width: 100%;
             height: 150px;
@@ -210,7 +203,6 @@
             border-color: rgba(56, 189, 248, 0.4);
         }
 
-        /* Заголовок карточки */
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -237,14 +229,12 @@
             border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        /* Список путей */
         .paths-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        /* Кнопки внутри карточек (подсветка при наведении / нажатии) */
         .path-link {
             display: flex;
             justify-content: space-between;
@@ -304,7 +294,7 @@
         <div class="header">
             <div class="title-block">
                 <h1>Миссия: Фортуна</h1>
-                <p>Оперативный архив фаворитов и веток прохождения</p>
+                <p>Гайд по фаворитам и статам</p>
             </div>
             <a href="ССЫЛКА_НА_ВСЕ_ИСТОРИИ" class="back-btn">
                 ← Ко всем историям
