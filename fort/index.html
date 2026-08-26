@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Миссия: Фортуна — Гайды</title>
+    <title>Миссия: Фортуна — База Данных</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;800&display=swap');
+
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(18, 24, 38, 0.7);
-            --card-border: rgba(99, 102, 241, 0.2);
-            --accent-glow: #6366f1;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --tag-bg: rgba(30, 41, 59, 0.8);
-            --tag-hover: #4f46e5;
+            --bg-color: #080a0f;
+            --dossier-bg: #0e121b;
+            --border-color: #1f293d;
+            --accent-red: #ff3366;
+            --accent-glow: rgba(255, 51, 102, 0.25);
+            --text-main: #e2e8f0;
+            --text-muted: #64748b;
+            --tag-bg: #141a28;
+            --tag-hover: #ff3366;
+            --tag-text-hover: #ffffff;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
@@ -28,9 +32,11 @@
             color: var(--text-main);
             min-height: 100vh;
             padding: 40px 20px;
+            /* Сетка на фоне, как на чертежах/планах операций */
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+                linear-gradient(rgba(31, 41, 61, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(31, 41, 61, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
         .container {
@@ -42,52 +48,67 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             margin-bottom: 40px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
             flex-wrap: wrap;
             gap: 20px;
         }
 
+        .classified-stamp {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-red);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: inline-block;
+            border: 1px dashed var(--accent-red);
+            padding: 2px 8px;
+        }
+
         .title-block h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
         }
 
         .title-block p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-top: 5px;
+            font-family: 'Share Tech Mono', monospace;
         }
 
-        /* Кнопка возврата */
+        /* Кнопка "Ко всем историям" */
         .back-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            gap: 10px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            border-radius: 4px;
             color: var(--text-main);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
 
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent-glow);
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-            transform: translateY(-2px);
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: #fff;
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* Сетка карточек фаворитов */
+        /* Сетка карточек-досье */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -95,35 +116,61 @@
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
+            background: var(--dossier-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             padding: 24px;
-            backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Декоративный уголок досье */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-width: 0 15px 15px 0;
+            border-style: solid;
+            border-color: var(--border-color) var(--bg-color);
+            transition: border-color 0.3s ease;
         }
 
         .card:hover {
-            border-color: rgba(99, 102, 241, 0.5);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.15);
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 15px var(--accent-glow);
+        }
+
+        .card:hover::before {
+            border-color: var(--accent-red) var(--bg-color);
         }
 
         .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #fff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 10px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        /* Список путей (кнопки) */
+        .card-title span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 400;
+        }
+
+        /* Список путей */
         .paths-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .path-link {
@@ -132,33 +179,38 @@
             align-items: center;
             padding: 10px 14px;
             background: var(--tag-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 4px;
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             transition: all 0.2s ease;
         }
 
         .path-link:hover {
             background: var(--tag-hover);
-            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--tag-text-hover);
+            border-color: var(--accent-red);
             padding-left: 18px;
-            box-shadow: 0 0 12px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         .path-link::after {
-            content: "→";
-            opacity: 0;
-            transition: opacity 0.2s ease;
+            content: "›";
+            font-family: monospace;
+            font-size: 1.1rem;
+            opacity: 0.5;
+            transition: opacity 0.2s;
         }
 
         .path-link:hover::after {
             opacity: 1;
         }
 
-        /* Адаптивность для мобилок */
+        /* Мобильная адаптивность */
         @media (max-width: 600px) {
             .header {
                 flex-direction: column;
@@ -175,8 +227,9 @@
     <div class="container">
         <div class="header">
             <div class="title-block">
+                <span class="classified-stamp">Confidential // Case File</span>
                 <h1>Миссия: Фортуна</h1>
-                <p>Выберите фаворита и путь для просмотра гайда</p>
+                <p>Архив досье фаворитов и веток прохождения</p>
             </div>
             <a href="ССЫЛКА_НА_ВСЕ_ИСТОРИИ" class="back-btn">
                 ← Ко всем историям
@@ -186,7 +239,7 @@
         <div class="grid">
 
             <div class="card">
-                <div class="card-title">Себастьян</div>
+                <div class="card-title">Себастьян <span>[ID: 01]</span></div>
                 <div class="paths-list">
                     <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
                     <a href="ССЫЛКА_СЕБЕСТЬЯН_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
@@ -198,7 +251,7 @@
             </div>
 
             <div class="card">
-                <div class="card-title">Майкл</div>
+                <div class="card-title">Майкл <span>[ID: 02]</span></div>
                 <div class="paths-list">
                     <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
                     <a href="ССЫЛКА_МАЙКЛ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
@@ -210,7 +263,7 @@
             </div>
 
             <div class="card">
-                <div class="card-title">Лиам</div>
+                <div class="card-title">Лиам <span>[ID: 03]</span></div>
                 <div class="paths-list">
                     <a href="ССЫЛКА_ЛИАМ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
                     <a href="ССЫЛКА_ЛИАМ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
@@ -222,7 +275,7 @@
             </div>
 
             <div class="card">
-                <div class="card-title">Джимми</div>
+                <div class="card-title">Джимми <span>[ID: 04]</span></div>
                 <div class="paths-list">
                     <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_ТИХОНЯ" class="path-link">Агент + Тихоня</a>
                     <a href="ССЫЛКА_ДЖИММИ_АГЕНТ_СТАРОСТА" class="path-link">Агент + Староста</a>
