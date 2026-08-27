@@ -102,7 +102,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             padding-bottom: 14px;
             border-bottom: 1px solid var(--accent-border);
             gap: 16px;
@@ -157,6 +157,36 @@
             transform: translateY(-1px);
         }
 
+        /* Стиль плашки-атрибуции */
+        .credit-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 10px 16px;
+            background: rgba(18, 22, 31, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 10px;
+            margin-bottom: 24px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .credit-banner a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .credit-banner a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -197,6 +227,13 @@
             overflow: hidden;
             position: relative;
             transition: border-color 0.3s ease;
+        }
+
+        .card-photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .card:hover .card-photo-box {
@@ -280,6 +317,10 @@
             .title-block h1 {
                 font-size: 1.5rem;
             }
+            .credit-banner {
+                font-size: 0.75rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -301,11 +342,17 @@
             </a>
         </div>
 
+        <!-- Плашка с источником -->
+        <div class="credit-banner">
+            <span>Фото для страницы предоставлены Telegram-каналом</span>
+            <a href="https://t.me/tenl1sa" target="_blank" rel="noopener">@tenl1sa</a>
+        </div>
+
         <div class="grid">
 
             <div class="card">
                 <div class="card-photo-box">
-                    <span>[ Фото Фаворита ]</span>
+                    <img src="seb.png" alt="Себастьян">
                 </div>
                 <div class="card-header">
                     <div class="card-title">Себастьян</div>
@@ -323,7 +370,7 @@
 
             <div class="card">
                 <div class="card-photo-box">
-                    <span>[ Фото Фаворита ]</span>
+                    <img src="mk.png" alt="Майкл">
                 </div>
                 <div class="card-header">
                     <div class="card-title">Майкл</div>
@@ -341,7 +388,7 @@
 
             <div class="card">
                 <div class="card-photo-box">
-                    <span>[ Фото Фаворита ]</span>
+                    <img src="lm.png" alt="Лиам">
                 </div>
                 <div class="card-header">
                     <div class="card-title">Лиам</div>
