@@ -157,7 +157,6 @@
             transform: translateY(-1px);
         }
 
-        /* Стиль плашки-атрибуции */
         .credit-banner {
             display: flex;
             align-items: center;
@@ -234,6 +233,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        /* Смещение фокуса для Себастьяна и Майкла, чтобы лица были ниже */
+        .card-photo-box img.shift-down {
+            object-position: center 25%;
         }
 
         .card:hover .card-photo-box {
@@ -342,7 +346,6 @@
             </a>
         </div>
 
-        <!-- Плашка с источником -->
         <div class="credit-banner">
             <span>Фото для страницы предоставлены Telegram-каналом</span>
             <a href="https://t.me/tenl1sa" target="_blank" rel="noopener">@tenl1sa</a>
@@ -352,7 +355,7 @@
 
             <div class="card">
                 <div class="card-photo-box">
-                    <img src="seb.png" alt="Себастьян">
+                    <img src="seb.png" alt="Себастьян" class="shift-down">
                 </div>
                 <div class="card-header">
                     <div class="card-title">Себастьян</div>
@@ -370,7 +373,7 @@
 
             <div class="card">
                 <div class="card-photo-box">
-                    <img src="mk.png" alt="Майкл">
+                    <img src="mk.png" alt="Майкл" class="shift-down">
                 </div>
                 <div class="card-header">
                     <div class="card-title">Майкл</div>
