@@ -665,5 +665,19 @@
         color: #8e8e93;
     }
 </style>
+<!-- Контейнер для комментариев -->
+<div id="cusdis_thread"></div>
+<script>
+  const thread = document.getElementById('cusdis_thread');
+  if (thread) {
+    thread.setAttribute('data-host', 'https://cusdis.com');
+    thread.setAttribute('data-app-id', '52f191a3-d7ae-45a4-b42f-efc9410e80e0');
+    thread.setAttribute('data-page-id', window.location.pathname);
+    thread.setAttribute('data-page-url', window.location.href);
+    thread.setAttribute('data-page-title', document.title);
+  }
+</script>
+<script async defer src="https://cusdis.com"></script>
+
 </body>
 </html>
