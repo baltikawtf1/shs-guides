@@ -665,29 +665,14 @@
         color: #8e8e93;
     }
 </style>
-
-<div id="cusdis_thread" style="margin: 50px auto; padding: 20px; max-width: 800px; min-height: 250px; clear: both; display: block !important;"></div>
-
-<script>
-  function initCusdis() {
-    const thread = document.getElementById('cusdis_thread');
-    if (thread && !thread.hasAttribute('data-app-id')) {
-      thread.setAttribute('data-host', 'https://cusdis.com');
-      thread.setAttribute('data-app-id', '52f191a3-d7ae-45a4-b42f-efc9410e80e0');
-      thread.setAttribute('data-page-id', window.location.pathname || 'main');
-      thread.setAttribute('data-page-url', window.location.href);
-      thread.setAttribute('data-page-title', document.title || 'Главная');
-      
-      const script = document.createElement('script');
-      script.async = true;
-      script.defer = true;
-      script.src = 'https://cusdis.com';
-      document.body.appendChild(script);
-    }
-  }
-  initCusdis();
-  window.addEventListener('load', initCusdis);
-  setTimeout(initCusdis, 1500);
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="52f191a3-d7ae-45a4-b42f-efc9410e80e0"
+  data-page-id="{{ PAGE_ID }}"
+  data-page-url="{{ PAGE_URL }}"
+  data-page-title="{{ PAGE_TITLE }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </script>
 </body>
 </html>
