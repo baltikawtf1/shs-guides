@@ -665,13 +665,13 @@
         color: #8e8e93;
     }
 </style>
-<!-- Блок комментариев  -->
-<div id="cusdis_thread" style="margin: 50px auto; padding: 20px; max-width: 800px; min-height: 200px; clear: both;"></div>
+
+<div id="cusdis_thread" style="margin: 50px auto; padding: 20px; max-width: 800px; min-height: 250px; clear: both; display: block !important;"></div>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
+  function initCusdis() {
     const thread = document.getElementById('cusdis_thread');
-    if (thread) {
+    if (thread && !thread.hasAttribute('data-app-id')) {
       thread.setAttribute('data-host', 'https://cusdis.com');
       thread.setAttribute('data-app-id', '52f191a3-d7ae-45a4-b42f-efc9410e80e0');
       thread.setAttribute('data-page-id', window.location.pathname || 'main');
@@ -684,7 +684,10 @@
       script.src = 'https://cusdis.com';
       document.body.appendChild(script);
     }
-  });
+  }
+  initCusdis();
+  window.addEventListener('load', initCusdis);
+  setTimeout(initCusdis, 1500);
 </script>
 </body>
 </html>
