@@ -34,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* Контейнер для летающих лун */
+        /* Фоновый слой для медленных летающих лун (фиксированный, чтобы не зависеть от скролла) */
         .moon-bg-container {
             position: fixed;
             top: 0;
@@ -43,7 +43,7 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
-            z-index: 1;
+            z-index: 0;
         }
 
         .floating-moon {
@@ -51,23 +51,24 @@
             background: radial-gradient(circle at 30% 30%, var(--c-orchid), var(--c-amethyst));
             border-radius: 50%;
             opacity: 0;
-            box-shadow: 0 0 10px rgba(198, 134, 221, 0.3);
-            animation: floatAndFade 8s infinite ease-in-out;
+            box-shadow: 0 0 12px rgba(198, 134, 221, 0.25);
+            /* Увеличенное время (от 15 до 25 секунд) для медленного полета */
+            animation: floatAndFade linear infinite;
         }
 
         @keyframes floatAndFade {
             0% {
-                transform: translateY(100vh) scale(0.5);
+                transform: translateY(105vh) scale(0.6);
                 opacity: 0;
             }
-            20% {
-                opacity: 0.6;
+            15% {
+                opacity: 0.5;
             }
-            80% {
+            85% {
                 opacity: 0.4;
             }
             100% {
-                transform: translateY(-150px) scale(1.2);
+                transform: translateY(-10vh) scale(1.1);
                 opacity: 0;
             }
         }
@@ -145,7 +146,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Информационная плашка (уменьшены отступы) */
+        /* Информационная плашка */
         .info-card {
             background: linear-gradient(135deg, rgba(42, 18, 63, 0.6) 0%, rgba(20, 8, 31, 0.8) 100%);
             border: 1px solid rgba(156, 134, 185, 0.2);
@@ -291,7 +292,7 @@
 </head>
 <body>
 
-    <!-- Фоновые летающие луны -->
+    <!-- Фоновые медленно летающие луны -->
     <div class="moon-bg-container" id="moonContainer"></div>
 
     <div class="wrapper">
@@ -375,25 +376,25 @@
     </div>
 
     <script>
-        // Генерация летающих фиолетовых лун на фоне
+        // Генерация лун с очень медленной скоростью (от 15 до 25 секунд)
         const container = document.getElementById('moonContainer');
-        const moonCount = 18;
+        const moonCount = 14;
 
         for (let i = 0; i < moonCount; i++) {
             const moon = document.createElement('div');
             moon.classList.add('floating-moon');
             
-            // Случайные размеры (от 6px до 18px)
-            const size = Math.random() * 12 + 6;
+            // Размеры лун
+            const size = Math.random() * 10 + 6;
             moon.style.width = `${size}px`;
             moon.style.height = `${size}px`;
             
-            // Случайное положение по горизонтали
+            // Позиция по горизонтали
             moon.style.left = `${Math.random() * 100}%`;
             
-            // Случайная задержка анимации и длительность
-            const duration = Math.random() * 6 + 6; // от 6 до 12 секунд
-            const delay = Math.random() * 8;
+            // Время полета от 15 до 25 секунд (очень плавно)
+            const duration = Math.random() * 10 + 15; 
+            const delay = Math.random() * 15;
             moon.style.animationDuration = `${duration}s`;
             moon.style.animationDelay = `${delay}s`;
             
