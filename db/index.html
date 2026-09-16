@@ -34,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* Фоновый слой для медленно падающих кружочков */
+        /* Фоновый слой для падающих кружочков */
         .moon-bg-container {
             position: fixed;
             top: 0;
@@ -50,7 +50,6 @@
             position: absolute;
             background: radial-gradient(circle at 30% 30%, var(--c-orchid), var(--c-amethyst));
             border-radius: 50%;
-            opacity: 0;
             box-shadow: 0 0 12px rgba(198, 134, 221, 0.25);
             animation: fallAndFade linear infinite;
         }
@@ -293,7 +292,7 @@
 </head>
 <body>
 
-    <!-- Фоновые медленно падающие кружочки -->
+    <!-- Фоновые падающие кружочки с мгновенным стартом -->
     <div class="moon-bg-container" id="moonContainer"></div>
 
     <div class="wrapper">
@@ -385,16 +384,19 @@
             moon.classList.add('floating-moon');
             
             // Размеры кружочков
-            const size = Math.random() * 10 + 6; // от 6px до 16px
+            const size = Math.random() * 10 + 6; 
             moon.style.width = `${size}px`;
             moon.style.height = `${size}px`;
             
             // Случайная позиция по горизонтали
-            moon.style.left = `${Math.random() * 100}%`;
+            moon.style.left = `${Math.random() * 100}`;
             
-            // Медленное падение (от 15 до 25 секунд)
+            // Скорость падения (от 15 до 25 секунд)
             const duration = Math.random() * 10 + 15; 
-            const delay = Math.random() * 15;
+            
+            // Использование отрицательной задержки распределяет их по экрану с первой же миллисекунды
+            const delay = -Math.random() * duration; 
+            
             moon.style.animationDuration = `${duration}s`;
             moon.style.animationDelay = `${delay}s`;
             
