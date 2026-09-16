@@ -34,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* Фоновый слой для медленно падающих полумесяцев */
+        /* Фоновый слой для медленно падающих кружочков */
         .moon-bg-container {
             position: fixed;
             top: 0;
@@ -48,28 +48,26 @@
 
         .floating-moon {
             position: absolute;
-            width: 14px;
-            height: 14px;
-            /* Секрет формы полумесяца через box-shadow */
+            background: radial-gradient(circle at 30% 30%, var(--c-orchid), var(--c-amethyst));
             border-radius: 50%;
-            box-shadow: -3px 2px 0px 0px var(--c-orchid);
             opacity: 0;
+            box-shadow: 0 0 12px rgba(198, 134, 221, 0.25);
             animation: fallAndFade linear infinite;
         }
 
         @keyframes fallAndFade {
             0% {
-                transform: translateY(-10vh) rotate(-15deg) scale(0.6);
+                transform: translateY(-10vh) scale(0.6);
                 opacity: 0;
             }
             15% {
-                opacity: 0.55;
+                opacity: 0.5;
             }
             85% {
-                opacity: 0.45;
+                opacity: 0.4;
             }
             100% {
-                transform: translateY(105vh) rotate(45deg) scale(1.1);
+                transform: translateY(105vh) scale(1.1);
                 opacity: 0;
             }
         }
@@ -295,7 +293,7 @@
 </head>
 <body>
 
-    <!-- Фоновые медленно падающие полумесяцы -->
+    <!-- Фоновые медленно падающие кружочки -->
     <div class="moon-bg-container" id="moonContainer"></div>
 
     <div class="wrapper">
@@ -386,16 +384,16 @@
             const moon = document.createElement('div');
             moon.classList.add('floating-moon');
             
-            // Разные размеры для полумесяцев
-            const size = Math.random() * 8 + 10; // от 10px до 18px
+            // Размеры кружочков
+            const size = Math.random() * 10 + 6; // от 6px до 16px
             moon.style.width = `${size}px`;
             moon.style.height = `${size}px`;
             
             // Случайная позиция по горизонтали
             moon.style.left = `${Math.random() * 100}%`;
             
-            // Медленное падение (от 16 до 26 секунд)
-            const duration = Math.random() * 10 + 16; 
+            // Медленное падение (от 15 до 25 секунд)
+            const duration = Math.random() * 10 + 15; 
             const delay = Math.random() * 15;
             moon.style.animationDuration = `${duration}s`;
             moon.style.animationDelay = `${delay}s`;
