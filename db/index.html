@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фавориты истории Дитя Бездны — Гайды</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-imperial: #2A123F;
@@ -12,7 +12,7 @@
             --c-lavender: #9C86B9;
             --c-orchid: #C686DD;
             --c-pearl: #F1EDF7;
-            --bg-deep: #14081f;
+            --bg-deep: #12071d;
         }
 
         * {
@@ -23,228 +23,207 @@
 
         body {
             background-color: var(--bg-deep);
-            /* Сложный многослойный градиент для глубины без неона */
             background-image: 
-                radial-gradient(circle at 85% 10%, rgba(75, 31, 111, 0.35) 0%, transparent 50%),
-                radial-gradient(circle at 15% 85%, rgba(42, 18, 63, 0.6) 0%, transparent 60%);
+                radial-gradient(circle at 50% 20%, rgba(75, 31, 111, 0.3) 0%, transparent 60%),
+                radial-gradient(circle at 90% 90%, rgba(42, 18, 63, 0.5) 0%, transparent 50%);
             color: var(--c-pearl);
             font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
-            padding: 50px 20px;
+            padding: 40px 20px;
         }
 
-        .wrapper {
-            max-width: 1100px;
+        .container {
+            max-width: 1050px;
             margin: 0 auto;
         }
 
-        /* Верхняя панель */
-        .top-bar {
+        /* Навигация */
+        .nav-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 45px;
-            border-bottom: 1px solid rgba(156, 134, 185, 0.15);
-            padding-bottom: 20px;
+            justify-content: flex-start;
+            margin-bottom: 25px;
         }
 
-        .btn-stories {
+        .btn-back {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(42, 18, 63, 0.8);
-            color: var(--c-pearl);
-            padding: 10px 22px;
-            border-radius: 50px;
+            gap: 10px;
+            background: rgba(42, 18, 63, 0.6);
+            color: var(--c-orchid);
+            padding: 8px 18px;
+            border-radius: 30px;
             text-decoration: none;
+            font-size: 0.85rem;
             font-weight: 500;
-            font-size: 0.9rem;
-            border: 1px solid rgba(198, 134, 221, 0.3);
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(156, 134, 185, 0.2);
+            backdrop-filter: blur(5px);
             transition: all 0.3s ease;
         }
 
-        .btn-stories svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--c-orchid);
-            transition: transform 0.3s ease;
-        }
-
-        .btn-stories:hover {
+        .btn-back:hover {
             background: var(--c-amethyst);
+            color: var(--c-pearl);
             border-color: var(--c-orchid);
-            transform: translateX(-4px);
-        }
-
-        .btn-stories:hover svg {
             transform: translateX(-3px);
         }
 
-        /* Заголовок */
-        .header-title-block {
+        /* Шапка страницы */
+        .title-section {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
-        .subtitle-tag {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--c-orchid);
-            margin-bottom: 10px;
-            display: block;
+        .main-heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
             font-weight: 600;
-        }
-
-        .main-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            font-weight: 700;
+            letter-spacing: 2px;
             color: var(--c-pearl);
-            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        /* Информационная плашка в стиле «карточка-цитата» */
-        .info-card {
-            background: linear-gradient(135deg, rgba(42, 18, 63, 0.6) 0%, rgba(20, 8, 31, 0.8) 100%);
-            border: 1px solid rgba(156, 134, 185, 0.2);
-            border-radius: 20px;
-            padding: 30px 40px;
-            margin-bottom: 50px;
+        /* Компактная информационная табличка */
+        .notice-plate {
+            background: rgba(42, 18, 63, 0.45);
+            border: 1px solid rgba(156, 134, 185, 0.18);
+            border-left: 3px solid var(--c-orchid);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .notice-plate p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #dcd0ec;
             text-align: center;
-            position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        .info-card p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #d1c5e0;
-            max-width: 850px;
-            margin: 0 auto;
             font-weight: 300;
         }
 
-        /* Сетка фаворитов */
-        .favorites-grid {
+        /* Сетка персонажей */
+        .characters-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
         @media (max-width: 900px) {
-            .favorites-grid {
+            .characters-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 550px) {
-            .favorites-grid {
+        @media (max-width: 500px) {
+            .characters-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .fav-card {
-            background: var(--c-imperial);
+        .char-card {
+            background: linear-gradient(145deg, var(--c-imperial), #1a0b26);
+            border: 1px solid rgba(156, 134, 185, 0.15);
             border-radius: 16px;
             overflow: hidden;
             text-decoration: none;
             color: var(--c-pearl);
-            border: 1px solid rgba(156, 134, 185, 0.15);
             display: flex;
             flex-direction: column;
             position: relative;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* Имитация фото-зоны персонажа */
-        .fav-image-box {
-            height: 320px;
-            background: linear-gradient(180deg, #381754 0%, #1c0a2c 100%);
+        .char-image-container {
+            height: 280px;
             position: relative;
+            background: linear-gradient(to bottom, #391854, #180824);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
         }
 
-        /* Графический элемент вместо фото (можно заменить на <img src="...">) */
-        .fav-initial {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            font-weight: 700;
-            color: rgba(156, 134, 185, 0.15);
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .fav-card:hover .fav-initial {
-            transform: scale(1.1);
-            color: rgba(198, 134, 221, 0.25);
-        }
-
-        /* Оверлей при наведении */
-        .fav-overlay {
+        /* Декоративная рамка внутри фото-зоны */
+        .char-image-container::before {
+            content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, var(--c-amethyst), transparent);
-            opacity: 0.3;
-            transition: opacity 0.3s ease;
+            inset: 10px;
+            border: 1px solid rgba(156, 134, 185, 0.15);
+            border-radius: 10px;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        .fav-card:hover .fav-overlay {
-            opacity: 0.6;
+        .char-monogram {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: rgba(156, 134, 185, 0.12);
+            transition: all 0.5s ease;
+            z-index: 0;
         }
 
-        /* Текстовая часть карточки */
-        .fav-content {
-            padding: 22px;
-            background: var(--c-imperial);
+        .char-card:hover .char-monogram {
+            transform: scale(1.08);
+            color: rgba(198, 134, 221, 0.22);
+        }
+
+        /* Нижняя часть карточки */
+        .char-details {
+            padding: 18px 20px;
+            background: rgba(42, 18, 63, 0.9);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             border-top: 1px solid rgba(156, 134, 185, 0.1);
-            z-index: 2;
         }
 
-        .fav-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+        .char-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            color: var(--c-pearl);
         }
 
-        .fav-action-icon {
-            width: 36px;
-            height: 36px;
+        .char-arrow {
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: rgba(156, 134, 185, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
             border: 1px solid rgba(156, 134, 185, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .fav-action-icon svg {
-            width: 14px;
-            height: 14px;
+        .char-arrow svg {
+            width: 12px;
+            height: 12px;
             fill: var(--c-lavender);
             transition: transform 0.3s ease;
         }
 
-        .fav-card:hover {
-            transform: translateY(-8px);
+        /* Эффекты при наведении на карточку */
+        .char-card:hover {
+            transform: translateY(-6px);
             border-color: var(--c-orchid);
-            box-shadow: 0 20px 40px rgba(42, 18, 63, 0.6);
+            box-shadow: 0 15px 35px rgba(42, 18, 63, 0.5);
         }
 
-        .fav-card:hover .fav-action-icon {
+        .char-card:hover .char-arrow {
             background: var(--c-orchid);
             border-color: var(--c-orchid);
         }
 
-        .fav-card:hover .fav-action-icon svg {
+        .char-card:hover .char-arrow svg {
             fill: var(--c-imperial);
             transform: translateX(2px);
         }
@@ -252,80 +231,73 @@
 </head>
 <body>
 
-    <div class="wrapper">
-        <!-- Верхняя панель с кнопкой -->
-        <div class="top-bar">
-            <a href="#" class="btn-stories">
-                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                К историям
+    <div class="container">
+        <!-- Кнопка «К историям» -->
+        <div class="nav-header">
+            <a href="#" class="btn-back">
+                <span>←</span> К историям
             </a>
         </div>
 
-        <!-- Заголовок -->
-        <div class="header-title-block">
-            <span class="subtitle-tag">Гайды по прохождению</span>
-            <h1 class="main-title">Фавориты истории Дитя Бездны</h1>
+        <!-- Надпись сверху -->
+        <div class="title-section">
+            <h1 class="main-heading">Фавориты истории Дитя Бездны</h1>
         </div>
 
-        <!-- Информационная табличка -->
-        <div class="info-card">
+        <!-- Аккуратная и компактная табличка с текстом -->
+        <div class="notice-plate">
             <p>Ниже предоставлены гайды для каждого фаворита истории. Они не были разделены по статам, потому что мы не можем угадать вашу комбинацию, но все прописаны внутри серий. Искренне надеемся, что читателям будет удобно!</p>
         </div>
 
-        <!-- Анкеты персонажей (4 карточки) -->
-        <div class="favorites-grid">
+        <!-- Анкеты персонажей -->
+        <div class="characters-grid">
             <!-- Савьер -->
-            <a href="#" class="fav-card">
-                <div class="fav-image-box">
-                    <div class="fav-overlay"></div>
-                    <span class="fav-initial">С</span>
+            <a href="#" class="char-card">
+                <div class="char-image-container">
+                    <span class="char-monogram">С</span>
                 </div>
-                <div class="fav-content">
-                    <span class="fav-name">Савьер</span>
-                    <div class="fav-action-icon">
+                <div class="char-details">
+                    <span class="char-name">Савьер</span>
+                    <div class="char-arrow">
                         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
             </a>
 
             <!-- Фелан -->
-            <a href="#" class="fav-card">
-                <div class="fav-image-box">
-                    <div class="fav-overlay"></div>
-                    <span class="fav-initial">Ф</span>
+            <a href="#" class="char-card">
+                <div class="char-image-container">
+                    <span class="char-monogram">Ф</span>
                 </div>
-                <div class="fav-content">
-                    <span class="fav-name">Фелан</span>
-                    <div class="fav-action-icon">
+                <div class="char-details">
+                    <span class="char-name">Фелан</span>
+                    <div class="char-arrow">
                         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
             </a>
 
             <!-- Данте -->
-            <a href="#" class="fav-card">
-                <div class="fav-image-box">
-                    <div class="fav-overlay"></div>
-                    <span class="fav-initial">Д</span>
+            <a href="#" class="char-card">
+                <div class="char-image-container">
+                    <span class="char-monogram">Д</span>
                 </div>
-                <div class="fav-content">
-                    <span class="fav-name">Данте</span>
-                    <div class="fav-action-icon">
+                <div class="char-details">
+                    <span class="char-name">Данте</span>
+                    <div class="char-arrow">
                         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
             </a>
 
             <!-- Хантер -->
-            <a href="#" class="fav-card">
-                <div class="fav-image-box">
-                    <div class="fav-overlay"></div>
-                    <span class="fav-internal"></span>
-                    <span class="fav-initial">Х</span>
+            <a href="#" class="char-card">
+                <div class="char-image-container">
+                    <span class="char-monogram">Х</span>
                 </div>
-                <div class="fav-content">
-                    <span class="fav-name">Хантер</span>
-                    <div class="fav-action-icon">
+                <div class="char-details">
+                    <span class="char-name">Хантер</span>
+                    <div class="char-arrow">
                         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
