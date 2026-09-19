@@ -196,8 +196,9 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
+        /* Увеличенная высота окна для изображений */
         .fav-image-box {
-            height: 230px;
+            height: 320px;
             background: linear-gradient(180deg, #381754 0%, #1c0a2c 100%);
             position: relative;
             display: flex;
@@ -212,39 +213,44 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            /* Центрируем фокус изображений (лица/верхняя часть) */
+            object-position: center 20%; 
+            transition: transform 0.6s ease;
             z-index: 1;
         }
 
         .fav-card:hover .fav-image-box img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
         .fav-initial {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 700;
-            color: rgba(156, 134, 185, 0.15);
+            color: rgba(156, 134, 185, 0.1);
             transition: transform 0.5s ease, color 0.5s ease;
+            position: relative;
+            z-index: 0;
         }
 
         .fav-card:hover .fav-initial {
             transform: scale(1.1);
-            color: rgba(198, 134, 221, 0.25);
+            color: rgba(198, 134, 221, 0.2);
         }
 
+        /* Мягкий градиент для слияния фото с фоном карточки и придания атмосферы */
         .fav-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, var(--c-amethyst), transparent);
-            opacity: 0.3;
+            background: linear-gradient(to top, rgba(42, 18, 63, 0.9) 0%, rgba(75, 31, 111, 0.2) 50%, transparent 100%);
+            opacity: 0.65;
             transition: opacity 0.3s ease;
             z-index: 2;
             pointer-events: none;
         }
 
         .fav-card:hover .fav-overlay {
-            opacity: 0.6;
+            opacity: 0.45;
         }
 
         .fav-content {
