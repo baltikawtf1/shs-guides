@@ -196,10 +196,10 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        /* Увеличенная высота окна для изображений */
+        /* Увеличенная высота окна */
         .fav-image-box {
             height: 320px;
-            background: linear-gradient(180deg, #381754 0%, #1c0a2c 100%);
+            background: linear-gradient(180deg, #2A123F 0%, #14081f 100%);
             position: relative;
             display: flex;
             align-items: center;
@@ -213,14 +213,18 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Центрируем фокус изображений (лица/верхняя часть) */
             object-position: center 20%; 
-            transition: transform 0.6s ease;
+            /* Слегка тонируем фото под палитру страницы и снижаем контраст для гармонии */
+            filter: saturate(0.85) contrast(1.05);
+            opacity: 0.85;
+            transition: transform 0.6s ease, filter 0.5s ease, opacity 0.5s ease;
             z-index: 1;
         }
 
         .fav-card:hover .fav-image-box img {
             transform: scale(1.06);
+            filter: saturate(1) contrast(1.1);
+            opacity: 1; /* При наведении фото становится ярче и четче */
         }
 
         .fav-initial {
@@ -238,19 +242,21 @@
             color: rgba(198, 134, 221, 0.2);
         }
 
-        /* Мягкий градиент для слияния фото с фоном карточки и придания атмосферы */
+        /* Глубокий многослойный градиент для полного растворения краев фото в фоне */
         .fav-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(42, 18, 63, 0.9) 0%, rgba(75, 31, 111, 0.2) 50%, transparent 100%);
-            opacity: 0.65;
-            transition: opacity 0.3s ease;
+            background: 
+                linear-gradient(to top, rgba(42, 18, 63, 0.95) 0%, rgba(75, 31, 111, 0.3) 45%, transparent 80%),
+                radial-gradient(circle at center, transparent 40%, rgba(20, 8, 31, 0.7) 100%);
+            opacity: 0.85;
+            transition: opacity 0.4s ease;
             z-index: 2;
             pointer-events: none;
         }
 
         .fav-card:hover .fav-overlay {
-            opacity: 0.45;
+            opacity: 0.55; /* При наведении градиент чуть уступает место картинке */
         }
 
         .fav-content {
