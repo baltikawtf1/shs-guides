@@ -134,18 +134,19 @@
         .series-nav {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 30px;
         }
 
         .series-nav-btn {
             background: rgba(42, 18, 63, 0.6);
             color: var(--c-lavender);
-            padding: 6px 20px;
+            padding: 6px 14px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border: 1px solid rgba(156, 134, 185, 0.2);
             transition: all 0.3s ease;
         }
@@ -237,22 +238,30 @@
             <a href="index.html" class="btn-top">К фаворитам</a>
         </div>
 
-        
         <div class="header-title-block">
             <span class="subtitle-tag">Гайд по прохождению</span>
             <h1 class="main-title">Савьер • Дитя Бездны</h1>
         </div>
 
         <div class="series-nav">
-            <a href="#series-1" class="series-nav-btn active">1 серия</a>
+            <a href="#series-1" class="series-nav-btn">1 серия</a>
             <a href="#series-2" class="series-nav-btn">2 серия</a>
+            <a href="#series-3" class="series-nav-btn active">3 серия</a>
+            <a href="#series-4" class="series-nav-btn">4 серия</a>
+            <a href="#series-5" class="series-nav-btn">5 серия</a>
+            <a href="#series-6" class="series-nav-btn">6 серия</a>
+            <a href="#series-7" class="series-nav-btn">7 серия</a>
+            <a href="#series-8" class="series-nav-btn">8 серия</a>
+            <a href="#series-9" class="series-nav-btn">9 серия</a>
+            <a href="#series-10" class="series-nav-btn">10 серия</a>
+            <a href="#series-11" class="series-nav-btn">11 серия</a>
         </div>
 
         <!-- СЕРИЯ 1 -->
         <div id="series-1" class="series-section">
             <h2 class="series-title">1 серия</h2>
             <div class="series-container">
-                   <div class="choice-item">
+                <div class="choice-item">
                     <div class="choice-row"><span class="choice-text">Шагнула к двери</span></div>
                 </div>
                 <div class="choice-item">
@@ -264,26 +273,15 @@
                         <div class="choice-row"><span class="choice-text">Упорство</span><span class="stat-badge">+ Стойкость</span></div>
                     </div>
                 </div>
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Злость</span><span class="stat-badge">+ Тьма</span></div>
                         <div class="choice-row"><span class="choice-text">Стыд</span><span class="stat-badge" style="opacity:0; border:none; background:none;"></span></div>
                     </div>
                 </div>
-
-                <div class="choice-item">
-                    <div class="choice-row"><span class="choice-text">Предложить вина</span></div>
-                </div>
-
-                <div class="choice-item">
-                    <div class="choice-row"><span class="choice-text">Ответить</span></div>
-                </div>
-
-                <div class="choice-item">
-                    <div class="choice-row"><span class="choice-text">Искренне не понимала этого</span></div>
-                </div>
-
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Предложить вина</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Ответить</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Искренне не понимала этого</span></div></div>
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">а страх перед монстрами исчезнет</span><span class="stat-badge">+ Эмпатия</span></div>
@@ -293,7 +291,6 @@
                         <div class="choice-row"><span class="choice-text">и докажут свою силу</span><span class="stat-badge">+ Стойкость</span></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -301,32 +298,25 @@
         <div id="series-2" class="series-section">
             <h2 class="series-title">2 серия</h2>
             <div class="series-container">
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Устыдилась</span><span class="stat-badge">+ Эмпатия</span></div>
                         <div class="choice-row"><span class="choice-text">Разозлилась</span><span class="stat-badge">+ Убеждение</span></div>
                     </div>
                 </div>
-
-                <div class="choice-item">
-                    <div class="choice-row"><span class="choice-text">Поймать</span><span class="stat-badge">+ Стойкость</span></div>
-                </div>
-
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Поймать</span><span class="stat-badge">+ Стойкость</span></div></div>
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Рассказать наставнице</span><span class="stat-badge">+ Логика</span></div>
                         <div class="choice-row"><span class="choice-text">Сохранить все в тайне</span><span class="stat-badge">+ Эмпатия</span></div>
                     </div>
                 </div>
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Ее жаль</span><span class="stat-badge">+ Эмпатия</span></div>
                         <div class="choice-row"><span class="choice-text">Она заслужила</span><span class="stat-badge">+ Убеждение</span></div>
                     </div>
                 </div>
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Почему я?</span><span class="stat-badge">+ Убеждение</span></div>
@@ -334,28 +324,405 @@
                         <div class="choice-row"><span class="choice-text">У тебя есть родные?</span><span class="stat-badge">+ Эмпатия</span></div>
                     </div>
                 </div>
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Тревога</span><span class="stat-badge">+ Интуиция</span></div>
                         <div class="choice-row"><span class="choice-text">Благодарность</span><span class="stat-badge">+ Убеждение</span></div>
                     </div>
                 </div>
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Мари</span><span class="stat-badge">+ Эмпатия</span></div>
                         <div class="choice-row"><span class="choice-text">Нибрасе и жителях подгорья</span><span class="stat-badge">+ Логика</span></div>
                     </div>
                 </div>
-
                 <div class="choice-item">
                     <div class="choice-group-bracket">
                         <div class="choice-row"><span class="choice-text">Не боюсь</span><span class="stat-badge">+ Стойкость</span></div>
                         <div class="choice-row"><span class="choice-text">Просто волнуюсь</span><span class="stat-badge">+ Убеждение</span></div>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <!-- СЕРИЯ 3 -->
+        <div id="series-3" class="series-section">
+            <h2 class="series-title">3 серия</h2>
+            <div class="series-container">
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Упорядочить воспоминания</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Прислушаться к себе</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Успокоиться</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Оценить обстановку</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Встать с кровати</span><span class="stat-badge">+ Стойкость</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">К кровати</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">К сундуку</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-row"><span class="choice-text">Дорнбуш (верный вариант)</span><span class="stat-badge">+ Логика</span></div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Скажу</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Не буду</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Не выдержала</span><span class="stat-badge">+ Стойкость</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Помогает</span><span class="stat-badge">+ Тьма</span></div>
+                        <div class="choice-row"><span class="choice-text">Бесполезна</span><span class="stat-badge" style="opacity:0; border:none; background:none;"></span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Поспешила утешить ее (+ далее помощь от Ориаса)</span><span class="stat-badge">+ Эмпатия</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Спросить</span><span class="stat-badge">+ Убеждение</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Так зла</span><span class="stat-badge">+ Тьма</span></div>
+                        <div class="choice-row"><span class="choice-text">Так рада</span><span class="stat-badge">+ Эмпатия</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Жила в свое удовольствие</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Помогала другим</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Изучала что-то</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Защищала слабых</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Просто была бы другой</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">В порядке</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Переживаю за Нибраса</span><span class="stat-badge">+ Эмпатия</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Ответить</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Промолчать</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 4 -->
+        <div id="series-4" class="series-section">
+            <h2 class="series-title">4 серия</h2>
+            <div class="series-container">
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Представилась</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Спросила ее имя</span><span class="stat-badge">+ Эмпатия</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Предложить сделку</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Спросить про проклятие</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Оставить вопрос на потом</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Не правда!</span><span class="stat-badge">Отношения с Савьером ↑</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Про него</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Про Нибраса</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Про замок</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Взять нож</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Не брать</span><span class="stat-badge" style="opacity:0; border:none; background:none;"></span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Признаться</span><span class="stat-badge">+ Свет</span></div>
+                        <div class="choice-row"><span class="choice-text">Бежать</span><span class="stat-badge">+ Тьма</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 5 -->
+        <div id="series-5" class="series-section">
+            <h2 class="series-title">5 серия</h2>
+            <div class="series-container">
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Скажем наставнице?</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Посмотрим, что там?</span><span class="stat-badge">+ Эмпатия</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Я действительно не спала</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Не стоит отвлекать лекарей</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Я просто волнуюсь</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Заслуживает уважения</span><span class="stat-badge" style="opacity:0; border:none; background:none;"></span></div>
+                        <div class="choice-row"><span class="choice-text">Глупо</span><span class="stat-badge">+ Тьма</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Да</span><span class="stat-badge">+ Логика</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Продолжить</span><span class="stat-badge">Отношения с Равенной ↑</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Что-то не так</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Радоваться рано</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 6 -->
+        <div id="series-6" class="series-section">
+            <h2 class="series-title">6 серия</h2>
+            <div class="series-container">
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Прижалась к Савьеру</span><span class="stat-badge">Отношения с Савьером ↑</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Упомяну об этом (Равенна не поедет на перст)</span><span class="stat-badge" style="opacity:0; border:none; background:none;"></span></div>
+                        <div class="choice-row"><span class="choice-text">Давайте забудем это</span><span class="stat-badge" style="opacity:0; border:none; background:none;"></span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Савьера</span><span class="stat-badge">Отношения с Савьером ↑</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Иначе я бы не пришла</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Вы знаете, какое</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Попробую это сделать</span><span class="stat-badge">Последствия неизвестны</span></div>
+                        <div class="choice-row"><span class="choice-text">Не буду</span><span class="stat-badge">Последствия неизвестны</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Что ты делала в обители?</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Почему ты такая странная?</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Вернуться в подгорье</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Стать наставницей храма</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Снова выйти замуж</span><span class="stat-badge">+ Стойкость</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Спросить</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Не спрашивать</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 7 -->
+        <div id="series-7" class="series-section">
+            <h2 class="series-title">7 серия</h2>
+            <div class="series-container">
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Выпью</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">В шкаф</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Зачем ты пришла?</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Ты что-то хотела?</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Рассказать</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Почему же?</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Бежать</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Защищаться</span><span class="stat-badge">+ Стойкость</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Осторожно</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Быстро</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 8 -->
+        <div id="series-8" class="series-section">
+            <h2 class="series-title">8 серия</h2>
+            <div class="series-container">
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Подняться повыше</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Не привлекать к себе внимания</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">В своем подсознании?</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">В обители безымянного бога?</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Войду (доп. информация)</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">В одной из арок</span><span class="stat-badge">+ Логика</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Спросить</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Подождать</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Но не твоими стараниями</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Да, я цела</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Что не скажешь о тебе</span><span class="stat-badge">+ Стойкость</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Умираешь?</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Отравлен?</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Соблазнить его</span><span class="stat-badge">Отношения с Савьером ↑</span></div></div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 9 -->
+        <div id="series-9" class="series-section">
+            <h2 class="series-title">9 серия</h2>
+            <div class="series-container">
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Да (доп. информация)</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Да</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Послушаться</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Стоять на месте</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Раздражение</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Облегчение</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Беспокойство</span><span class="stat-badge">+ Эмпатия</span></div>
+                        <div class="choice-row"><span class="choice-text">Любопытство</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Ярость</span><span class="stat-badge">+ Тьма</span></div>
+                        <div class="choice-row"><span class="choice-text">Печаль</span><span class="stat-badge">+ Свет</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Окунулась в него</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Пожевать траву</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Поспать</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">В подробностях</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Разложить все по полочкам</span><span class="stat-badge">+ Логика</span></div>
+                        <div class="choice-row"><span class="choice-text">Прислушаться к себе</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">О поцелуе с Савьером</span></div></div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 10 -->
+        <div id="series-10" class="series-section">
+            <h2 class="series-title">10 серия</h2>
+            <div class="series-container">
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Обмануть его</span><span class="stat-badge">Требуется Убеждение ≥ 17</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Явью</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Выдумкой</span><span class="stat-badge">+ Интуиция</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Расскажи про Люциану</span><span class="stat-badge">+ Убеждение</span></div>
+                        <div class="choice-row"><span class="choice-text">Что с тобой?</span><span class="stat-badge">+ Эмпатия</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Скажу о своей догадке прямо</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Обману Ориаса</span><span class="stat-badge">+ Убеждение</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Спросить</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Задержаться и послушать</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Сила</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Разум</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Прощаю тебя</span><span class="stat-badge">+ Свет</span></div>
+                        <div class="choice-row"><span class="choice-text">Не могу тебя простить</span><span class="stat-badge">+ Тьма</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Попробую помочь</span><span class="stat-badge">Влияние неизвестно</span></div>
+                        <div class="choice-row"><span class="choice-text">Не буду помогать</span><span class="stat-badge">Влияние неизвестно</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕРИЯ 11 -->
+        <div id="series-11" class="series-section">
+            <h2 class="series-title">11 серия</h2>
+            <div class="series-container">
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Нет</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Готова</span><span class="stat-badge">+ Стойкость</span></div>
+                        <div class="choice-row"><span class="choice-text">Не готова</span><span class="stat-badge">+ Логика</span></div>
+                    </div>
+                </div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Обернуться</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Идти дальше</span><span class="stat-badge">+ Стойкость</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Место (верный вариант)</span><span class="stat-badge">+ Интуиция</span></div></div>
+                <div class="choice-item">
+                    <div class="choice-group-bracket">
+                        <div class="choice-row"><span class="choice-text">Увезти куда?</span><span class="stat-badge">+ Интуиция</span></div>
+                        <div class="choice-row"><span class="choice-text">Спасти от чего?</span><span class="stat-badge">+ Стойкость</span></div>
+                    </div>
+                </div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Согласна</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Спровоцировать его</span></div></div>
+                <div class="choice-item"><div class="choice-row"><span class="choice-text">Доверюсь</span></div></div>
             </div>
         </div>
 
