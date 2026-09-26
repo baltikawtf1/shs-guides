@@ -33,7 +33,6 @@
             margin: 0 auto;
             background-color: var(--bg-color);
             color: #ffffff;
-            /* Атмосфера референсов: глубокий бархатно-черный фон с тяжелыми бордовыми световыми акцентами по краям */
             background-image: 
                 radial-gradient(ellipse at 50% -10%, rgba(70, 8, 20, 0.6) 0%, transparent 55%),
                 radial-gradient(circle at 10% 80%, rgba(50, 5, 15, 0.4) 0%, transparent 40%),
@@ -43,7 +42,6 @@
             position: relative;
         }
 
-        /* Текстурный паттерн готического кружева / ткани поверх фона */
         body::before {
             content: '';
             position: fixed;
@@ -101,14 +99,12 @@
             letter-spacing: 2px;
         }
 
-        /* КОНТЕЙНЕР АНКЕТЫ С ГОТИЧЕСКОЙ КРУЖЕВНОЙ РАМКОЙ-ТКАНЬЮ КАК НА РЕФЕРЕНСАХ */
         .gothic-card-container {
             position: relative;
             margin-bottom: 40px;
             padding: 18px 14px 16px;
             background: linear-gradient(135deg, rgba(20, 4, 10, 0.95), rgba(8, 2, 14, 0.95));
             border-radius: 20px;
-            /* Имитация тяжелой винно-готической рамы-завесы с кружевным тиснением */
             border: 2px solid rgba(120, 15, 35, 0.6);
             box-shadow: 
                 0 15px 40px rgba(0, 0, 0, 0.9),
@@ -116,7 +112,6 @@
                 0 0 25px rgba(176, 0, 204, 0.15);
         }
 
-        /* Декоративные кружевные уголки и детали по краям анкеты */
         .gothic-card-container::before {
             content: '';
             position: absolute;
@@ -126,7 +121,6 @@
             pointer-events: none;
         }
 
-        /* Шляпка профиля (Аватар + Имя в стиле барочных портретов с референсов) */
         .profile-header {
             display: flex;
             flex-direction: column;
@@ -138,7 +132,6 @@
             border-bottom: 1px solid rgba(120, 15, 35, 0.4);
         }
 
-        /* Фигурная винтажная рамка для аватарки под зеркала с референсов */
         .avatar-frame {
             width: 110px;
             height: 110px;
@@ -177,16 +170,16 @@
             text-shadow: 0 0 10px rgba(176, 0, 204, 0.5);
         }
 
-        /* Кнопки ветки выбора (стиль шелковых/атласных карточек с референсов) */
+        /* НОВЫЙ ДИЗАЙН КНОПОК: в стиле резных/тисненых готических плашек с серебряной рамкой */
         .branch-link {
             display: flex;
             align-items: center;
-            background: linear-gradient(90deg, #160721, #240b33);
+            background: linear-gradient(135deg, rgba(26, 8, 38, 0.9), rgba(12, 3, 20, 0.95));
             text-decoration: none;
             margin-bottom: 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(176, 0, 204, 0.3);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 208, 220, 0.2);
+            box-shadow: inset 0 0 10px rgba(176, 0, 204, 0.1), 0 4px 10px rgba(0, 0, 0, 0.5);
             transition: all 0.25s ease;
             position: relative;
             overflow: hidden;
@@ -196,21 +189,23 @@
             margin-bottom: 0;
         }
 
+        /* Изящный эффект подсветки при наведении */
         .branch-link:hover {
             transform: translateY(-2px);
-            border-color: #d4d0dc;
-            background: linear-gradient(90deg, #220b33, #34104d);
-            box-shadow: 0 6px 18px rgba(176, 0, 204, 0.4);
+            border-color: rgba(176, 0, 204, 0.8);
+            background: linear-gradient(135deg, rgba(45, 14, 66, 0.95), rgba(22, 6, 36, 0.95));
+            box-shadow: 0 0 15px rgba(176, 0, 204, 0.4), inset 0 0 12px rgba(176, 0, 204, 0.2);
         }
 
         .branch-content {
-            padding: 12px 16px;
+            padding: 13px 18px;
             color: #f0edf6;
             font-size: 13px;
             font-weight: 600;
             text-align: left;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             width: 100%;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         /* Telegram Pill Styles */
@@ -299,17 +294,17 @@
             <h2 class="profile-name">Кайден</h2>
         </div>
         
-        <a href="./tact-high.html" class="branch-link" style="border-left: 4px solid #26a69a;">
-            <div class="branch-content">+ Такт / Громкая совесть</div>
+        <a href="./tact-high.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #26a69a; padding-left: 14px;">+ Такт / Громкая совесть</div>
         </a>
-        <a href="./kayden/tact-low.html" class="branch-link" style="border-left: 4px solid #26a69a;">
-            <div class="branch-content">— Такт / Спящая совесть</div>
+        <a href="./kayden/tact-low.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #26a69a; padding-left: 14px;">— Такт / Спящая совесть</div>
         </a>
-        <a href="./kayden/flex-high.html" class="branch-link" style="border-left: 4px solid #2196f3;">
-            <div class="branch-content">— Такт / Громкая совесть</div>
+        <a href="./kayden/flex-high.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #2196f3; padding-left: 14px;">— Такт / Громкая совесть</div>
         </a>
-        <a href="./kayden/flex-low2.html" class="branch-link" style="border-left: 4px solid #9c27b0;">
-            <div class="branch-content">+ Такт / Спящая совесть</div>
+        <a href="./kayden/flex-low2.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #9c27b0; padding-left: 14px;">+ Такт / Спящая совесть</div>
         </a>
     </div>
 
@@ -324,17 +319,17 @@
             <h2 class="profile-name">Фантом</h2>
         </div>
     
-        <a href="./phantom/tact-high.html" class="branch-link" style="border-left: 4px solid #4caf50;">
-            <div class="branch-content">+ Такт / Громкая совесть</div>
+        <a href="./phantom/tact-high.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #4caf50; padding-left: 14px;">+ Такт / Громкая совесть</div>
         </a>
-        <a href="./phantom/tact-low.html" class="branch-link" style="border-left: 4px solid #26a69a;">
-            <div class="branch-content">— Такт / Спящая совесть</div>
+        <a href="./phantom/tact-low.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #26a69a; padding-left: 14px;">— Такт / Спящая совесть</div>
         </a>
-        <a href="./phantom/flex-high.html" class="branch-link" style="border-left: 4px solid #2196f3;">
-            <div class="branch-content">— Такт / Громкая совесть</div>
+        <a href="./phantom/flex-high.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #2196f3; padding-left: 14px;">— Такт / Громкая совесть</div>
         </a>
-        <a href="./phantom/tact-low2.html" class="branch-link" style="border-left: 4px solid #9c27b0;">
-            <div class="branch-content">+ Такт / Спящая совесть</div>
+        <a href="./phantom/tact-low2.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #9c27b0; padding-left: 14px;">+ Такт / Спящая совесть</div>
         </a>
     </div>
 
@@ -349,17 +344,17 @@
             <h2 class="profile-name">Айзек</h2>
         </div>
     
-        <a href="./aizek/tact-high.html" class="branch-link" style="border-left: 4px solid #4caf50;">
-            <div class="branch-content">+ Такт / Громкая совесть</div>
+        <a href="./aizek/tact-high.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #4caf50; padding-left: 14px;">+ Такт / Громкая совесть</div>
         </a>
-        <a href="./aizek/tact-low.html" class="branch-link" style="border-left: 4px solid #26a69a;">
-            <div class="branch-content">— Такт / Спящая совесть</div>
+        <a href="./aizek/tact-low.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #26a69a; padding-left: 14px;">— Такт / Спящая совесть</div>
         </a>
-        <a href="./aizek/flex-high.html" class="branch-link" style="border-left: 4px solid #2196f3;">
-            <div class="branch-content">— Такт / Громкая совесть</div>
+        <a href="./aizek/flex-high.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #2196f3; padding-left: 14px;">— Такт / Громкая совесть</div>
         </a>
-        <a href="./aizek/tact-low2.html" class="branch-link" style="border-left: 4px solid #9c27b0;">
-            <div class="branch-content">+ Такт / Спящая совесть</div>
+        <a href="./aizek/tact-low2.html" class="branch-link">
+            <div class="branch-content" style="border-left: 3px solid #9c27b0; padding-left: 14px;">+ Такт / Спящая совесть</div>
         </a>
     </div>
 
