@@ -55,59 +55,75 @@
             z-index: -1;
         }
 
-        /* НОВЫЙ ДИЗАЙН КНОПКИ «НАЗАД» */
+        /* ОБНОВЛЕННЫЙ ДИЗАЙН КНОПКИ «НАЗАД» В СТИЛЕ САЙТА */
         .back-btn {
-            text-decoration: none;
-            color: var(--accent-silver);
-            font-size: 11px;
-            font-weight: 700;
-            background: rgba(24, 8, 36, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(176, 0, 204, 0.3);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, rgba(22, 7, 33, 0.8), rgba(10, 3, 17, 0.9));
+            text-decoration: none;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(176, 0, 204, 0.25);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(176, 0, 204, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Неоновая полоска слева (в тон остальных кнопок) */
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #b000cc;
+            box-shadow: 0 0 10px #b000cc;
+            transition: width 0.2s ease;
         }
 
         .back-btn:hover {
-            background: rgba(42, 15, 61, 0.9);
-            border-color: var(--accent-silver);
-            box-shadow: 0 0 15px rgba(176, 0, 204, 0.4);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(45, 14, 66, 0.95), rgba(20, 5, 32, 0.95));
+            border-color: #b000cc;
+            box-shadow: 0 6px 20px rgba(176, 0, 204, 0.3), inset 0 0 12px rgba(176, 0, 204, 0.2);
+        }
+
+        .back-btn:hover::before {
+            width: 6px;
+        }
+
+        .back-content {
+            color: #f0edf6;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+            padding-left: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-arrow {
+            color: rgba(212, 208, 220, 0.5);
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-btn:hover .back-arrow {
             transform: translateX(-3px);
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(176, 0, 204, 0.8);
         }
 
-        /* ПРЯМОУГОЛЬНЫЙ БАННЕР ВВЕРХУ ЭКРАНА */
-        .top-banner {
-            position: relative;
-            width: 100%;
-            height: 150px; /* Можете изменить высоту по желанию */
-            margin-bottom: 25px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 2px solid rgba(120, 15, 35, 0.7);
-            background: linear-gradient(135deg, rgba(20, 4, 10, 0.95), rgba(8, 2, 14, 0.95));
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.8),
-                inset 0 0 20px rgba(70, 8, 20, 0.4),
-                0 0 20px rgba(176, 0, 204, 0.15);
-        }
-
-        .top-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Растягивает картинку, заполняя прямоугольник без искажения пропорций */
-            display: block;
-            filter: contrast(1.1) saturate(0.9);
-        }
-
-        /* ГОТИЧЕСКИЙ АРТ-БАННЕР (НИЖЕ) */
+        /* ГОТИЧЕСКИЙ АРТ-БАННЕР */
         .gothic-art-banner {
             position: relative;
             margin-bottom: 30px;
@@ -223,7 +239,6 @@
             text-shadow: 0 0 10px rgba(176, 0, 204, 0.5);
         }
 
-        /* НОВЫЙ ДИЗАЙН КНОПОК В АНКЕТАХ */
         .branch-link {
             display: flex;
             align-items: center;
@@ -244,7 +259,6 @@
             margin-bottom: 0;
         }
 
-        /* Декоративная неоновая полоска слева у каждой кнопки */
         .branch-link::before {
             content: '';
             position: absolute;
@@ -277,7 +291,6 @@
             padding-left: 8px;
         }
 
-        /* Стрелочка-иконка справа на кнопке */
         .branch-arrow {
             color: rgba(212, 208, 220, 0.5);
             font-size: 14px;
@@ -359,16 +372,13 @@
 </head>
 <body>
 
-    <!-- КНОПКА НАЗАД ВВЕРХУ ЭКРАНА -->
+    <!-- КНОПКА «НАЗАД» В СТИЛЕ КНОПОК САЙТА -->
     <a href="../index.html" class="back-btn">
-        <span>←</span> НАЗАД
+        <span class="back-content">
+            <span class="back-arrow">‹</span> НАЗАД
+        </span>
+        <span class="back-arrow">›</span>
     </a>
-
-    <!-- ПРЯМОУГОЛЬНЫЙ БАННЕР ВВЕРХУ ЭКРАНА -->
-    <div class="top-banner">
-        <!-- Замените 'top-banner.png' на путь к вашему прямоугольному фото -->
-        <img src="./top-banner.png" alt="Баннер" onerror="this.style.display='none'">
-    </div>
 
     <!-- БОЛЬШОЙ ГОТИЧЕСКИЙ БАННЕР -->
     <div class="gothic-art-banner">
