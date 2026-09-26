@@ -40,7 +40,7 @@
                 linear-gradient(180deg, #020104 0%, #08030c 50%, #020104 100%);
             background-attachment: fixed;
             position: relative;
-        }
+    }
 
         body::before {
             content: '';
@@ -76,45 +76,36 @@
             box-shadow: 0 0 18px rgba(212, 208, 220, 0.3);
         }
 
-        /* НОВЫЙ БОЕВЫЙ/ГОТИЧЕСКИЙ БАННЕР КАК НА ПРИМЕРЕ */
-        .gothic-banner-card {
+        /* ПОЛНОЦЕННЫЙ ГОТИЧЕСКИЙ БАННЕР-КАРТИНКА С РАМКОЙ */
+        .gothic-art-banner {
             position: relative;
-            margin-bottom: 25px;
-            border-radius: 16px;
+            margin-bottom: 30px;
+            border-radius: 20px;
             overflow: hidden;
             border: 2px solid rgba(120, 15, 35, 0.7);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(176, 0, 204, 0.2);
-            background: #08030c;
+            background: linear-gradient(135deg, rgba(20, 4, 10, 0.95), rgba(8, 2, 14, 0.95));
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.9),
+                inset 0 0 25px rgba(70, 8, 20, 0.4),
+                0 0 25px rgba(176, 0, 204, 0.15);
         }
 
-        .gothic-banner-card img {
+        .gothic-art-banner::before {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border-radius: 24px;
+            border: 1px dashed rgba(212, 208, 220, 0.2);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .gothic-art-banner img {
             width: 100%;
             height: auto;
             display: block;
-            filter: contrast(1.1) saturate(0.8);
-            opacity: 0.85;
-        }
-
-        .gothic-banner-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(2, 1, 4, 0.2) 0%, rgba(2, 1, 4, 0.7) 100%);
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-
-        .banner-text-snippet {
-            font-size: 10px;
-            color: var(--accent-silver);
-            line-height: 1.4;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-            background: rgba(10, 3, 15, 0.75);
-            padding: 8px 10px;
-            border-radius: 8px;
-            border-left: 2px solid var(--accent-glow);
-            backdrop-filter: blur(4px);
+            object-fit: cover;
+            filter: contrast(1.1) saturate(0.85);
         }
 
         .header-container {
@@ -316,15 +307,10 @@
 
     <a href="../index.html" class="back-btn">← ГЛАВНАЯ</a>
 
-    <!-- ДЕКОРАТИВНЫЙ БАННЕР В СТИЛЕ ПРИМЕРА -->
-    <div class="gothic-banner-card">
-        <!-- Поменяйте 'banner.png' на путь к вашей картинке, похожей на ваш скриншот -->
-        <img src="./banner.png" alt="Готический арт" onerror="this.style.display='none'">
-        <div class="gothic-banner-overlay">
-            <div class="banner-text-snippet">
-                zriel é um nephilim abissal... possui a capacidade de assumir qualquer forma que desejar...
-            </div>
-        </div>
+    <!-- БОЛЬШОЙ ГОТИЧЕСКИЙ БАННЕР КАК НА КАРТИНКЕ -->
+    <div class="gothic-art-banner">
+        <!-- Замените 'header-img.png' на имя вашей картинки -->
+        <img src="./header-img.png" alt="Готический арт" onerror="this.style.display='none'">
     </div>
 
     <div class="header-container">
@@ -400,7 +386,7 @@
             <div class="branch-content" style="border-left: 3px solid #26a69a; padding-left: 14px;">— Такт / Спящая совесть</div>
         </a>
         <a href="./aizek/flex-high.html" class="branch-link">
-            <div class="branch-content" style="border-left: 3px solid #2196f3; padding-left: 14px;">— Та`кт / Громкая совесть</div>
+            <div class="branch-content" style="border-left: 3px solid #2196f3; padding-left: 14px;">— Такт / Громкая совесть</div>
         </a>
         <a href="./aizek/tact-low2.html" class="branch-link">
             <div class="branch-content" style="border-left: 3px solid #9c27b0; padding-left: 14px;">+ Такт / Спящая совесть</div>
