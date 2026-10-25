@@ -232,6 +232,70 @@
             white-space: nowrap;
             border: 1px solid rgba(132, 169, 140, 0.3);
         }
+
+        /* --- СТИЛИ РЕКЛАМНЫХ БЛОКОВ VIRTRUTS (ЛЕСНАЯ ТЕМА) --- */
+        .ad-banner-shs {
+            margin: 35px 0;
+            background: linear-gradient(135deg, #1b3023 0%, #0f1c14 100%);
+            border: 2px solid #84a98c;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(132, 169, 140, 0.25);
+        }
+        .ad-banner-shs::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+        .ad-badge {
+            background: #ffc107;
+            color: #0a120d;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(255, 193, 7, 0.4);
+        }
+        .ad-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .ad-desc {
+            font-size: 0.95rem;
+            color: #d8e2dc;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+        .ad-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2d5a3f 0%, #1b3023 100%);
+            color: var(--c-cream);
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(27, 48, 35, 0.6);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: 1px solid var(--c-sage);
+        }
+        .ad-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #386f4e 0%, #223a2b 100%);
+            box-shadow: 0 8px 25px rgba(132, 169, 140, 0.4);
+            border-color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -297,165 +361,15 @@
                 </div>
             </div>
         </div>
-<!-- Начало блока рекламной плашки ТГК -->
-<div class="shs-feedback-banner-wrapper">
-  <a href="https://t.me/shsguides" target="_blank" rel="noopener noreferrer" class="shs-feedback-banner">
-    <div class="shs-banner-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.012-1.252-.242-1.865-.442-752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.997-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.093.024.305.011.469z"/>
-      </svg>
-    </div>
-    <div class="shs-banner-content">
-      <span class="shs-banner-title">Нашли ошибку или баг в гайдах?</span>
-      <span class="shs-banner-subtitle">Напишите нам в предложку <span>@shsguides</span></span>
-    </div>
-    <div class="shs-banner-arrow">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </a>
-</div>
 
-<style>
-  .shs-feedback-banner-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
+        <!-- ВСТРОЕННЫЙ РЕКЛАМНЫЙ БЛОК В СЕРЕДИНЕ ГАЙДА -->
+        <div class="ad-banner-shs">
+            <span class="ad-badge">🔥 Выгодное предложение</span>
+            <h3 class="ad-title">Не хватает аметистов на лучшие выборы?</h3>
+            <p class="ad-desc">Закупай валюту для <b>Seven Heart Stories</b> в боте <b>@virtruts_bot</b>. Быстро, безопасно и без лишнего фарма!</p>
+            <a href="https://t.me/virtruts_bot" target="_blank" class="ad-btn">Купить аметисты в @virtruts_bot ✨</a>
+        </div>
 
-  .shs-feedback-banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 750px;
-    background: linear-gradient(135deg, #1e1e28 0%, #13131a 100%);
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    border-radius: 16px;
-    padding: 18px 24px;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shs-feedback-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-    transition: 0.5s;
-  }
-
-  .shs-feedback-banner:hover::before {
-    left: 100%;
-  }
-
-  .shs-feedback-banner:hover {
-    transform: translateY(-3px);
-    border-color: rgba(139, 92, 246, 0.6);
-    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .shs-banner-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    background: linear-gradient(135deg, #2b5278 0%, #1e3a5f 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 18px;
-    box-shadow: 0 4px 12px rgba(43, 82, 120, 0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-icon {
-    transform: scale(1.08) rotate(-5deg);
-  }
-
-  .shs-banner-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: #ffffff;
-  }
-
-  .shs-banner-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .shs-banner-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #f3f4f6;
-    margin-bottom: 3px;
-  }
-
-  .shs-banner-subtitle {
-    font-size: 13px;
-    color: #9ca3af;
-  }
-
-  .shs-banner-subtitle span {
-    color: #a78bfa;
-    font-weight: 500;
-  }
-
-  .shs-banner-arrow {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .shs-banner-arrow svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-arrow {
-    transform: translateX(5px);
-    color: #a78bfa;
-  }
-
-  @media (max-width: 540px) {
-    .shs-feedback-banner {
-      padding: 14px 16px;
-      margin: 20px 10px;
-      width: calc(100% - 20px);
-    }
-    .shs-banner-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      margin-right: 12px;
-    }
-    .shs-banner-title {
-      font-size: 14px;
-    }
-    .shs-banner-subtitle {
-      font-size: 12px;
-    }
-    .shs-banner-arrow {
-      display: none;
-    }
-  }
-</style>
-<!-- Конец блока рекламной плашки ТГК -->
         <!-- СЕРИЯ 2 -->
         <div id="series-2" class="series-section">
             <h2 class="series-title">2 серия</h2>
@@ -612,165 +526,7 @@
                 </div>
             </div>
         </div>
-<!-- Начало блока рекламной плашки ТГК -->
-<div class="shs-feedback-banner-wrapper">
-  <a href="https://t.me/shsguides" target="_blank" rel="noopener noreferrer" class="shs-feedback-banner">
-    <div class="shs-banner-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.012-1.252-.242-1.865-.442-752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.997-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.093.024.305.011.469z"/>
-      </svg>
-    </div>
-    <div class="shs-banner-content">
-      <span class="shs-banner-title">Нашли ошибку или баг в гайдах?</span>
-      <span class="shs-banner-subtitle">Напишите нам в предложку <span>@shsguides</span></span>
-    </div>
-    <div class="shs-banner-arrow">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </a>
-</div>
 
-<style>
-  .shs-feedback-banner-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-
-  .shs-feedback-banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 750px;
-    background: linear-gradient(135deg, #1e1e28 0%, #13131a 100%);
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    border-radius: 16px;
-    padding: 18px 24px;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shs-feedback-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-    transition: 0.5s;
-  }
-
-  .shs-feedback-banner:hover::before {
-    left: 100%;
-  }
-
-  .shs-feedback-banner:hover {
-    transform: translateY(-3px);
-    border-color: rgba(139, 92, 246, 0.6);
-    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .shs-banner-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    background: linear-gradient(135deg, #2b5278 0%, #1e3a5f 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 18px;
-    box-shadow: 0 4px 12px rgba(43, 82, 120, 0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-icon {
-    transform: scale(1.08) rotate(-5deg);
-  }
-
-  .shs-banner-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: #ffffff;
-  }
-
-  .shs-banner-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .shs-banner-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #f3f4f6;
-    margin-bottom: 3px;
-  }
-
-  .shs-banner-subtitle {
-    font-size: 13px;
-    color: #9ca3af;
-  }
-
-  .shs-banner-subtitle span {
-    color: #a78bfa;
-    font-weight: 500;
-  }
-
-  .shs-banner-arrow {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .shs-banner-arrow svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-arrow {
-    transform: translateX(5px);
-    color: #a78bfa;
-  }
-
-  @media (max-width: 540px) {
-    .shs-feedback-banner {
-      padding: 14px 16px;
-      margin: 20px 10px;
-      width: calc(100% - 20px);
-    }
-    .shs-banner-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      margin-right: 12px;
-    }
-    .shs-banner-title {
-      font-size: 14px;
-    }
-    .shs-banner-subtitle {
-      font-size: 12px;
-    }
-    .shs-banner-arrow {
-      display: none;
-    }
-  }
-</style>
-<!-- Конец блока рекламной плашки ТГК -->
         <!-- СЕРИЯ 5 -->
         <div id="series-5" class="series-section">
             <h2 class="series-title">5 серия</h2>
@@ -878,165 +634,7 @@
                 </div>
             </div>
         </div>
-<!-- Начало блока рекламной плашки ТГК -->
-<div class="shs-feedback-banner-wrapper">
-  <a href="https://t.me/shsguides" target="_blank" rel="noopener noreferrer" class="shs-feedback-banner">
-    <div class="shs-banner-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.012-1.252-.242-1.865-.442-752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.997-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.093.024.305.011.469z"/>
-      </svg>
-    </div>
-    <div class="shs-banner-content">
-      <span class="shs-banner-title">Нашли ошибку или баг в гайдах?</span>
-      <span class="shs-banner-subtitle">Напишите нам в предложку <span>@shsguides</span></span>
-    </div>
-    <div class="shs-banner-arrow">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </a>
-</div>
 
-<style>
-  .shs-feedback-banner-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-
-  .shs-feedback-banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 750px;
-    background: linear-gradient(135deg, #1e1e28 0%, #13131a 100%);
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    border-radius: 16px;
-    padding: 18px 24px;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shs-feedback-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-    transition: 0.5s;
-  }
-
-  .shs-feedback-banner:hover::before {
-    left: 100%;
-  }
-
-  .shs-feedback-banner:hover {
-    transform: translateY(-3px);
-    border-color: rgba(139, 92, 246, 0.6);
-    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .shs-banner-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    background: linear-gradient(135deg, #2b5278 0%, #1e3a5f 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 18px;
-    box-shadow: 0 4px 12px rgba(43, 82, 120, 0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-icon {
-    transform: scale(1.08) rotate(-5deg);
-  }
-
-  .shs-banner-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: #ffffff;
-  }
-
-  .shs-banner-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .shs-banner-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #f3f4f6;
-    margin-bottom: 3px;
-  }
-
-  .shs-banner-subtitle {
-    font-size: 13px;
-    color: #9ca3af;
-  }
-
-  .shs-banner-subtitle span {
-    color: #a78bfa;
-    font-weight: 500;
-  }
-
-  .shs-banner-arrow {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .shs-banner-arrow svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-arrow {
-    transform: translateX(5px);
-    color: #a78bfa;
-  }
-
-  @media (max-width: 540px) {
-    .shs-feedback-banner {
-      padding: 14px 16px;
-      margin: 20px 10px;
-      width: calc(100% - 20px);
-    }
-    .shs-banner-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      margin-right: 12px;
-    }
-    .shs-banner-title {
-      font-size: 14px;
-    }
-    .shs-banner-subtitle {
-      font-size: 12px;
-    }
-    .shs-banner-arrow {
-      display: none;
-    }
-  }
-</style>
-<!-- Конец блока рекламной плашки ТГК -->
         <!-- СЕРИЯ 8 -->
         <div id="series-8" class="series-section">
             <h2 class="series-title">8 серия</h2>
@@ -1172,165 +770,7 @@
                 </div>
             </div>
         </div>
-<!-- Начало блока рекламной плашки ТГК -->
-<div class="shs-feedback-banner-wrapper">
-  <a href="https://t.me/shsguides" target="_blank" rel="noopener noreferrer" class="shs-feedback-banner">
-    <div class="shs-banner-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.012-1.252-.242-1.865-.442-752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.997-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.093.024.305.011.469z"/>
-      </svg>
-    </div>
-    <div class="shs-banner-content">
-      <span class="shs-banner-title">Нашли ошибку или баг в гайдах?</span>
-      <span class="shs-banner-subtitle">Напишите нам в предложку <span>@shsguides</span></span>
-    </div>
-    <div class="shs-banner-arrow">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </a>
-</div>
 
-<style>
-  .shs-feedback-banner-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-
-  .shs-feedback-banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 750px;
-    background: linear-gradient(135deg, #1e1e28 0%, #13131a 100%);
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    border-radius: 16px;
-    padding: 18px 24px;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shs-feedback-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-    transition: 0.5s;
-  }
-
-  .shs-feedback-banner:hover::before {
-    left: 100%;
-  }
-
-  .shs-feedback-banner:hover {
-    transform: translateY(-3px);
-    border-color: rgba(139, 92, 246, 0.6);
-    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .shs-banner-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    background: linear-gradient(135deg, #2b5278 0%, #1e3a5f 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 18px;
-    box-shadow: 0 4px 12px rgba(43, 82, 120, 0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-icon {
-    transform: scale(1.08) rotate(-5deg);
-  }
-
-  .shs-banner-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: #ffffff;
-  }
-
-  .shs-banner-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .shs-banner-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #f3f4f6;
-    margin-bottom: 3px;
-  }
-
-  .shs-banner-subtitle {
-    font-size: 13px;
-    color: #9ca3af;
-  }
-
-  .shs-banner-subtitle span {
-    color: #a78bfa;
-    font-weight: 500;
-  }
-
-  .shs-banner-arrow {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .shs-banner-arrow svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-  }
-
-  .shs-feedback-banner:hover .shs-banner-arrow {
-    transform: translateX(5px);
-    color: #a78bfa;
-  }
-
-  @media (max-width: 540px) {
-    .shs-feedback-banner {
-      padding: 14px 16px;
-      margin: 20px 10px;
-      width: calc(100% - 20px);
-    }
-    .shs-banner-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      margin-right: 12px;
-    }
-    .shs-banner-title {
-      font-size: 14px;
-    }
-    .shs-banner-subtitle {
-      font-size: 12px;
-    }
-    .shs-banner-arrow {
-      display: none;
-    }
-  }
-</style>
-<!-- Конец блока рекламной плашки ТГК -->
         <!-- СЕРИЯ 11 -->
         <div id="series-11" class="series-section">
             <h2 class="series-title">11 серия</h2>
@@ -1365,6 +805,14 @@
             </div>
         </div>
 
+        <!-- ВСТРОЕННЫЙ РЕКЛАМНЫЙ БЛОК В КОНЦЕ ГАЙДА -->
+        <div class="ad-banner-shs">
+            <span class="ad-badge">🔥 Выгодное предложение</span>
+            <h3 class="ad-title">Не хватает аметистов на лучшие выборы?</h3>
+            <p class="ad-desc">Закупай валюту для <b>Seven Heart Stories</b> в боте <b>@virtruts_bot</b>. Быстро, безопасно и без лишнего фарма!</p>
+            <a href="https://t.me/virtruts_bot" target="_blank" class="ad-btn">Купить аметисты в @virtruts_bot ✨</a>
+        </div>
+
     </div>
 
     <script>
@@ -1390,6 +838,5 @@
             container.appendChild(particle);
         }
     </script>
-</style>
 </body>
 </html>
