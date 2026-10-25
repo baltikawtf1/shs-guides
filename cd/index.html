@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Гайды для истории Цепи договора</title>
-    <!-- Готические шрифты Cinzel и Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
@@ -12,13 +11,10 @@
     <style>
         :root {
             --bg-dark: #040102;
-            --bg-card: #180d11; /* Намного более светлая и контрастная база карточки */
-            --card-border: #8b131a;
+            --bg-card: rgba(20, 8, 11, 0.65);
+            --card-border: #ff2233;
             --accent-red: #e6101f;
-            --accent-red-bright: #ff2233;
             --silver-light: #d8e0e8;
-            --silver-metal: #8c97a0;
-            --gold-light: #f5cf87;
         }
 
         * {
@@ -32,7 +28,7 @@
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            padding: 30px 15px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -40,17 +36,15 @@
             overflow-x: hidden;
         }
 
-        /* --- ФОНОВЫЕ ЭФФЕКТЫ --- */
-        /* Динамическое червонно-красное туманное пятно по центру */
         body::before {
             content: '';
             position: fixed;
             top: 25%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(160, 10, 20, 0.28) 0%, rgba(60, 2, 8, 0.1) 50%, transparent 75%);
+            width: 850px;
+            height: 850px;
+            background: radial-gradient(circle, rgba(200, 10, 20, 0.35) 0%, rgba(80, 2, 8, 0.15) 50%, transparent 75%);
             filter: blur(80px);
             pointer-events: none;
             z-index: 0;
@@ -59,10 +53,9 @@
 
         @keyframes pulseGlow {
             0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
-            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.95; }
+            100% { transform: translate(-50%, -50%) scale(1.25); opacity: 0.95; }
         }
 
-        /* Анимированные частицы/угольки на фоне */
         .particles-bg {
             position: fixed;
             top: 0;
@@ -79,7 +72,7 @@
             background-repeat: repeat;
             background-size: 300px 300px;
             animation: particleMove 18s linear infinite;
-            opacity: 0.55;
+            opacity: 0.6;
         }
 
         @keyframes particleMove {
@@ -87,21 +80,19 @@
             100% { background-position: 300px -600px; }
         }
 
-        /* Контейнер всего содержимого */
         .content-wrapper {
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 980px;
+            max-width: 1100px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Кнопка «Ко всем историям» */
         .btn-back-container {
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .btn-back {
@@ -109,7 +100,7 @@
             align-items: center;
             gap: 8px;
             padding: 9px 18px;
-            background: linear-gradient(135deg, #1f0b10, #360c14);
+            background: rgba(30, 10, 15, 0.7);
             color: var(--silver-light);
             text-decoration: none;
             font-family: 'Cinzel', serif;
@@ -119,26 +110,18 @@
             text-transform: uppercase;
             border: 1px solid var(--card-border);
             border-radius: 4px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 12px rgba(255, 34, 51, 0.4);
+            backdrop-filter: blur(5px);
         }
 
-        .btn-back:hover {
-            color: #ffffff;
-            border-color: var(--accent-red-bright);
-            box-shadow: 0 0 15px rgba(230, 16, 31, 0.7);
-            transform: translateX(-3px);
-        }
-
-        /* Заголовок страницы */
         .page-header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 45px;
         }
 
         .page-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.1rem;
+            font-size: 2.2rem;
             font-weight: 900;
             color: var(--accent-red);
             text-transform: uppercase;
@@ -153,58 +136,44 @@
         .page-title::after {
             content: '';
             display: block;
-            width: 110px;
+            width: 120px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-red-bright), transparent);
-            margin: 12px auto 0;
-            box-shadow: 0 0 8px var(--accent-red-bright);
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+            margin: 14px auto 0;
+            box-shadow: 0 0 10px var(--card-border);
         }
 
-        /* Сетка анкет */
         .favorites-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            gap: 32px;
             width: 100%;
         }
 
-        /* ВЫДЕЛЕННАЯ КОНТРАСТНАЯ КАРТОЧКА АНКЕТЫ */
         .card {
-            background: linear-gradient(180deg, #271319 0%, #150a0d 100%); /* Светлая градиентная подложка */
-            border: 2px solid var(--card-border); /* Яркая алая рамка */
+            background: var(--bg-card);
+            border: 2px solid var(--card-border);
             border-radius: 6px;
-            padding: 12px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Контрастная двойная тень, отделяющая от фона */
+            backdrop-filter: blur(8px);
             box-shadow: 
-                0 0 0 1px rgba(255, 255, 255, 0.08),
-                0 10px 30px rgba(0, 0, 0, 0.95),
-                0 0 18px rgba(139, 19, 26, 0.4);
-            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.8),
+                0 0 22px rgba(255, 34, 51, 0.55);
             position: relative;
         }
 
-        /* Эффект яркой подсветки при наведении */
-        .card:hover {
-            border-color: var(--accent-red-bright);
-            box-shadow: 
-                0 0 0 1px rgba(255, 255, 255, 0.2),
-                0 12px 35px rgba(0, 0, 0, 1),
-                0 0 28px rgba(255, 34, 51, 0.7);
-            transform: translateY(-7px);
-        }
-
-        /* Компактный аватар с металлическим обрамлением */
         .avatar-container {
             width: 100%;
             height: 195px;
             border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 10px;
-            border: 1px solid rgba(230, 16, 31, 0.4);
-            box-shadow: 0 0 10px rgba(0,0,0,0.8);
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 34, 51, 0.5);
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
             position: relative;
         }
 
@@ -213,22 +182,16 @@
             height: 100%;
             object-fit: cover;
             filter: contrast(115%);
-            transition: transform 0.5s ease;
         }
 
-        .card:hover .avatar-img {
-            transform: scale(1.08);
-        }
-
-        /* Плашка с именем (делает имя легко читаемым) */
         .character-name-box {
             width: 100%;
-            background: linear-gradient(90deg, transparent, rgba(230, 16, 31, 0.25), transparent);
-            border-top: 1px solid rgba(230, 16, 31, 0.3);
-            border-bottom: 1px solid rgba(230, 16, 31, 0.3);
+            background: linear-gradient(90deg, transparent, rgba(230, 16, 31, 0.35), transparent);
+            border-top: 1px solid rgba(255, 34, 51, 0.4);
+            border-bottom: 1px solid rgba(255, 34, 51, 0.4);
             text-align: center;
-            padding: 4px 0;
-            margin-bottom: 12px;
+            padding: 5px 0;
+            margin-bottom: 14px;
         }
 
         .character-name {
@@ -238,57 +201,44 @@
             color: #ffffff;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(230, 16, 31, 0.8), 1px 1px 2px #000;
+            text-shadow: 0 0 8px rgba(230, 16, 31, 0.9), 1px 1px 2px #000;
         }
 
-        /* Список кнопок путей */
         .paths-list {
             display: flex;
             flex-direction: column;
-            gap: 7px;
+            gap: 8px;
             width: 100%;
         }
 
-        /* Четкие контрастные кнопки */
         .path-btn {
             display: block;
             width: 100%;
-            padding: 8px 3px;
+            padding: 9px 3px;
             text-align: center;
-            background: linear-gradient(180deg, #2a151b 0%, #170a0e 100%);
+            background: rgba(25, 10, 14, 0.75);
             color: var(--silver-light);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.6px;
             text-transform: uppercase;
-            border: 1px solid rgba(230, 16, 31, 0.35);
+            border: 1px solid rgba(255, 34, 51, 0.45);
             border-radius: 3px;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 8px rgba(255, 34, 51, 0.25);
         }
 
-        .path-btn:hover {
-            color: #ffffff;
-            background: linear-gradient(180deg, #c80d19 0%, #7e070e 100%);
-            border-color: #ff4d5a;
-            box-shadow: 0 0 12px rgba(255, 34, 51, 0.8);
-            text-shadow: 0 1px 3px #000;
-        }
-
-        /* Адаптив для планшетов и смартфонов */
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .favorites-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
+                gap: 24px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 520px) {
             .favorites-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             .page-title {
                 font-size: 1.5rem;
@@ -298,24 +248,19 @@
 </head>
 <body>
 
-    <!-- Эффект летающих частиц на фоне -->
     <div class="particles-bg"></div>
 
     <div class="content-wrapper">
-        <!-- Кнопка перехода назад -->
         <div class="btn-back-container">
             <a href="#" class="btn-back">‹ Ко всем историям</a>
         </div>
 
-        <!-- Заголовок страницы -->
         <header class="page-header">
             <h1 class="page-title">Гайды для истории Цепи договора</h1>
         </header>
 
-        <!-- Анкеты 4-х фаворитов -->
         <main class="favorites-grid">
 
-            <!-- Анкета 1: Легион -->
             <div class="card">
                 <div class="avatar-container">
                     <img src="https://via.placeholder.com/250x350/1c0a0e/e6101f?text=Легион" alt="Легион" class="avatar-img">
@@ -331,7 +276,6 @@
                 </div>
             </div>
 
-            <!-- Анкета 2: Элиан -->
             <div class="card">
                 <div class="avatar-container">
                     <img src="https://via.placeholder.com/250x350/1c0a0e/e6101f?text=Элиан" alt="Элиан" class="avatar-img">
@@ -347,7 +291,6 @@
                 </div>
             </div>
 
-            <!-- Анкета 3: Кассандра -->
             <div class="card">
                 <div class="avatar-container">
                     <img src="https://via.placeholder.com/250x350/1c0a0e/e6101f?text=Кассандра" alt="Кассандра" class="avatar-img">
@@ -363,7 +306,6 @@
                 </div>
             </div>
 
-            <!-- Анкета 4: Калеб -->
             <div class="card">
                 <div class="avatar-container">
                     <img src="https://via.placeholder.com/250x350/1c0a0e/e6101f?text=Калеб" alt="Калеб" class="avatar-img">
