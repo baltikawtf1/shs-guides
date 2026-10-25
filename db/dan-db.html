@@ -277,86 +277,31 @@
             margin-bottom: 18px;
             line-height: 1.5;
         }
+        /* Кнопка под оттенок страницы, но выделяющаяся */
         .ad-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #ff7b00 0%, #ff3d00 100%);
-            color: #fff;
+            background: linear-gradient(135deg, #622894 0%, #4b1f6f 100%);
+            color: var(--c-pearl);
             font-weight: 700;
             padding: 12px 28px;
             border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(255, 61, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(75, 31, 111, 0.6);
             transition: all 0.3s ease;
             font-size: 1rem;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid var(--c-orchid);
         }
         .ad-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 61, 0, 0.6);
-            filter: brightness(1.1);
-        }
-
-        /* --- ВСПЛЫВАЮЩЕЕ ОКНО (POPUP) --- */
-        .ad-popup-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 4, 16, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-        .ad-popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .ad-popup-card {
-            background: linear-gradient(145deg, #2a123f 0%, #14081f 100%);
-            border: 2px solid #c686dd;
-            border-radius: 20px;
-            padding: 30px 25px;
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(198, 134, 221, 0.4);
-            transform: scale(0.8);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .ad-popup-overlay.active .ad-popup-card {
-            transform: scale(1);
-        }
-        .ad-popup-close {
-            position: absolute;
-            top: 12px; right: 15px;
-            background: none; border: none;
-            color: #9c86b9; font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .ad-popup-close:hover {
-            color: #fff;
+            background: linear-gradient(135deg, #7533aa 0%, #5d258a 100%);
+            box-shadow: 0 8px 25px rgba(198, 134, 221, 0.5);
+            border-color: #fff;
         }
     </style>
 </head>
 <body>
 
     <div class="moon-bg-container" id="moonContainer"></div>
-
-    <!-- ВСПЛЫВАЮЩЕЕ ОКНО (ПОПАП) РЕКЛАМЫ -->
-    <div class="ad-popup-overlay" id="adPopup">
-        <div class="ad-popup-card">
-            <button class="ad-popup-close" id="closePopup">&times;</button>
-            <span class="ad-badge">💎 Хватит фармить!</span>
-            <h3 class="ad-title">Валюта для Seven Heart Stories</h3>
-            <p class="ad-desc">Забудь про долгие ожидания и нехватку алмазов. Покупай выгодно, быстро и безопасно в проверенном боте!</p>
-            <a href="https://t.me/virtruts_bot" target="_blank" class="ad-btn">Перейти в @virtruts_bot 🚀</a>
-        </div>
-    </div>
 
     <div class="wrapper">
         <div class="top-bar">
@@ -421,9 +366,9 @@
         <!-- ВСТРОЕННЫЙ РЕКЛАМНЫЙ БЛОК В СЕРЕДИНЕ ГАЙДА -->
         <div class="ad-banner-shs">
             <span class="ad-badge">🔥 Выгодное предложение</span>
-            <h3 class="ad-title">Не хватает алмазов на лучшие выборы?</h3>
-            <p class="ad-desc">Закупай валюту для <b>Seven Heart Stories</b> в официальном боте <b>@virtruts_bot</b>. Быстро, безопасно и без лишнего фарма!</p>
-            <a href="https://t.me/virtruts_bot" target="_blank" class="ad-btn">Купить алмазы в @virtruts_bot ✨</a>
+            <h3 class="ad-title">Не хватает аметистов на лучшие выборы?</h3>
+            <p class="ad-desc">Закупай валюту для <b>Seven Heart Stories</b> в боте <b>@virtruts_bot</b>. Быстро, безопасно и без лишнего фарма!</p>
+            <a href="https://t.me/virtruts_bot" target="_blank" class="ad-btn">Купить аметисты в @virtruts_bot ✨</a>
         </div>
 
         <!-- СЕРИЯ 2 -->
@@ -890,31 +835,6 @@
             
             container.appendChild(moon);
         }
-
-        // Логика всплывающего окна (попапа)
-        const popup = document.getElementById('adPopup');
-        const closeBtn = document.getElementById('closePopup');
-
-        // Показывать попап через 3 секунды после загрузки страницы
-        setTimeout(() => {
-            // Можно добавить проверку через localStorage, чтобы не надоедать при каждом клике:
-            // if (!localStorage.getItem('popupShown')) {
-                popup.classList.add('active');
-            //     localStorage.setItem('popupShown', 'true');
-            // }
-        }, 3000);
-
-        // Закрытие по крестику
-        closeBtn.addEventListener('click', () => {
-            popup.classList.remove('active');
-        });
-
-        // Закрытие по клику вне карточки
-        popup.addEventListener('click', (e) => {
-            if (e.target === popup) {
-                popup.classList.remove('active');
-            }
-        });
     </script>
 </body>
 </html>
