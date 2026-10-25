@@ -29,7 +29,7 @@
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 25px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -95,87 +95,88 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         .btn-nav {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 9px 18px;
-            background: rgba(30, 10, 15, 0.7);
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(30, 10, 15, 0.65);
             color: var(--silver-light);
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             border: 1px solid var(--card-border);
             border-radius: 4px;
-            box-shadow: 0 0 12px rgba(255, 34, 51, 0.4);
+            box-shadow: 0 0 8px rgba(255, 34, 51, 0.3);
             backdrop-filter: blur(5px);
         }
 
         .page-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         .page-title {
             font-family: 'Cinzel', serif;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 900;
             color: var(--accent-red);
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 
-                0 0 12px rgba(230, 16, 31, 0.7),
-                0 0 25px rgba(230, 16, 31, 0.4),
+                0 0 10px rgba(230, 16, 31, 0.7),
+                0 0 20px rgba(230, 16, 31, 0.4),
                 2px 2px 4px #000;
             position: relative;
-            margin-bottom: 10px;
         }
 
         .episodes-nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             width: 100%;
         }
 
         .episode-link {
-            padding: 6px 12px;
-            background: rgba(25, 10, 14, 0.75);
+            padding: 5px 10px;
+            background: rgba(25, 10, 14, 0.6);
             color: var(--silver-light);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            border: 1px solid rgba(255, 34, 51, 0.45);
+            border: 1px solid rgba(255, 34, 51, 0.4);
             border-radius: 3px;
-            box-shadow: 0 0 6px rgba(255, 34, 51, 0.2);
+            box-shadow: 0 0 5px rgba(255, 34, 51, 0.2);
+            backdrop-filter: blur(4px);
         }
 
         .season-btn-container {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .season-btn {
             display: inline-block;
-            padding: 10px 24px;
-            background: linear-gradient(135deg, rgba(230, 16, 31, 0.8), rgba(120, 5, 12, 0.9));
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(230, 16, 31, 0.75), rgba(120, 5, 12, 0.85));
             color: #ffffff;
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             border: 1px solid var(--card-border);
             border-radius: 4px;
-            box-shadow: 0 0 15px rgba(255, 34, 51, 0.5);
+            box-shadow: 0 0 12px rgba(255, 34, 51, 0.4);
+            backdrop-filter: blur(4px);
         }
 
         .guide-container {
@@ -221,7 +222,7 @@
             font-size: 0.88rem;
             color: var(--silver-light);
             padding: 6px 10px;
-            background: rgba(25, 10, 14, 0.5);
+            background: rgba(25, 10, 14, 0.45);
             border-left: 3px solid var(--accent-red);
             border-radius: 2px;
             letter-spacing: 0.3px;
@@ -230,10 +231,10 @@
         @media (max-width: 600px) {
             .nav-buttons {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
             }
             .page-title {
-                font-size: 1.5rem;
+                font-size: 1.35rem;
             }
         }
     </style>
