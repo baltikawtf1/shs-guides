@@ -1,1 +1,463 @@
-.
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд: Легион • Цепи договора</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #040102;
+            --bg-card: rgba(20, 8, 11, 0.65);
+            --card-border: #ff2233;
+            --accent-red: #e6101f;
+            --silver-light: #d8e0e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 850px;
+            height: 850px;
+            background: radial-gradient(circle, rgba(200, 10, 20, 0.35) 0%, rgba(80, 2, 8, 0.15) 50%, transparent 75%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.25); opacity: 0.95; }
+        }
+
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(2px 2px at 30px 40px, rgba(255, 50, 60, 0.9), transparent),
+                radial-gradient(2px 2px at 70px 110px, rgba(211, 15, 29, 0.7), transparent),
+                radial-gradient(1px 1px at 130px 50px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 200px 180px, rgba(255, 70, 70, 0.8), transparent);
+            background-repeat: repeat;
+            background-size: 300px 300px;
+            animation: particleMove 18s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes particleMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 300px -600px; }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            background: rgba(30, 10, 15, 0.7);
+            color: var(--silver-light);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(255, 34, 51, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 12px rgba(230, 16, 31, 0.7),
+                0 0 25px rgba(230, 16, 31, 0.4),
+                2px 2px 4px #000;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .episodes-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .episode-link {
+            padding: 6px 12px;
+            background: rgba(25, 10, 14, 0.75);
+            color: var(--silver-light);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 34, 51, 0.45);
+            border-radius: 3px;
+            box-shadow: 0 0 6px rgba(255, 34, 51, 0.2);
+        }
+
+        .season-btn-container {
+            margin-bottom: 35px;
+        }
+
+        .season-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(230, 16, 31, 0.8), rgba(120, 5, 12, 0.9));
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(255, 34, 51, 0.5);
+        }
+
+        .guide-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .episode-card {
+            background: var(--bg-card);
+            border: 2px solid var(--card-border);
+            border-radius: 6px;
+            padding: 20px 25px;
+            backdrop-filter: blur(8px);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.8),
+                0 0 22px rgba(255, 34, 51, 0.55);
+        }
+
+        .episode-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 34, 51, 0.4);
+            text-shadow: 0 0 8px rgba(230, 16, 31, 0.9), 1px 1px 2px #000;
+        }
+
+        .choices-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .choice-item {
+            font-size: 0.88rem;
+            color: var(--silver-light);
+            padding: 6px 10px;
+            background: rgba(25, 10, 14, 0.5);
+            border-left: 3px solid var(--accent-red);
+            border-radius: 2px;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 600px) {
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="particles-bg"></div>
+
+    <div class="content-wrapper">
+        <div class="nav-buttons">
+            <a href="#" class="btn-nav">‹ К историям</a>
+            <a href="#" class="btn-nav">‹ К фаворитам</a>
+        </div>
+
+        <header class="page-header">
+            <h1 class="page-title">Гайд по прохождению<br>Легион • Цепи договора</h1>
+        </header>
+
+        <div class="episodes-nav">
+            <a href="#ep1" class="episode-link">1 серия</a>
+            <a href="#ep2" class="episode-link">2 серия</a>
+            <a href="#ep3" class="episode-link">3 серия</a>
+            <a href="#ep4" class="episode-link">4 серия</a>
+            <a href="#ep5" class="episode-link">5 серия</a>
+            <a href="#ep6" class="episode-link">6 серия</a>
+            <a href="#ep7" class="episode-link">7 серия</a>
+            <a href="#ep8" class="episode-link">8 серия</a>
+            <a href="#ep9" class="episode-link">9 серия</a>
+            <a href="#ep10" class="episode-link">10 серия</a>
+            <a href="#ep11" class="episode-link">11 серия</a>
+            <a href="#ep12" class="episode-link">12 серия</a>
+        </div>
+
+        <div class="season-btn-container">
+            <a href="#" class="season-btn">Второй сезон ›</a>
+        </div>
+
+        <div class="guide-container">
+
+            <div id="ep1" class="episode-card">
+                <h2 class="episode-title">1 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">подавить (+импульс)</li>
+                    <li class="choice-item">первую/вторую карту (сцена с легионом)</li>
+                    <li class="choice-item">присмотреться с правой стороны</li>
+                    <li class="choice-item">не твоего ума дело (+импульс)</li>
+                    <li class="choice-item">поставить его на место</li>
+                    <li class="choice-item">жаль (+свет)</li>
+                    <li class="choice-item">беспокойство (+свет)</li>
+                    <li class="choice-item">принять (улучшение отношений с легионом)</li>
+                    <li class="choice-item">сказать (+импульс)</li>
+                    <li class="choice-item">плюс (импульс)</li>
+                </ul>
+            </div>
+
+            <div id="ep2" class="episode-card">
+                <h2 class="episode-title">2 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">сочувствую им (+свет)</li>
+                    <li class="choice-item">третью карту (сцена с легионом)</li>
+                    <li class="choice-item">наряд нежность (+свет)</li>
+                    <li class="choice-item">прекращаю терапию</li>
+                    <li class="choice-item">обращусь к совету</li>
+                    <li class="choice-item">останусь спокойной</li>
+                    <li class="choice-item">подслушать</li>
+                    <li class="choice-item">вы переходите границы (+импульс)</li>
+                    <li class="choice-item">спокойствие (+свет)</li>
+                    <li class="choice-item">смотреть</li>
+                    <li class="choice-item">притягивает (+свет)</li>
+                    <li class="choice-item">сопротивляться (+импульс)</li>
+                    <li class="choice-item">я постараюсь (+свет)</li>
+                    <li class="choice-item">ты (улучшение отношений с легионом)</li>
+                    <li class="choice-item">ты высокого о себе мнения (+импульс)</li>
+                    <li class="choice-item">угрожать (+импульс)</li>
+                    <li class="choice-item">нет(+свет)</li>
+                </ul>
+            </div>
+
+            <div id="ep3" class="episode-card">
+                <h2 class="episode-title">3 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">вспомнить,что было дальше</li>
+                    <li class="choice-item">многого</li>
+                    <li class="choice-item">ни того ни другого</li>
+                    <li class="choice-item">третью карту (сцена с легионом)</li>
+                    <li class="choice-item">атака (+импульс)</li>
+                    <li class="choice-item">первое (+свет)</li>
+                </ul>
+            </div>
+
+            <div id="ep4" class="episode-card">
+                <h2 class="episode-title">4 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">закрой рот (+импульс)</li>
+                    <li class="choice-item">помоги мне (+свет)</li>
+                    <li class="choice-item">вторую карту (сцена с легионом)</li>
+                    <li class="choice-item">вы слишком близко (+импульс)</li>
+                    <li class="choice-item">хорошо(+свет)</li>
+                    <li class="choice-item">завязать разговор (+импульс)</li>
+                    <li class="choice-item">посмотреть</li>
+                    <li class="choice-item">намекнуть на статус (+импульс)</li>
+                    <li class="choice-item">поддержать (+свет)</li>
+                    <li class="choice-item">да(+свет)</li>
+                    <li class="choice-item">да (улучшение отношений с легионом)</li>
+                    <li class="choice-item">хочу (+импульс)</li>
+                    <li class="choice-item">продолжить(+пустота) или молчать</li>
+                    <li class="choice-item">ухожу</li>
+                </ul>
+            </div>
+
+            <div id="ep5" class="episode-card">
+                <h2 class="episode-title">5 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">калеб! (+свет)</li>
+                    <li class="choice-item">для него? (+свет)</li>
+                    <li class="choice-item">новые сомнения(+свет)</li>
+                    <li class="choice-item">ничего не обещаю (+импульс)</li>
+                    <li class="choice-item">я решу сама (+импульс)</li>
+                    <li class="choice-item">защищаться (+импульс)</li>
+                </ul>
+            </div>
+
+            <div id="ep6" class="episode-card">
+                <h2 class="episode-title">6 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">опасности(+свет)</li>
+                    <li class="choice-item">обратиться к элиану/посмотреть на элиана(+свет)</li>
+                    <li class="choice-item">не нравилось (+свет)</li>
+                    <li class="choice-item">не трогать(+свет)</li>
+                    <li class="choice-item">могу предложить психологическую помощь (+импульс)</li>
+                </ul>
+            </div>
+
+            <div id="ep7" class="episode-card">
+                <h2 class="episode-title">7 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">вы провоцируете меня (+импульс)</li>
+                    <li class="choice-item">пригрозить(+импульс)</li>
+                    <li class="choice-item">немедленно (+импульс)</li>
+                    <li class="choice-item">попробовать соблазнить (улучшение отношений с легионом)</li>
+                    <li class="choice-item">отвернуться(ничего)/продолжать смотреть(+пустота)</li>
+                    <li class="choice-item">поддержать джейн(+свет)</li>
+                    <li class="choice-item">прокомментировать образ софии(+импульс)</li>
+                    <li class="choice-item">ощущала горечь(+свет)</li>
+                    <li class="choice-item">помешаешь(+импульс)</li>
+                    <li class="choice-item">надеюсь он в порядке(+свет)</li>
+                    <li class="choice-item">осмотреть карманы(+импульс)</li>
+                </ul>
+            </div>
+
+            <div id="ep8" class="episode-card">
+                <h2 class="episode-title">8 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">сказать часть правды (+импульс)</li>
+                    <li class="choice-item">первая карта</li>
+                    <li class="choice-item">чудовищно(+свет)</li>
+                    <li class="choice-item">попросить калеба о помощи(ничего)/попробовать еще раз(+пустота)</li>
+                    <li class="choice-item">узнать подробнее</li>
+                </ul>
+            </div>
+
+            <div id="ep9" class="episode-card">
+                <h2 class="episode-title">9 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">я твоя (улучшение отношений с легионом)</li>
+                    <li class="choice-item">возразить(+свет)</li>
+                    <li class="choice-item">я справлюсь(+импульс)</li>
+                    <li class="choice-item">подслушать</li>
+                    <li class="choice-item">хотели лишить наследника защиты(+свет)</li>
+                    <li class="choice-item">вы плачете изза отца?(+импульс)</li>
+                    <li class="choice-item">разорвать контракт(+свет)</li>
+                    <li class="choice-item">остановить ее(+импульс)</li>
+                    <li class="choice-item">…(+свет)</li>
+                </ul>
+            </div>
+
+            <div id="ep10" class="episode-card">
+                <h2 class="episode-title">10 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">вторая карта(сцена с легионом)</li>
+                    <li class="choice-item">а ты паршиво(+импульс)</li>
+                    <li class="choice-item">я не ненавижу тебя(+свет)</li>
+                    <li class="choice-item">это между мной и им (+импульс)</li>
+                    <li class="choice-item">рассказать правду (улучшение отношений с легионом)</li>
+                    <li class="choice-item">нет(улучшение отношений с легионом)</li>
+                    <li class="choice-item">идти за ним(+импульс)</li>
+                    <li class="choice-item">постучать(+импульс)</li>
+                    <li class="choice-item">вы ничего не знаете(+импульс)</li>
+                    <li class="choice-item">если бы я могла заключить сделку</li>
+                    <li class="choice-item">уставшей (+свет)</li>
+                </ul>
+            </div>
+
+            <div id="ep11" class="episode-card">
+                <h2 class="episode-title">11 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">нет(+импульс)</li>
+                    <li class="choice-item">кажется непонятно вам</li>
+                    <li class="choice-item">взять телефон(+импульс)</li>
+                    <li class="choice-item">если только чуть-чуть(+свет)</li>
+                    <li class="choice-item">его высочество так не считает(+импульс)</li>
+                    <li class="choice-item">нет(+свет)</li>
+                    <li class="choice-item">отдаться страсти (улучшение отношений с легионом)</li>
+                    <li class="choice-item">ладно (улучшение отношений с легионом)</li>
+                </ul>
+            </div>
+
+            <div id="ep12" class="episode-card">
+                <h2 class="episode-title">12 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">надавить(+импульс)</li>
+                    <li class="choice-item">сесть назад</li>
+                    <li class="choice-item">поджечь сигарету(улучшение отношений с легионом)</li>
+                    <li class="choice-item">вмешаться(+импульс)</li>
+                    <li class="choice-item">попроси чтонибудь попроще(+импульс)</li>
+                    <li class="choice-item">клянусь(+импульс)</li>
+                    <li class="choice-item">я сделаю это</li>
+                    <li class="choice-item">это чушь</li>
+                    <li class="choice-item">страшно (+свет)</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
