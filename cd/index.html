@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Гайды для истории Цепи договора</title>
-    <!-- Готический шрифт из Google Fonts для аутентичной атмосферы -->
+    <!-- Готический шрифт Cinzel & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Базовые сбросы и стили темы */
         :root {
-            --bg-dark: #0a0506;
-            --bg-card: rgba(18, 10, 12, 0.85);
-            --accent-red: #c80d19;
-            --accent-red-hover: #ff1e2d;
-            --text-glow: rgba(200, 13, 25, 0.7);
-            --silver-metal: #a8b0b8;
-            --border-color: rgba(200, 13, 25, 0.4);
+            --bg-dark: #050203;
+            --bg-card: rgba(15, 7, 9, 0.88);
+            --accent-red: #d30f1d;
+            --accent-red-bright: #ff1a2a;
+            --silver-metal: #a3adb8;
+            --border-red: rgba(211, 15, 29, 0.45);
         }
 
         * {
@@ -29,13 +27,70 @@
 
         body {
             background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 50% 20%, rgba(150, 10, 20, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 50% 80%, rgba(10, 5, 6, 0.95) 0%, transparent 100%);
             color: #e0e0e0;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- ФОНОВЫЕ ЭФФЕКТЫ --- */
+        /* 1. Вращающееся туманное свечение по центру */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(180, 10, 20, 0.22) 0%, rgba(100, 5, 10, 0.08) 50%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.7; }
+            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+        }
+
+        /* 2. Летающие частицы/пепел на фоне */
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 30, 40, 0.8), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(200, 10, 20, 0.6), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 160px 120px, rgba(255, 50, 50, 0.7), transparent);
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            animation: particleMove 20s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes particleMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 250px -500px; }
+        }
+
+        /* Контейнер содержимого над фоном */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1000px; /* Уменьшили общую ширину контейнера */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -44,270 +99,290 @@
         /* Кнопка «Ко всем историям» */
         .btn-back-container {
             width: 100%;
-            max-width: 1200px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .btn-back {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #15090b, #250a0e);
-            color: #d1d1d1;
+            gap: 8px;
+            padding: 9px 18px;
+            background: linear-gradient(135deg, rgba(25, 8, 12, 0.9), rgba(45, 10, 16, 0.9));
+            color: var(--silver-metal);
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+            border: 1px solid var(--border-red);
+            border-radius: 3px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
         }
 
         .btn-back:hover {
             color: #ffffff;
-            border-color: var(--accent-red);
-            box-shadow: 0 0 15px var(--text-glow);
-            transform: translateY(-2px);
+            border-color: var(--accent-red-bright);
+            box-shadow: 0 0 15px rgba(211, 15, 29, 0.6);
+            transform: translateX(-3px);
         }
 
         /* Заголовок страницы */
         .page-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 35px;
         }
 
         .page-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
+            font-size: 2.1rem;
             font-weight: 900;
             color: var(--accent-red);
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-shadow: 
-                0 0 10px rgba(200, 13, 25, 0.5),
-                0 0 20px rgba(200, 13, 25, 0.3),
-                2px 2px 4px rgba(0, 0, 0, 0.9);
+                0 0 12px rgba(211, 15, 29, 0.6),
+                0 0 25px rgba(211, 15, 29, 0.3),
+                2px 2px 4px #000;
             position: relative;
         }
 
         .page-title::after {
             content: '';
             display: block;
-            width: 120px;
+            width: 100px;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
-            margin: 15px auto 0;
+            margin: 12px auto 0;
+            box-shadow: 0 0 8px var(--accent-red);
         }
 
-        /* Сетка карт фаворитов */
+        /* Сетка анкет */
         .favorites-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            gap: 18px; /* Уменьшенный зазор между карточками */
             width: 100%;
-            max-width: 1200px;
         }
 
-        /* Карточка фаворита */
+        /* Компактная карточка фаворита */
         .card {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
+            border: 1px solid var(--border-red);
+            border-radius: 6px;
+            padding: 12px; /* Уменьшенный внутренний отступ */
             display: flex;
             flex-direction: column;
             align-items: center;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9);
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
-            overflow: hidden;
         }
 
-        .card::before {
+        /* Декоративные металлические уголки */
+        .card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top, rgba(200, 13, 25, 0.1), transparent 70%);
+            inset: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             pointer-events: none;
+            border-radius: 4px;
         }
 
         .card:hover {
-            border-color: var(--accent-red);
-            box-shadow: 0 0 25px rgba(200, 13, 25, 0.4);
-            transform: translateY(-5px);
+            border-color: var(--accent-red-bright);
+            box-shadow: 0 0 20px rgba(211, 15, 29, 0.5);
+            transform: translateY(-6px) scale(1.02);
         }
 
-        /* Фото фаворита */
+        /* Компактное фото */
         .avatar-container {
             width: 100%;
-            height: 280px;
-            border-radius: 6px;
+            height: 210px; /* Уменьшенная высота фото */
+            border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 12px;
+            border: 1px solid rgba(211, 15, 29, 0.3);
             position: relative;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
         }
 
         .avatar-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(20%) contrast(110%);
+            filter: grayscale(25%) contrast(110%);
             transition: transform 0.5s ease, filter 0.5s ease;
         }
 
         .card:hover .avatar-img {
-            transform: scale(1.05);
-            filter: grayscale(0%) contrast(115%);
+            transform: scale(1.08);
+            filter: grayscale(0%) contrast(120%);
         }
 
         /* Имя фаворита */
         .character-name {
             font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #ffffff;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+            position: relative;
         }
 
-        /* Кнопки путей */
+        /* Список кнопок путей */
         .paths-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
             width: 100%;
         }
 
+        /* Кнопка пути */
         .path-btn {
             display: block;
             width: 100%;
-            padding: 12px 8px;
+            padding: 8px 4px;
             text-align: center;
-            background: linear-gradient(90deg, #12090b 0%, #1c0a0e 50%, #12090b 100%);
+            background: linear-gradient(135deg, rgba(20, 8, 12, 0.9) 0%, rgba(35, 10, 16, 0.9) 100%);
             color: var(--silver-metal);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            border: 1px solid rgba(168, 176, 184, 0.2);
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(211, 15, 29, 0.25);
+            border-radius: 3px;
+            transition: all 0.25s ease;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Эффект блика на кнопках при наведении */
+        .path-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: rotate(45deg) translateY(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .path-btn:hover::before {
+            transform: rotate(45deg) translateY(100%);
         }
 
         .path-btn:hover {
             color: #ffffff;
-            background: linear-gradient(90deg, #8a0810 0%, #c80d19 50%, #8a0810 100%);
-            border-color: var(--accent-red-hover);
-            box-shadow: 0 0 12px rgba(200, 13, 25, 0.6);
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            background: linear-gradient(135deg, #a00a14 0%, #d30f1d 100%);
+            border-color: var(--accent-red-bright);
+            box-shadow: 0 0 10px rgba(211, 15, 29, 0.7);
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
         }
 
-        /* Адаптивность под мобильные устройства и планшеты */
-        @media (max-width: 1024px) {
+        /* Адаптивность для планшетов и мобильных */
+        @media (max-width: 900px) {
             .favorites-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 480px) {
             .favorites-grid {
                 grid-template-columns: 1fr;
             }
             .page-title {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Кнопка навигации назад -->
-    <div class="btn-back-container">
-        <a href="#" class="btn-back">‹ Ко всем историям</a>
+    <!-- Частицы на фоне -->
+    <div class="particles-bg"></div>
+
+    <div class="content-wrapper">
+        <!-- Кнопка «Ко всем историям» -->
+        <div class="btn-back-container">
+            <a href="#" class="btn-back">‹ Ко всем историям</a>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <header class="page-header">
+            <h1 class="page-title">Гайды для истории Цепи договора</h1>
+        </header>
+
+        <!-- Карточки 4-х фаворитов -->
+        <main class="favorites-grid">
+
+            <!-- Легион -->
+            <div class="card">
+                <div class="avatar-container">
+                    <img src="https://via.placeholder.com/250x350/120507/d30f1d?text=Легион" alt="Легион" class="avatar-img">
+                </div>
+                <h2 class="character-name">Легион</h2>
+                <div class="paths-list">
+                    <a href="#" class="path-btn">Импульс + Свет</a>
+                    <a href="#" class="path-btn">Импульс + Тьма</a>
+                    <a href="#" class="path-btn">Расчет + Свет</a>
+                    <a href="#" class="path-btn">Расчет + Тьма</a>
+                </div>
+            </div>
+
+            <!-- Элиан -->
+            <div class="card">
+                <div class="avatar-container">
+                    <img src="https://via.placeholder.com/250x350/120507/d30f1d?text=Элиан" alt="Элиан" class="avatar-img">
+                </div>
+                <h2 class="character-name">Элиан</h2>
+                <div class="paths-list">
+                    <a href="#" class="path-btn">Импульс + Свет</a>
+                    <a href="#" class="path-btn">Импульс + Тьма</a>
+                    <a href="#" class="path-btn">Расчет + Свет</a>
+                    <a href="#" class="path-btn">Расчет + Тьма</a>
+                </div>
+            </div>
+
+            <!-- Кассандра -->
+            <div class="card">
+                <div class="avatar-container">
+                    <img src="https://via.placeholder.com/250x350/120507/d30f1d?text=Кассандра" alt="Кассандра" class="avatar-img">
+                </div>
+                <h2 class="character-name">Кассандра</h2>
+                <div class="paths-list">
+                    <a href="#" class="path-btn">Импульс + Свет</a>
+                    <a href="#" class="path-btn">Импульс + Тьма</a>
+                    <a href="#" class="path-btn">Расчет + Свет</a>
+                    <a href="#" class="path-btn">Расчет + Тьма</a>
+                </div>
+            </div>
+
+            <!-- Калеб -->
+            <div class="card">
+                <div class="avatar-container">
+                    <img src="https://via.placeholder.com/250x350/120507/d30f1d?text=Калеб" alt="Калеб" class="avatar-img">
+                </div>
+                <h2 class="character-name">Калеб</h2>
+                <div class="paths-list">
+                    <a href="#" class="path-btn">Импульс + Свет</a>
+                    <a href="#" class="path-btn">Импульс + Тьма</a>
+                    <a href="#" class="path-btn">Расчет + Свет</a>
+                    <a href="#" class="path-btn">Расчет + Тьма</a>
+                </div>
+            </div>
+
+        </main>
     </div>
-
-    <!-- Заголовок страницы -->
-    <header class="page-header">
-        <h1 class="page-title">Гайды для истории Цепи договора</h1>
-    </header>
-
-    <!-- Карточки 4-х фаворитов -->
-    <main class="favorites-grid">
-
-        <!-- Фаворит 1: Легион -->
-        <div class="card">
-            <div class="avatar-container">
-                <!-- Замените src на ссылку на реальное фото Легиона -->
-                <img src="https://via.placeholder.com/300x400/15080a/c80d19?text=Легион" alt="Легион" class="avatar-img">
-            </div>
-            <h2 class="character-name">Легион</h2>
-            <div class="paths-list">
-                <a href="#" class="path-btn">Импульс + Свет</a>
-                <a href="#" class="path-btn">Импульс + Тьма</a>
-                <a href="#" class="path-btn">Расчет + Свет</a>
-                <a href="#" class="path-btn">Расчет + Тьма</a>
-            </div>
-        </div>
-
-        <!-- Фаворит 2: Элиан -->
-        <div class="card">
-            <div class="avatar-container">
-                <!-- Замените src на ссылку на реальное фото Элиана -->
-                <img src="https://via.placeholder.com/300x400/15080a/c80d19?text=Элиан" alt="Элиан" class="avatar-img">
-            </div>
-            <h2 class="character-name">Элиан</h2>
-            <div class="paths-list">
-                <a href="#" class="path-btn">Импульс + Свет</a>
-                <a href="#" class="path-btn">Импульс + Тьма</a>
-                <a href="#" class="path-btn">Расчет + Свет</a>
-                <a href="#" class="path-btn">Расчет + Тьма</a>
-            </div>
-        </div>
-
-        <!-- Фаворит 3: Кассандра -->
-        <div class="card">
-            <div class="avatar-container">
-                <!-- Замените src на ссылку на реальное фото Кассандры -->
-                <img src="https://via.placeholder.com/300x400/15080a/c80d19?text=Кассандра" alt="Кассандра" class="avatar-img">
-            </div>
-            <h2 class="character-name">Кассандра</h2>
-            <div class="paths-list">
-                <a href="#" class="path-btn">Импульс + Свет</a>
-                <a href="#" class="path-btn">Импульс + Тьма</a>
-                <a href="#" class="path-btn">Расчет + Свет</a>
-                <a href="#" class="path-btn">Расчет + Тьма</a>
-            </div>
-        </div>
-
-        <!-- Фаворит 4: Калеб -->
-        <div class="card">
-            <div class="avatar-container">
-                <!-- Замените src на ссылку на реальное фото Калеба -->
-                <img src="https://via.placeholder.com/300x400/15080a/c80d19?text=Калеб" alt="Калеб" class="avatar-img">
-            </div>
-            <h2 class="character-name">Калеб</h2>
-            <div class="paths-list">
-                <a href="#" class="path-btn">Импульс + Свет</a>
-                <a href="#" class="path-btn">Импульс + Тьма</a>
-                <a href="#" class="path-btn">Расчет + Свет</a>
-                <a href="#" class="path-btn">Расчет + Тьма</a>
-            </div>
-        </div>
-
-    </main>
 
 </body>
 </html>
