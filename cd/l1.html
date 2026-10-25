@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-dark: #040102;
-            --bg-card: rgba(15, 6, 9, 0.55);
+            --bg-card: rgba(18, 7, 10, 0.6);
             --card-border: #ff2233;
             --accent-red: #e6101f;
             --silver-light: #d8e0e8;
@@ -187,14 +187,17 @@
         }
 
         .episode-card {
-            background: var(--bg-card);
+            background: 
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.07) 0%, transparent 70%),
+                var(--bg-card);
             border: 1px solid rgba(255, 34, 51, 0.35);
             border-radius: 8px;
             padding: 24px 28px;
             backdrop-filter: blur(10px);
             box-shadow: 
                 0 15px 35px rgba(0, 0, 0, 0.7),
-                0 0 25px rgba(255, 34, 51, 0.25);
+                0 0 25px rgba(255, 34, 51, 0.25),
+                inset 0 0 30px rgba(255, 255, 255, 0.03);
             position: relative;
         }
 
@@ -246,7 +249,7 @@
 
         .badge {
             display: inline-block;
-            padding: 2px 8px;
+            padding: 3px 8px;
             border: 1px solid var(--card-border);
             border-radius: 12px;
             font-size: 0.65rem;
@@ -258,6 +261,14 @@
             text-transform: uppercase;
             white-space: nowrap;
             text-align: center;
+        }
+
+        .badge-multiline {
+            line-height: 1.15;
+            padding: 4px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         @media (max-width: 600px) {
@@ -316,7 +327,7 @@
                     <li class="choice-item">поставить его на место</li>
                     <li class="choice-item">жаль <span class="badge">+свет</span></li>
                     <li class="choice-item">беспокойство <span class="badge">+свет</span></li>
-                    <li class="choice-item">принять <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">принять <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">сказать <span class="badge">+импульс</span></li>
                     <li class="choice-item">плюс <span class="badge">импульс</span></li>
                 </ul>
@@ -338,7 +349,7 @@
                     <li class="choice-item">притягивает <span class="badge">+свет</span></li>
                     <li class="choice-item">сопротивляться <span class="badge">+импульс</span></li>
                     <li class="choice-item">я постараюсь <span class="badge">+свет</span></li>
-                    <li class="choice-item">ты <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">ты <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">ты высокого о себе мнения <span class="badge">+импульс</span></li>
                     <li class="choice-item">угрожать <span class="badge">+импульс</span></li>
                     <li class="choice-item">нет <span class="badge">+свет</span></li>
@@ -370,7 +381,7 @@
                     <li class="choice-item">намекнуть на статус <span class="badge">+импульс</span></li>
                     <li class="choice-item">поддержать <span class="badge">+свет</span></li>
                     <li class="choice-item">да <span class="badge">+свет</span></li>
-                    <li class="choice-item">да <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">да <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">хочу <span class="badge">+импульс</span></li>
                     <li class="choice-item">продолжить <span class="badge">+пустота</span> или молчать</li>
                     <li class="choice-item">ухожу</li>
@@ -406,7 +417,7 @@
                     <li class="choice-item">вы провоцируете меня <span class="badge">+импульс</span></li>
                     <li class="choice-item">пригрозить <span class="badge">+импульс</span></li>
                     <li class="choice-item">немедленно <span class="badge">+импульс</span></li>
-                    <li class="choice-item">попробовать соблазнить <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">попробовать соблазнить <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">отвернуться (ничего) / продолжать смотреть <span class="badge">+пустота</span></li>
                     <li class="choice-item">поддержать джейн <span class="badge">+свет</span></li>
                     <li class="choice-item">прокомментировать образ софии <span class="badge">+импульс</span></li>
@@ -431,7 +442,7 @@
             <div id="ep9" class="episode-card">
                 <h2 class="episode-title">9 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">я твоя <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">я твоя <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">возразить <span class="badge">+свет</span></li>
                     <li class="choice-item">я справлюсь <span class="badge">+импульс</span></li>
                     <li class="choice-item">подслушать</li>
@@ -450,8 +461,8 @@
                     <li class="choice-item">а ты паршиво <span class="badge">+импульс</span></li>
                     <li class="choice-item">я не ненавижу тебя <span class="badge">+свет</span></li>
                     <li class="choice-item">это между мной и им <span class="badge">+импульс</span></li>
-                    <li class="choice-item">рассказать правду <span class="badge">улучшение отношений с легионом</span></li>
-                    <li class="choice-item">нет <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">рассказать правду <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
+                    <li class="choice-item">нет <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">идти за ним <span class="badge">+импульс</span></li>
                     <li class="choice-item">постучать <span class="badge">+импульс</span></li>
                     <li class="choice-item">вы ничего не знаете <span class="badge">+импульс</span></li>
@@ -469,8 +480,8 @@
                     <li class="choice-item">если только чуть-чуть <span class="badge">+свет</span></li>
                     <li class="choice-item">его высочество так не считает <span class="badge">+импульс</span></li>
                     <li class="choice-item">нет <span class="badge">+свет</span></li>
-                    <li class="choice-item">отдаться страсти <span class="badge">улучшение отношений с легионом</span></li>
-                    <li class="choice-item">ладно <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">отдаться страсти <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
+                    <li class="choice-item">ладно <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                 </ul>
             </div>
 
@@ -479,7 +490,7 @@
                 <ul class="choices-list">
                     <li class="choice-item">надавить <span class="badge">+импульс</span></li>
                     <li class="choice-item">сесть назад</li>
-                    <li class="choice-item">поджечь сигарету <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">поджечь сигарету <span class="badge badge-multiline"><span>улучшение отношений</span><span>с легионом</span></span></li>
                     <li class="choice-item">вмешаться <span class="badge">+импульс</span></li>
                     <li class="choice-item">попроси что-нибудь попроще <span class="badge">+импульс</span></li>
                     <li class="choice-item">клянусь <span class="badge">+импульс</span></li>
