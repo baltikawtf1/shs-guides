@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-dark: #040102;
-            --bg-card: rgba(20, 8, 11, 0.65);
+            --bg-card: rgba(20, 8, 11, 0.45);
             --card-border: #ff2233;
             --accent-red: #e6101f;
             --silver-light: #d8e0e8;
@@ -95,7 +95,7 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .btn-nav {
@@ -139,27 +139,27 @@
         .episodes-nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 10px;
             justify-content: center;
             margin-bottom: 15px;
             width: 100%;
         }
 
         .episode-link {
-            padding: 5px 10px;
-            background: rgba(25, 10, 14, 0.6);
+            padding: 9px 16px;
+            background: rgba(25, 10, 14, 0.75);
             color: var(--silver-light);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            border: 1px solid rgba(255, 34, 51, 0.4);
-            border-radius: 3px;
-            box-shadow: 0 0 5px rgba(255, 34, 51, 0.2);
+            border: 1px solid rgba(255, 34, 51, 0.6);
+            border-radius: 4px;
+            box-shadow: 0 0 8px rgba(255, 34, 51, 0.3);
             backdrop-filter: blur(4px);
         }
 
         .season-btn-container {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .season-btn {
@@ -183,14 +183,14 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 40px;
         }
 
         .episode-card {
             background: var(--bg-card);
             border: 2px solid var(--card-border);
             border-radius: 6px;
-            padding: 20px 25px;
+            padding: 22px 28px;
             backdrop-filter: blur(8px);
             box-shadow: 
                 0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -215,17 +215,36 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .choice-item {
             font-size: 0.88rem;
             color: var(--silver-light);
-            padding: 6px 10px;
-            background: rgba(25, 10, 14, 0.45);
+            padding: 7px 12px;
+            background: rgba(25, 10, 14, 0.35);
             border-left: 3px solid var(--accent-red);
             border-radius: 2px;
             letter-spacing: 0.3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: rgba(230, 16, 31, 0.25);
+            box-shadow: 0 0 6px rgba(255, 34, 51, 0.4);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         @media (max-width: 600px) {
@@ -277,39 +296,39 @@
             <div id="ep1" class="episode-card">
                 <h2 class="episode-title">1 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">подавить (+импульс)</li>
-                    <li class="choice-item">первую/вторую карту (сцена с легионом)</li>
+                    <li class="choice-item">подавить <span class="badge">+импульс</span></li>
+                    <li class="choice-item">первую/вторую карту <span class="badge">сцена с легионом</span></li>
                     <li class="choice-item">присмотреться с правой стороны</li>
-                    <li class="choice-item">не твоего ума дело (+импульс)</li>
+                    <li class="choice-item">не твоего ума дело <span class="badge">+импульс</span></li>
                     <li class="choice-item">поставить его на место</li>
-                    <li class="choice-item">жаль (+свет)</li>
-                    <li class="choice-item">беспокойство (+свет)</li>
-                    <li class="choice-item">принять (улучшение отношений с легионом)</li>
-                    <li class="choice-item">сказать (+импульс)</li>
-                    <li class="choice-item">плюс (импульс)</li>
+                    <li class="choice-item">жаль <span class="badge">+свет</span></li>
+                    <li class="choice-item">беспокойство <span class="badge">+свет</span></li>
+                    <li class="choice-item">принять <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">сказать <span class="badge">+импульс</span></li>
+                    <li class="choice-item">плюс <span class="badge">импульс</span></li>
                 </ul>
             </div>
 
             <div id="ep2" class="episode-card">
                 <h2 class="episode-title">2 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">сочувствую им (+свет)</li>
-                    <li class="choice-item">третью карту (сцена с легионом)</li>
-                    <li class="choice-item">наряд нежность (+свет)</li>
+                    <li class="choice-item">сочувствую им <span class="badge">+свет</span></li>
+                    <li class="choice-item">третью карту <span class="badge">сцена с легионом</span></li>
+                    <li class="choice-item">наряд нежность <span class="badge">+свет</span></li>
                     <li class="choice-item">прекращаю терапию</li>
                     <li class="choice-item">обращусь к совету</li>
                     <li class="choice-item">останусь спокойной</li>
                     <li class="choice-item">подслушать</li>
-                    <li class="choice-item">вы переходите границы (+импульс)</li>
-                    <li class="choice-item">спокойствие (+свет)</li>
+                    <li class="choice-item">вы переходите границы <span class="badge">+импульс</span></li>
+                    <li class="choice-item">спокойствие <span class="badge">+свет</span></li>
                     <li class="choice-item">смотреть</li>
-                    <li class="choice-item">притягивает (+свет)</li>
-                    <li class="choice-item">сопротивляться (+импульс)</li>
-                    <li class="choice-item">я постараюсь (+свет)</li>
-                    <li class="choice-item">ты (улучшение отношений с легионом)</li>
-                    <li class="choice-item">ты высокого о себе мнения (+импульс)</li>
-                    <li class="choice-item">угрожать (+импульс)</li>
-                    <li class="choice-item">нет(+свет)</li>
+                    <li class="choice-item">притягивает <span class="badge">+свет</span></li>
+                    <li class="choice-item">сопротивляться <span class="badge">+импульс</span></li>
+                    <li class="choice-item">я постараюсь <span class="badge">+свет</span></li>
+                    <li class="choice-item">ты <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">ты высокого о себе мнения <span class="badge">+импульс</span></li>
+                    <li class="choice-item">угрожать <span class="badge">+импульс</span></li>
+                    <li class="choice-item">нет<span class="badge">+свет</span></li>
                 </ul>
             </div>
 
@@ -319,28 +338,28 @@
                     <li class="choice-item">вспомнить,что было дальше</li>
                     <li class="choice-item">многого</li>
                     <li class="choice-item">ни того ни другого</li>
-                    <li class="choice-item">третью карту (сцена с легионом)</li>
-                    <li class="choice-item">атака (+импульс)</li>
-                    <li class="choice-item">первое (+свет)</li>
+                    <li class="choice-item">третью карту <span class="badge">сцена с легионом</span></li>
+                    <li class="choice-item">атака <span class="badge">+импульс</span></li>
+                    <li class="choice-item">первое <span class="badge">+свет</span></li>
                 </ul>
             </div>
 
             <div id="ep4" class="episode-card">
                 <h2 class="episode-title">4 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">закрой рот (+импульс)</li>
-                    <li class="choice-item">помоги мне (+свет)</li>
-                    <li class="choice-item">вторую карту (сцена с легионом)</li>
-                    <li class="choice-item">вы слишком близко (+импульс)</li>
-                    <li class="choice-item">хорошо(+свет)</li>
-                    <li class="choice-item">завязать разговор (+импульс)</li>
+                    <li class="choice-item">закрой рот <span class="badge">+импульс</span></li>
+                    <li class="choice-item">помоги мне <span class="badge">+свет</span></li>
+                    <li class="choice-item">вторую карту <span class="badge">сцена с легионом</span></li>
+                    <li class="choice-item">вы слишком близко <span class="badge">+импульс</span></li>
+                    <li class="choice-item">хорошо<span class="badge">+свет</span></li>
+                    <li class="choice-item">завязать разговор <span class="badge">+импульс</span></li>
                     <li class="choice-item">посмотреть</li>
-                    <li class="choice-item">намекнуть на статус (+импульс)</li>
-                    <li class="choice-item">поддержать (+свет)</li>
-                    <li class="choice-item">да(+свет)</li>
-                    <li class="choice-item">да (улучшение отношений с легионом)</li>
-                    <li class="choice-item">хочу (+импульс)</li>
-                    <li class="choice-item">продолжить(+пустота) или молчать</li>
+                    <li class="choice-item">намекнуть на статус <span class="badge">+импульс</span></li>
+                    <li class="choice-item">поддержать <span class="badge">+свет</span></li>
+                    <li class="choice-item">да<span class="badge">+свет</span></li>
+                    <li class="choice-item">да <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">хочу <span class="badge">+импульс</span></li>
+                    <li class="choice-item">продолжить <span class="badge">+пустота</span> или молчать</li>
                     <li class="choice-item">ухожу</li>
                 </ul>
             </div>
@@ -348,50 +367,50 @@
             <div id="ep5" class="episode-card">
                 <h2 class="episode-title">5 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">калеб! (+свет)</li>
-                    <li class="choice-item">для него? (+свет)</li>
-                    <li class="choice-item">новые сомнения(+свет)</li>
-                    <li class="choice-item">ничего не обещаю (+импульс)</li>
-                    <li class="choice-item">я решу сама (+импульс)</li>
-                    <li class="choice-item">защищаться (+импульс)</li>
+                    <li class="choice-item">калеб! <span class="badge">+свет</span></li>
+                    <li class="choice-item">для него? <span class="badge">+свет</span></li>
+                    <li class="choice-item">новые сомнения <span class="badge">+свет</span></li>
+                    <li class="choice-item">ничего не обещаю <span class="badge">+импульс</span></li>
+                    <li class="choice-item">я решу сама <span class="badge">+импульс</span></li>
+                    <li class="choice-item">защищаться <span class="badge">+импульс</span></li>
                 </ul>
             </div>
 
             <div id="ep6" class="episode-card">
                 <h2 class="episode-title">6 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">опасности(+свет)</li>
-                    <li class="choice-item">обратиться к элиану/посмотреть на элиана(+свет)</li>
-                    <li class="choice-item">не нравилось (+свет)</li>
-                    <li class="choice-item">не трогать(+свет)</li>
-                    <li class="choice-item">могу предложить психологическую помощь (+импульс)</li>
+                    <li class="choice-item">опасности <span class="badge">+свет</span></li>
+                    <li class="choice-item">обратиться к элиану / посмотреть на элиана <span class="badge">+свет</span></li>
+                    <li class="choice-item">не нравилось <span class="badge">+свет</span></li>
+                    <li class="choice-item">не трогать <span class="badge">+свет</span></li>
+                    <li class="choice-item">могу предложить психологическую помощь <span class="badge">+импульс</span></li>
                 </ul>
             </div>
 
             <div id="ep7" class="episode-card">
                 <h2 class="episode-title">7 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">вы провоцируете меня (+импульс)</li>
-                    <li class="choice-item">пригрозить(+импульс)</li>
-                    <li class="choice-item">немедленно (+импульс)</li>
-                    <li class="choice-item">попробовать соблазнить (улучшение отношений с легионом)</li>
-                    <li class="choice-item">отвернуться(ничего)/продолжать смотреть(+пустота)</li>
-                    <li class="choice-item">поддержать джейн(+свет)</li>
-                    <li class="choice-item">прокомментировать образ софии(+импульс)</li>
-                    <li class="choice-item">ощущала горечь(+свет)</li>
-                    <li class="choice-item">помешаешь(+импульс)</li>
-                    <li class="choice-item">надеюсь он в порядке(+свет)</li>
-                    <li class="choice-item">осмотреть карманы(+импульс)</li>
+                    <li class="choice-item">вы провоцируете меня <span class="badge">+импульс</span></li>
+                    <li class="choice-item">пригрозить <span class="badge">+импульс</span></li>
+                    <li class="choice-item">немедленно <span class="badge">+импульс</span></li>
+                    <li class="choice-item">попробовать соблазнить <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">отвернуться (ничего) / продолжать смотреть <span class="badge">+пустота</span></li>
+                    <li class="choice-item">поддержать джейн <span class="badge">+свет</span></li>
+                    <li class="choice-item">прокомментировать образ софии <span class="badge">+импульс</span></li>
+                    <li class="choice-item">ощущала горечь <span class="badge">+свет</span></li>
+                    <li class="choice-item">помешаешь <span class="badge">+импульс</span></li>
+                    <li class="choice-item">надеюсь он в порядке <span class="badge">+свет</span></li>
+                    <li class="choice-item">осмотреть карманы <span class="badge">+импульс</span></li>
                 </ul>
             </div>
 
             <div id="ep8" class="episode-card">
                 <h2 class="episode-title">8 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">сказать часть правды (+импульс)</li>
+                    <li class="choice-item">сказать часть правды <span class="badge">+импульс</span></li>
                     <li class="choice-item">первая карта</li>
-                    <li class="choice-item">чудовищно(+свет)</li>
-                    <li class="choice-item">попросить калеба о помощи(ничего)/попробовать еще раз(+пустота)</li>
+                    <li class="choice-item">чудовищно <span class="badge">+свет</span></li>
+                    <li class="choice-item">попросить калеба о помощи (ничего) / попробовать еще раз <span class="badge">+пустота</span></li>
                     <li class="choice-item">узнать подробнее</li>
                 </ul>
             </div>
@@ -399,61 +418,61 @@
             <div id="ep9" class="episode-card">
                 <h2 class="episode-title">9 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">я твоя (улучшение отношений с легионом)</li>
-                    <li class="choice-item">возразить(+свет)</li>
-                    <li class="choice-item">я справлюсь(+импульс)</li>
+                    <li class="choice-item">я твоя <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">возразить <span class="badge">+свет</span></li>
+                    <li class="choice-item">я справлюсь <span class="badge">+импульс</span></li>
                     <li class="choice-item">подслушать</li>
-                    <li class="choice-item">хотели лишить наследника защиты(+свет)</li>
-                    <li class="choice-item">вы плачете изза отца?(+импульс)</li>
-                    <li class="choice-item">разорвать контракт(+свет)</li>
-                    <li class="choice-item">остановить ее(+импульс)</li>
-                    <li class="choice-item">…(+свет)</li>
+                    <li class="choice-item">хотели лишить наследника защиты <span class="badge">+свет</span></li>
+                    <li class="choice-item">вы плачете из-за отца? <span class="badge">+импульс</span></li>
+                    <li class="choice-item">разорвать контракт <span class="badge">+свет</span></li>
+                    <li class="choice-item">остановить ее <span class="badge">+импульс</span></li>
+                    <li class="choice-item">… <span class="badge">+свет</span></li>
                 </ul>
             </div>
 
             <div id="ep10" class="episode-card">
                 <h2 class="episode-title">10 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">вторая карта(сцена с легионом)</li>
-                    <li class="choice-item">а ты паршиво(+импульс)</li>
-                    <li class="choice-item">я не ненавижу тебя(+свет)</li>
-                    <li class="choice-item">это между мной и им (+импульс)</li>
-                    <li class="choice-item">рассказать правду (улучшение отношений с легионом)</li>
-                    <li class="choice-item">нет(улучшение отношений с легионом)</li>
-                    <li class="choice-item">идти за ним(+импульс)</li>
-                    <li class="choice-item">постучать(+импульс)</li>
-                    <li class="choice-item">вы ничего не знаете(+импульс)</li>
+                    <li class="choice-item">вторая карта <span class="badge">сцена с легионом</span></li>
+                    <li class="choice-item">а ты паршиво <span class="badge">+импульс</span></li>
+                    <li class="choice-item">я не ненавижу тебя <span class="badge">+свет</span></li>
+                    <li class="choice-item">это между мной и им <span class="badge">+импульс</span></li>
+                    <li class="choice-item">рассказать правду <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">нет <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">идти за ним <span class="badge">+импульс</span></li>
+                    <li class="choice-item">постучать <span class="badge">+импульс</span></li>
+                    <li class="choice-item">вы ничего не знаете <span class="badge">+импульс</span></li>
                     <li class="choice-item">если бы я могла заключить сделку</li>
-                    <li class="choice-item">уставшей (+свет)</li>
+                    <li class="choice-item">уставшей <span class="badge">+свет</span></li>
                 </ul>
             </div>
 
             <div id="ep11" class="episode-card">
                 <h2 class="episode-title">11 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">нет(+импульс)</li>
+                    <li class="choice-item">нет <span class="badge">+импульс</span></li>
                     <li class="choice-item">кажется непонятно вам</li>
-                    <li class="choice-item">взять телефон(+импульс)</li>
-                    <li class="choice-item">если только чуть-чуть(+свет)</li>
-                    <li class="choice-item">его высочество так не считает(+импульс)</li>
-                    <li class="choice-item">нет(+свет)</li>
-                    <li class="choice-item">отдаться страсти (улучшение отношений с легионом)</li>
-                    <li class="choice-item">ладно (улучшение отношений с легионом)</li>
+                    <li class="choice-item">взять телефон <span class="badge">+импульс</span></li>
+                    <li class="choice-item">если только чуть-чуть <span class="badge">+свет</span></li>
+                    <li class="choice-item">его высочество так не считает <span class="badge">+импульс</span></li>
+                    <li class="choice-item">нет <span class="badge">+свет</span></li>
+                    <li class="choice-item">отдаться страсти <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">ладно <span class="badge">улучшение отношений с легионом</span></li>
                 </ul>
             </div>
 
             <div id="ep12" class="episode-card">
                 <h2 class="episode-title">12 серия</h2>
                 <ul class="choices-list">
-                    <li class="choice-item">надавить(+импульс)</li>
+                    <li class="choice-item">надавить <span class="badge">+импульс</span></li>
                     <li class="choice-item">сесть назад</li>
-                    <li class="choice-item">поджечь сигарету(улучшение отношений с легионом)</li>
-                    <li class="choice-item">вмешаться(+импульс)</li>
-                    <li class="choice-item">попроси чтонибудь попроще(+импульс)</li>
-                    <li class="choice-item">клянусь(+импульс)</li>
+                    <li class="choice-item">поджечь сигарету <span class="badge">улучшение отношений с легионом</span></li>
+                    <li class="choice-item">вмешаться <span class="badge">+импульс</span></li>
+                    <li class="choice-item">попроси что-нибудь попроще <span class="badge">+импульс</span></li>
+                    <li class="choice-item">клянусь <span class="badge">+импульс</span></li>
                     <li class="choice-item">я сделаю это</li>
                     <li class="choice-item">это чушь</li>
-                    <li class="choice-item">страшно (+свет)</li>
+                    <li class="choice-item">страшно <span class="badge">+свет</span></li>
                 </ul>
             </div>
 
