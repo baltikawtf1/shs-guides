@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд: Элиан • Цепи договора</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #040102;
+            --bg-card: rgba(18, 7, 10, 0.6);
+            --card-border: #ff2233;
+            --accent-red: #e6101f;
+            --silver-light: #d8e0e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 850px;
+            height: 850px;
+            background: radial-gradient(circle, rgba(200, 10, 20, 0.35) 0%, rgba(80, 2, 8, 0.15) 50%, transparent 75%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.25); opacity: 0.95; }
+        }
+
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(2px 2px at 30px 40px, rgba(255, 50, 60, 0.9), transparent),
+                radial-gradient(2px 2px at 70px 110px, rgba(211, 15, 29, 0.7), transparent),
+                radial-gradient(1px 1px at 130px 50px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 200px 180px, rgba(255, 70, 70, 0.8), transparent);
+            background-repeat: repeat;
+            background-size: 300px 300px;
+            animation: particleMove 18s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes particleMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 300px -600px; }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(30, 10, 15, 0.65);
+            color: var(--silver-light);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            box-shadow: 0 0 8px rgba(255, 34, 51, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 10px rgba(230, 16, 31, 0.7),
+                0 0 20px rgba(230, 16, 31, 0.4),
+                2px 2px 4px #000;
+            position: relative;
+        }
+
+        .episodes-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .episode-link {
+            padding: 9px 16px;
+            background: rgba(25, 10, 14, 0.75);
+            color: var(--silver-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 34, 51, 0.6);
+            border-radius: 4px;
+            box-shadow: 0 0 8px rgba(255, 34, 51, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .season-btn-container {
+            margin-bottom: 30px;
+        }
+
+        .season-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(230, 16, 31, 0.75), rgba(120, 5, 12, 0.85));
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(255, 34, 51, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .guide-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .episode-card {
+            background: 
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.07) 0%, transparent 70%),
+                var(--bg-card);
+            border: 1px solid rgba(255, 34, 51, 0.35);
+            border-radius: 8px;
+            padding: 24px 28px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.7),
+                0 0 25px rgba(255, 34, 51, 0.25),
+                inset 0 0 30px rgba(255, 255, 255, 0.03);
+            position: relative;
+        }
+
+        .episode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+        }
+
+        .episode-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 34, 51, 0.3);
+            text-shadow: 0 0 8px rgba(230, 16, 31, 0.8);
+        }
+
+        .choices-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .choice-item {
+            font-size: 0.88rem;
+            color: var(--silver-light);
+            padding: 8px 14px;
+            background: rgba(10, 4, 6, 0.4);
+            border: 1px solid rgba(255, 34, 51, 0.2);
+            border-radius: 6px;
+            letter-spacing: 0.4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: rgba(230, 16, 31, 0.2);
+            box-shadow: 0 0 6px rgba(255, 34, 51, 0.3);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .badge-multiline {
+            line-height: 1.15;
+            padding: 4px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .nav-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .page-title {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="particles-bg"></div>
+
+    <div class="content-wrapper">
+        <div class="nav-buttons">
+            <a href="../index.html" class="btn-nav">‹ К историям</a>
+            <a href="index.html" class="btn-nav">‹ К фаворитам</a>
+        </div>
+
+        <header class="page-header">
+            <h1 class="page-title">Гайд по прохождению<br>Элиан • Цепи договора</h1>
+        </header>
+
+        <div class="episodes-nav">
+            <a href="#ep1" class="episode-link">1 серия</a>
+            <a href="#ep2" class="episode-link">2 серия</a>
+            <a href="#ep3" class="episode-link">3 серия</a>
+            <a href="#ep4" class="episode-link">4 серия</a>
+            <a href="#ep5" class="episode-link">5 серия</a>
+            <a href="#ep6" class="episode-link">6 серия</a>
+            <a href="#ep7" class="episode-link">7 серия</a>
+            <a href="#ep8" class="episode-link">8 серия</a>
+            <a href="#ep9" class="episode-link">9 серия</a>
+            <a href="#ep10" class="episode-link">10 серия</a>
+            <a href="#ep11" class="episode-link">11 серия</a>
+            <a href="#ep12" class="episode-link">12 серия</a>
+        </div>
+
+        <div class="season-btn-container">
+            <a href="#" class="season-btn">Второй сезон ›</a>
+        </div>
+
+        <div class="guide-container">
+
+            <div id="ep1" class="episode-card">
+                <h2 class="episode-title">1 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">убедить <span class="badge">+расчет</span></li>
+                    <li class="choice-item">присмотреться с правой стороны</li>
+                    <li class="choice-item">достаточно <span class="badge">+расчет</span></li>
+                    <li class="choice-item">поставить его на место</li>
+                    <li class="choice-item">жаль <span class="badge">+свет</span></li>
+                    <li class="choice-item">беспокойство <span class="badge">+свет</span></li>
+                    <li class="choice-item">молчать <span class="badge">+расчет</span></li>
+                    <li class="choice-item">минус <span class="badge">расчет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep2" class="episode-card">
+                <h2 class="episode-title">2 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">сочувствую им <span class="badge">+свет</span></li>
+                    <li class="choice-item">наряд нежность <span class="badge">+свет</span></li>
+                    <li class="choice-item">прекращаю терапию</li>
+                    <li class="choice-item">обращусь к совету</li>
+                    <li class="choice-item">останусь спокойной</li>
+                    <li class="choice-item">подслушать</li>
+                    <li class="choice-item">нет <span class="badge">+расчет</span></li>
+                    <li class="choice-item">спокойствие <span class="badge">+свет</span></li>
+                    <li class="choice-item">смотреть <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">притягивает <span class="badge">+свет</span></li>
+                    <li class="choice-item">замереть <span class="badge">+расчет</span></li>
+                    <li class="choice-item">я постараюсь <span class="badge">+свет</span></li>
+                    <li class="choice-item">и вправду <span class="badge">+расчет</span></li>
+                    <li class="choice-item">подыграть <span class="badge">+расчет</span></li>
+                    <li class="choice-item">нет <span class="badge">+свет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep3" class="episode-card">
+                <h2 class="episode-title">3 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">вспомнить, что было дальше</li>
+                    <li class="choice-item">многого</li>
+                    <li class="choice-item">ни того ни другого</li>
+                    <li class="choice-item">защита <span class="badge">+расчет</span></li>
+                    <li class="choice-item">первое <span class="badge">+свет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep4" class="episode-card">
+                <h2 class="episode-title">4 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">остановись <span class="badge">+расчет</span></li>
+                    <li class="choice-item">помоги мне <span class="badge">+свет</span></li>
+                    <li class="choice-item">все в порядке <span class="badge">+расчет</span></li>
+                    <li class="choice-item">хорошо <span class="badge">+свет</span></li>
+                    <li class="choice-item">промолчать <span class="badge">+расчет</span></li>
+                    <li class="choice-item">замереть <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">посмотреть</li>
+                    <li class="choice-item">сказать об этике <span class="badge">+расчет</span></li>
+                    <li class="choice-item">поддержать <span class="badge">+свет</span></li>
+                    <li class="choice-item">ваше высочество <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">да <span class="badge">+свет</span></li>
+                    <li class="choice-item">продолжить <span class="badge">+пустота</span> или молчать</li>
+                    <li class="choice-item">ухожу</li>
+                </ul>
+            </div>
+
+            <div id="ep5" class="episode-card">
+                <h2 class="episode-title">5 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">калеб! <span class="badge">+свет</span></li>
+                    <li class="choice-item">для него? <span class="badge">+свет</span></li>
+                    <li class="choice-item">новые сомнения <span class="badge">+свет</span></li>
+                    <li class="choice-item">показать технику дыхания <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">хорошо <span class="badge">+расчет</span></li>
+                    <li class="choice-item">понимаю <span class="badge">+расчет</span></li>
+                    <li class="choice-item">попросить доказательства <span class="badge">+расчет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep6" class="episode-card">
+                <h2 class="episode-title">6 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">опасности <span class="badge">+свет</span></li>
+                    <li class="choice-item">обратиться к элиану <span class="badge">+свет</span></li>
+                    <li class="choice-item">рассказать <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">это не так <span class="badge">+свет</span></li>
+                    <li class="choice-item">могу <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">с вами <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">не нравилось <span class="badge">+свет</span></li>
+                    <li class="choice-item">не трогать <span class="badge">+свет</span></li>
+                    <li class="choice-item">чем я могу помочь? <span class="badge">+расчет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep7" class="episode-card">
+                <h2 class="episode-title">7 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">не понимаю чего вы хотите <span class="badge">+расчет</span></li>
+                    <li class="choice-item">не накалять разговор <span class="badge">+расчет</span></li>
+                    <li class="choice-item">пожалуйста <span class="badge">+расчет</span></li>
+                    <li class="choice-item">вы что-то скрываете <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">отвернуться (ничего) / продолжать смотреть <span class="badge">+пустота</span></li>
+                    <li class="choice-item">поддержать джейн <span class="badge">+тьма</span></li>
+                    <li class="choice-item">сделать джейн комплимент <span class="badge">+расчет</span></li>
+                    <li class="choice-item">ощущала горечь <span class="badge">+свет</span></li>
+                    <li class="choice-item">нет <span class="badge">+расчет</span></li>
+                    <li class="choice-item">надеюсь он в порядке <span class="badge">+свет</span></li>
+                    <li class="choice-item">дождаться когда уснет <span class="badge">+расчет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep8" class="episode-card">
+                <h2 class="episode-title">8 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">манипулировать <span class="badge">+расчет</span></li>
+                    <li class="choice-item">вторая карта <span class="badge badge-multiline"><span>сцена</span><span>с элианом</span></span></li>
+                    <li class="choice-item">чудовищно <span class="badge">+свет</span></li>
+                    <li class="choice-item">попросить калеба о помощи (ничего) / попробовать еще раз <span class="badge">+пустота</span></li>
+                    <li class="choice-item">узнать подробнее</li>
+                </ul>
+            </div>
+
+            <div id="ep9" class="episode-card">
+                <h2 class="episode-title">9 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">возразить <span class="badge">+свет</span></li>
+                    <li class="choice-item">здесь вы нужнее <span class="badge">+расчет</span></li>
+                    <li class="choice-item">подслушать</li>
+                    <li class="choice-item">хотели лишить наследника защиты <span class="badge">+свет</span></li>
+                    <li class="choice-item">я знаю о чем вы говорили <span class="badge">+расчет</span></li>
+                    <li class="choice-item">разорвать контракт <span class="badge">+свет</span></li>
+                    <li class="choice-item">бездействовать <span class="badge">+расчет</span></li>
+                    <li class="choice-item">… <span class="badge">+свет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep10" class="episode-card">
+                <h2 class="episode-title">10 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">спасибо <span class="badge">+расчет</span></li>
+                    <li class="choice-item">я не ненавижу тебя <span class="badge">+свет</span></li>
+                    <li class="choice-item">я не могу <span class="badge">+расчет</span></li>
+                    <li class="choice-item">он умер <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">уйти к себе <span class="badge">+расчет</span></li>
+                    <li class="choice-item">подслушать <span class="badge">+расчет</span></li>
+                    <li class="choice-item">что вы предлагаете? <span class="badge">+расчет</span></li>
+                    <li class="choice-item">если бы я могла заключить сделку</li>
+                    <li class="choice-item">уставшей <span class="badge">+свет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep11" class="episode-card">
+                <h2 class="episode-title">11 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">хорошо <span class="badge">+расчет</span></li>
+                    <li class="choice-item">кажется непонятно вам</li>
+                    <li class="choice-item">отказаться <span class="badge">+расчет</span></li>
+                    <li class="choice-item">есть только чуть-чуть <span class="badge">+свет</span></li>
+                    <li class="choice-item">настоять чтобы принц повторил <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                    <li class="choice-item">узнать о чем он думает</li>
+                    <li class="choice-item">благодарю за ваше мнение <span class="badge">+расчет</span></li>
+                    <li class="choice-item">нет <span class="badge">+свет</span></li>
+                </ul>
+            </div>
+
+            <div id="ep12" class="episode-card">
+                <h2 class="episode-title">12 серия</h2>
+                <ul class="choices-list">
+                    <li class="choice-item">убедить <span class="badge">+расчет</span></li>
+                    <li class="choice-item">первую карту <span class="badge badge-multiline"><span>сцена</span><span>с элианом</span></span></li>
+                    <li class="choice-item">наблюдать <span class="badge">+расчет</span></li>
+                    <li class="choice-item">говори конкретнее <span class="badge">+расчет</span></li>
+                    <li class="choice-item">какая <span class="badge">+расчет</span></li>
+                    <li class="choice-item">я сделаю это</li>
+                    <li class="choice-item">это чушь</li>
+                    <li class="choice-item">страшно <span class="badge">+свет</span></li>
+                    <li class="choice-item">страх — это нормально <span class="badge badge-multiline"><span>улучшение отношений</span><span>с элианом</span></span></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
